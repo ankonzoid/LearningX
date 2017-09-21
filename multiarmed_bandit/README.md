@@ -1,4 +1,4 @@
-# Solving the Multi-armed Bandit Problem (`multiarmed_bandit.py`)
+# Solving the Multi-armed Bandit Problem
 
 The multi-armed bandit problem is as follows: we have _n_ rigged slot machines bandits each with their own probability distribution of success (which are inaccessible to you). Pulling the lever of any machine gives us either a reward of +1 (success) or -1 (failure). Our goal is to play many episodes of this game with the goal of *maximizing* our total accumulated rewards. 
 
@@ -10,7 +10,11 @@ We also provide appendices for the:
 
 ### Usage:
 
-> python multiarmed_bandit.py
+> python MAB_tabular.py
+
+> python MAB_group_tabular.py
+
+> python MAB_PG.py
 
 ### Example output:
 
