@@ -10,18 +10,29 @@ We also provide appendices for the:
 
 ### Usage:
 
-In the example provided, we train on 1000 experiments with 2000 episodes in each experiment. The default exploring parameter is `epsilon = 0.1` and 10 bandits are intialized with success probabilities of `{0.10, 0.50, 0.60, 0.80, 0.10, 0.25, 0.60, 0.45, 0.75, 0.65}`. To run the code, use 
+> python MAB_tabular.py
 
-> python multiarmed_bandit.py
+> python MAB_group_tabular.py
 
-The optimal policy should select bandit #4 as the "best" bandit minima on average, with bandit #9 as a close second.
+> python MAB_PG.py
+
+### Example output:
+
+In the example provided, we train on 40,000 episodes with `epsilon = 0.6` and 5 bandits with success probabilities of `{0.6, 0.1, 0.9, 0.3, 0.7}` respectively. As can be read, the optimal policy found should select bandit #3 as the global minima, but it is possible on the off-chances for the optimization algorithm to get stuck in local minima of J(p) and select bandits #1 or #5 (we have not run in cases where it selects #2 or #4).  
 
 ### Libraries required:
 
-* numpy
+* tensorflow
 
 ## Appendix A: The epsilon-greedy agent
 
 The *epsilon-greedy agent* is an agent which at decision time either selects a greedy action with _1-epsilon_ probability, or explores the entire action space with the remaining _epsilon_ probability. Taking a greedy action means selecting the action with the highest expected reward.
 
 Note that a mixture of exploration and greed is a quintessential aspect of reinforcement learning. Exploration is necessary for finding the optimal policy as the agent needs to understand the environment it is in, and to learn routes leaing to high long-term rewards. Although greed is not necessarily needed for finding the optimal policy, a purely exploratory agent does not utilize its experience to strategize for its future moves -- therefore no actual learning is involved without a greed mechanism in play. 
+
+
+## Appendix B: Policy gradients
+
+Given a policy objective function J(p) and policy p, the method of policy gradients is to iteratively search for local minima of J(p) by updating our current estimation of it by a step size proportional to the direction of the gradient dJ(p)/dp (basically gradient descent).
+
+In this code, we use an objective function of J(p) = -w_action*reward_action, where w_action is the weight associated with the action chosen, and reward_action is the reward sampled from the bandit. This is designed such that in order to keep J(p) as negative as possible, w_action tends to become positively large for action rewards of +1, and negatively large for action rewards of -1. 
