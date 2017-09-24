@@ -31,15 +31,16 @@
 """
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.pylab as pylab
 
 def main():
     # =========================
     # Settings
     # =========================
-    bandits = [0.10, 0.50, 0.60, 0.80, 0.10,
-               0.25, 0.60, 0.45, 0.75, 0.65]  # bandit probabilities of success
+    bandit_probs = [0.10, 0.50, 0.60, 0.80, 0.10,
+                    0.25, 0.60, 0.45, 0.75, 0.65]  # bandit probabilities of success
     N_experiments = 1000  # number of experiments to perform
-    N_episodes = 2000  # number of episodes per experiment
+    N_episodes = 10000  # number of episodes per experiment
     epsilon = 0.1  # probability of random exploration (fraction)
     save_fig = True  # if false -> plot, if true save as file in same directory
     save_format = ".png"  # ".pdf" or ".png"
@@ -48,14 +49,13 @@ def main():
     # Define Bandit and Agent class
     # =========================
     class Bandit:
-        def __init__(self, bandits):
-            self.N = len(bandits)  # number of bandits
-            self.prob = bandits  # success probabilities for each bandit
+        def __init__(self, bandit_probs):
+            self.N = len(bandit_probs)  # number of bandits
+            self.prob = bandit_probs  # success probabilities for each bandit
 
-        # Get reward
+        # Get reward (1 for success, 0 for failure)
         def get_reward(self, action):
             rand = np.random.random()  # [0.0,1.0)
-            # reward = 1 for success, 0 for failure
             reward = 1 if (rand < self.prob[action]) else 0
             return reward
 
@@ -89,7 +89,7 @@ def main():
         reward_history = []
         for episode in range(N_episodes):
             # Choose action from agent (from current Q estimate)
-            action = agent.choose_action(bandit, force_explore=episode)
+            action = agent.choose_action(bandit, force_explore=(episode<10))
             # Pick up reward from bandit for chosen action
             reward = bandit.get_reward(action)
             # Update Q action-value estimates
@@ -104,20 +104,20 @@ def main():
     # Start multi-armed bandit simulation
     #
     # =========================
-    N_bandits = len(bandits)
+    N_bandits = len(bandit_probs)
     print("Running multi-armed bandits with N_bandits = {} and agent epsilon = {}".format(N_bandits, epsilon))
     reward_history_avg = np.zeros(N_episodes)  # reward history experiment-averaged
     action_history_sum = np.zeros((N_episodes, N_bandits))  # sum action history
     for i in range(N_experiments):
-        bandit = Bandit(bandits)  # initialize bandits
+        bandit = Bandit(bandit_probs)  # initialize bandits
         agent = Agent(bandit, epsilon)  # initialize agent
         (action_history, reward_history) = experiment(agent, bandit, N_episodes)  # perform experiment
-        # Print
+
         if (i + 1) % (N_experiments / 20) == 0:
             print("[Experiment {}/{}]".format(i + 1, N_experiments))
             print("  N_episodes = {}".format(N_episodes))
-            print("  action history = {}".format(
-                action_history))
+            print("  bandit choice history = {}".format(
+                action_history + 1))
             print("  reward history = {}".format(
                 reward_history))
             print("  average reward = {}".format(np.sum(reward_history) / len(reward_history)))
@@ -135,9 +135,9 @@ def main():
     # Plot reward history results
     # =========================
     plt.plot(reward_history_avg)
-    plt.xlabel("episode number")
-    plt.ylabel("rewards collected (averaged)".format(N_experiments))
-    plt.title("multi-armed bandit reward history over {} experiments (epsilon = {})".format(N_episodes, epsilon))
+    plt.xlabel("Episode number")
+    plt.ylabel("Rewards collected (averaged)".format(N_experiments))
+    plt.title("Reward history over {} experiments (epsilon = {})".format(N_episodes, epsilon))
     if save_fig:
         output_file = "results/MAB_rewards" + save_format
         plt.savefig(output_file, bbox_inches="tight")
@@ -147,14 +147,24 @@ def main():
     # =========================
     # Plot action history results
     # =========================
-    plt.figure(figsize=(16, 16))
+    plt.figure(figsize=(18, 12))
     for i in range(N_bandits):
-        action_history_sum_plot = action_history_sum[:,i] / N_experiments
-        plt.plot(action_history_sum_plot, label="bandit {}".format(i+1))
-    plt.xlabel("episode number")
-    plt.ylabel("action choice percentage (average)")
-    plt.title("multi-armed bandit action history over {} experiments (epsilon = {})".format(N_experiments, epsilon))
-    plt.legend(loc='upper left', shadow=True)
+        action_history_sum_plot = 100 * action_history_sum[:,i] / N_experiments
+        plt.plot(list(np.array(range(len(action_history_sum_plot)))+1),
+                 action_history_sum_plot,
+                 linewidth=5.0,
+                 label="Bandit #{}".format(i+1))
+    plt.xlabel("Episode Number", fontsize=26)
+    plt.ylabel("Bandit Choices (%)", fontsize=26)
+    leg = plt.legend(loc='upper left', shadow=True, fontsize=22)
+    ax = plt.gca()
+    ax.set_xscale("log", nonposx='clip')
+    plt.xlim([1, 10000])
+    plt.ylim([0, 100])
+    plt.xticks(fontsize=24)
+    plt.yticks(fontsize=24)
+    for legobj in leg.legendHandles:
+        legobj.set_linewidth(14.0)
     if save_fig:
         output_file = "results/MAB_actions" + save_format
         plt.savefig(output_file, bbox_inches="tight")
