@@ -3,7 +3,7 @@
  multiarmed_bandit.py  (author: Anson Wong / git: ankonzoid)
 
  We solve the multi-armed bandit problem using a classical epsilon-greedy
- agent with reward-averaging sampling to estimate the action-value Q.
+ agent with reward-average sampling to estimate the action-value Q.
  This algorithm follows closely with the notation of Sutton's RL textbook.
 
  We set up up bandits with a fixed probability distribution of success,
@@ -31,7 +31,6 @@
 """
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.pylab as pylab
 
 def main():
     # =========================
@@ -39,7 +38,7 @@ def main():
     # =========================
     bandit_probs = [0.10, 0.50, 0.60, 0.80, 0.10,
                     0.25, 0.60, 0.45, 0.75, 0.65]  # bandit probabilities of success
-    N_experiments = 1000  # number of experiments to perform
+    N_experiments = 2000  # number of experiments to perform
     N_episodes = 10000  # number of episodes per experiment
     epsilon = 0.1  # probability of random exploration (fraction)
     save_fig = True  # if false -> plot, if true save as file in same directory
@@ -78,7 +77,8 @@ def main():
                 action_explore = np.random.randint(bandit.N)  # explore random bandit
                 return action_explore
             else:
-                action_greedy = np.argmax(self.Q)  # exploit best current bandit
+                #action_greedy = np.argmax(self.Q)  # exploit best current bandit
+                action_greedy = np.random.choice(np.flatnonzero(self.Q == self.Q.max()))
                 return action_greedy
 
     # =========================
@@ -89,7 +89,7 @@ def main():
         reward_history = []
         for episode in range(N_episodes):
             # Choose action from agent (from current Q estimate)
-            action = agent.choose_action(bandit, force_explore=(episode<10))
+            action = agent.choose_action(bandit)
             # Pick up reward from bandit for chosen action
             reward = bandit.get_reward(action)
             # Update Q action-value estimates
@@ -136,8 +136,11 @@ def main():
     # =========================
     plt.plot(reward_history_avg)
     plt.xlabel("Episode number")
-    plt.ylabel("Rewards collected (averaged)".format(N_experiments))
-    plt.title("Reward history over {} experiments (epsilon = {})".format(N_episodes, epsilon))
+    plt.ylabel("Rewards collected".format(N_experiments))
+    plt.title("Bandit reward history averaged over {} experiments (epsilon = {})".format(N_experiments, epsilon))
+    ax = plt.gca()
+    ax.set_xscale("log", nonposx='clip')
+    plt.xlim([1, N_episodes])
     if save_fig:
         output_file = "results/MAB_rewards" + save_format
         plt.savefig(output_file, bbox_inches="tight")
@@ -154,17 +157,18 @@ def main():
                  action_history_sum_plot,
                  linewidth=5.0,
                  label="Bandit #{}".format(i+1))
+    plt.title("Bandit action history averaged over {} experiments (epsilon = {})".format(N_experiments, epsilon), fontsize=26)
     plt.xlabel("Episode Number", fontsize=26)
-    plt.ylabel("Bandit Choices (%)", fontsize=26)
-    leg = plt.legend(loc='upper left', shadow=True, fontsize=22)
+    plt.ylabel("Bandit Action Choices (%)", fontsize=26)
+    leg = plt.legend(loc='upper left', shadow=True, fontsize=26)
     ax = plt.gca()
     ax.set_xscale("log", nonposx='clip')
-    plt.xlim([1, 10000])
+    plt.xlim([1, N_episodes])
     plt.ylim([0, 100])
     plt.xticks(fontsize=24)
     plt.yticks(fontsize=24)
     for legobj in leg.legendHandles:
-        legobj.set_linewidth(14.0)
+        legobj.set_linewidth(16.0)
     if save_fig:
         output_file = "results/MAB_actions" + save_format
         plt.savefig(output_file, bbox_inches="tight")
