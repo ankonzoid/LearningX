@@ -1,4 +1,4 @@
-# Training an agent to move from corner to corner of a 2D rectangular grid (`corner2corner.py`)
+# Training an agent to move from corner to corner of a 2D rectangular grid (`gridworld.py`)
 
 Given a 2D rectangular grid with opposing corners at (0,0) and (Ly,Lx) where Ly, Lx are integers, we train an agent standing at (0,0) to find its way to (Ly, Lx) in the least number of steps possible. 
 
