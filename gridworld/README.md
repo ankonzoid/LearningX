@@ -11,7 +11,7 @@ We also provide appendices for the:
 
 ### Usage:
 
-> python corner2corner.py
+> python gridworld.py
 
 ### Example output:
 

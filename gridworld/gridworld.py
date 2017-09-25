@@ -1,6 +1,6 @@
 """
 
- corner2corner.py (author: Anson Wong / git: ankonzoid)
+ gridworld.py  (author: Anson Wong / git: ankonzoid)
 
  Teaches an agent how to move from the top-left corner (0,0) to the 
  bottom-right corner (Ly,Lx) of a rectangular grid in the least amount 
