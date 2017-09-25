@@ -2,24 +2,22 @@
 
  gridworld.py  (author: Anson Wong / git: ankonzoid)
 
- Teaches an agent how to move from the top-left corner (0,0) to the 
- bottom-right corner (Ly,Lx) of a rectangular grid in the least amount 
- of steps.
+ Trains an agent to move from (0, 0) to (Ny-1, Nx-1) of a rectangular grid
+ in the least number of steps. The approach taken here is an on-policy
+ Monte Carlo reward-average sampling on an epsilon-greedy agent. Also,
+ tabular version of the rewards R(s,a), stat-action value Q(s,a), and
+ policy policy(s) are used.
 
- Our method uses:
-  - on-policy Monte Carlo (epsilon-greedy)
-  - tabular R(s,a) rewards
-  - tabular Q(s,a) state-action value
-  - tabular policy(s) policy
+ Note: the optimal policy exists but is a highly degenerate solution because
+ of the multitude of ways one can traverse down the grid in the minimum
+ number of steps. Therefore, what is more important is that the policy
+ at every non-terminal state is moving in the direction of the goal
+ i.e. every action is either 1 (move right) or 2 (move down).
 
- Note that there are multiple degenerate optimal policies for this problem,
- so the specific policy found here is not unique (what is more important
- is that the greedy action chosen by the optimal policy at every non-terminal 
- state moves towards the end goal).
+ Here is an example output of this code
 
- Example output after a single run (Ly=6, Lx=6):
+ Final policy:
 
- Final policy (action indices 0, 1, 2, 3):
   [[2 1 1 2 2 2 2]
    [2 2 1 1 2 1 2]
    [1 2 1 1 2 2 2]
@@ -28,205 +26,229 @@
    [1 1 1 1 1 2 2]
    [1 1 1 1 1 1 3]]
 
- Action[action indices]:
-  action[0] = [-1 0]
-  action[1] = [0 1]
-  action[2] = [1 0]
-  action[3] = [0 -1]
+  action['up'] = 0
+  action['right'] = 1
+  action['down'] = 2
+  action['left'] = 3
 
 """
 import numpy as np
 import random
 import itertools
-from scipy.linalg import norm
+import operator
 
 def main():
-    # ====================================================
-    # Set up run parameters
-    # ====================================================
-    epsilon = 0.5  # exploration probability
-    N_episodes = 20000  # number of episodes to generate
-    R_nongoal = -1
-    R_goal = 10000  # reward for finding goal (make this sufficiently large)
+    # =========================
+    # Settings
+    # =========================
+    N_episodes = 50000  # specify number of training episodes
+    env_info = {"Ny": 7, "Nx": 7}
+    agent_info = {"epsilon": 0.5}
 
-    # Set up convenient variables for parsing
-    class State():
-        def __init__(self, index, dx):
-            self.index = index
-            self.dx = dx
+    # =========================
+    # Train agent
+    # =========================
+    env = Environment(env_info)  # set up environment
+    agent = Agent(env, agent_info)  # set up agent
 
-    class Action():
-        def __init__(self, index, dx):
-            self.index = index
-            self.dx = dx
-
-    action_space = {
-        "up": Action(0, [-1, 0]),
-        "right": Action(1, [0, 1]),
-        "down": Action(2, [1, 0]),
-        "left": Action(3, [0, -1])
-    }
-
-    env_info = {
-        "Ny": 7,
-        "Nx": 7,
-        "action_space": action_space,
-        "R_nongoal": R_nongoal,
-        "R_goal": R_goal
-    }
-
-    # =====================================
-    # Set up agent and environment
-    # =====================================
-    env = Environment(env_info)
-    agent = Agent(env)
-
-    # =====================================
-    # Run many episodes to train agent
-    # ======================================
+    agent.reset_run_counters()  # reset run counters once only
+    print("\nTraining epsilon-greedy agent on GridWorld for {} episodes (epsilon = {})...\n".format(N_episodes, agent.epsilon))
     for episode in range(N_episodes):
-        state = env.starting_state()  # set starting state
-        trial = 0  # iterations within episode
-        reward_total = 0  # total accumulated reward of episode
+        agent.reset_episode_counters()  # reset episodic counters
+
+        state = env.starting_state()  # starting state
         while not env.is_terminal(state):
-            action = agent.get_action(state, env)  # get action
+            # Get action from policy, and collect reward from environment
+            action = agent.get_action(state, env)  # get action from policy
             reward = env.get_reward(state, action)  # get reward
-            agent.update_N(state, action)  # update our counts
+            # Update episode counters, and transition to next state
+            agent.update_episode_counters(state, action, reward)  # update our episodic counters
+            state = env.perform_action(state, action)  # observe next state
 
-            state = env.perform_action(state, action)  # update state
-            reward_total += reward
-            trial += 1
+        # Update run counters first (before updating Q)
+        agent.update_run_counters()
+        # Update Q
+        dQsum = agent.update_Q()
 
-        # =============================
-        # Update action-value Q and policy
-        # =============================
-        dQ = agent.update_Q()  # update Q
-        dpolicy = agent.update_policy()  # update policy
+        # Print
+        if (episode+1) % (N_episodes/20) == 0:
+            print(" episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(
+                episode + 1, N_episodes, agent.R_total_episode, agent.N_actions_episode, dQsum))
 
-        print("episode = {0}/{1}, reward_tot = {2}, iter = {3}, dQ = {4}, dpolicy = {5}".format(episode + 1, N_episodes, reward, trial, dQ, dpolicy))
+    # =======================
+    # Print results
+    # =======================
+    print("\nFinal policy:\n")
+    print(agent.compute_policy(env))
+    print("")
+    for (key, val) in sorted(env.action_dict.items(), key=operator.itemgetter(1)):
+        print(" action['{}'] = {}".format(key, val))
 
-    # Print final policy
-    print("\nFinal policy (action indices 0, 1, 2, 3):\n")
-    print(agent.policy)
-    print("\nActions[action indices]:\n")
-    for i, a in enumerate(env.Nactions):
-        print(" action[{0}] = {1}".format(i, a))
 
-
-# =========================================
+# ======================
 #
-# Side functions
+# Environment Class
 #
-# =========================================
-
+# ======================
 class Environment:
-    def __init__(self, info):
-        self.Ny = info["Ny"]
-        self.Nx = info["Nx"]
-        self.Nactions = info["Nactions"]
+    def __init__(self, agent_info):
+        # State space
+        self.Ny = agent_info["Ny"]  # y-grid size
+        self.Nx = agent_info["Nx"]  # x-grid size
 
-        self.reward = self.define_rewards(info)
-        self.R_goal = info["R_goal"]
-        self.R_nongoal = info["R_nongoal"]
+        # Action space
+        self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}
+        self.action_coords = np.array([[-1,0], [0,1], [1,0], [0,-1]], dtype=np.int)
+        self.Nactions = len(self.action_dict.keys())
+        self.state_action_dim = (self.Ny, self.Nx, self.Nactions)
+        self.state_dim = (self.Ny, self.Nx)
 
-    # Manually hard-code rewards for our environment
-    def define_rewards(self, info):
-        reward = self.R_nongoal * np.ones((self.Ny, self.Nx, self.Nactions), dtype=float)
-        reward[self.Ny-1, self.Nx-1, 2] = self.R_goal
-        reward[self.Ny-1, self.Nx-2, 1] = self.R_goal
+        # Rewards
+        self.reward = self.define_rewards()
+
+        # Make checks
+        if self.Nactions != len(self.action_coords):
+            raise IOError("Inconsistent actions given")
+
+    # ========================
+    # Rewards
+    # ========================
+    def define_rewards(self):
+        R_goal = 100  # reward for arriving at a goal state
+        R_nongoal = -0.1  # reward for arriving at a non-goal state
+        reward = R_nongoal * np.ones(self.state_action_dim, dtype=np.float)
+        reward[self.Ny-2, self.Nx-1, self.action_dict["down"]] = R_goal
+        reward[self.Ny-1, self.Nx-2, self.action_dict["right"]] = R_goal
         return reward
 
     def get_reward(self, state, action):
-        return self.reward[state[0], state[1], action]
+        sa = tuple(list(state) + [action])
+        return self.reward[sa]
 
+    # ========================
+    # Rewards
+    # ========================
     def allowed_actions(self, state):
-        # Allowed actions (these are global indices)
-        index_actions_allowed = []
-        if state[0] > 0:  # y_state > 0
-            index_actions_allowed.append(0)  # can move up
-        if state[0] < self.Ny-1:  # y_state < Ly
-            index_actions_allowed.append(2)  # can move down
-        if state[1] > 0:  # x_state > 0
-            index_actions_allowed.append(3)  # can move left
-        if state[1] < self.Nx-1:  # x_state < Lx
-            index_actions_allowed.append(1)  # can move right
-        index_actions_allowed = np.array(index_actions_allowed, dtype=np.int)
-        return index_actions_allowed
+        actions = []
+        y = state[0]
+        x = state[1]
+        if (y > 0): actions.append(self.action_dict["up"])
+        if (y < self.Ny-1): actions.append(self.action_dict["down"])
+        if (x > 0): actions.append(self.action_dict["left"])
+        if (x < self.Nx-1): actions.append(self.action_dict["right"])
+        actions = np.array(actions, dtype=np.int)
+        return actions
 
-    def perform_action(self, state, action):
-        state_new = state + action
-        return state_new
-
+    # ========================
+    # Environment Details
+    # ========================
     def starting_state(self):
         return np.array([0, 0], dtype=np.int)
 
     def is_terminal(self, state):
-        terminal_state = np.array([self.Ny - 1, self.Nx - 1], dtype=np.int
-        return np.equal(state, terminal_state)_
+        return np.array_equal(state, np.array([self.Ny-1, self.Nx-1], dtype=np.int))
 
+    # ========================
+    # Action utilities
+    # ========================
+    def perform_action(self, state, action):
+        return np.add(state, self.action_coords[action])
+
+
+# ======================
+#
+# Agent Class
+#
+# ======================
 class Agent:
-    def __init__(self, env, agent_info):
-        self.epsilon = agent_info["epsilon"]
-        self.k =
-        self.Q = np.zeros((env.n_states_y, env.n_states_x, env.n_actions), dtype=float)
-        self.policy = np.zeros((env.n_states_y, env.n_states_x), dtype=np.int)
+    def __init__(self, env, env_info):
+        # Agent settings
+        self.epsilon = env_info["epsilon"]  # exploration probability
 
-        # Cumulative stats to help with Q updates
-        self.reset_N(env)
+        # Q state-action value
+        self.Q = np.zeros(env.state_action_dim, dtype=np.float)
 
-    def reset_N(self, env):
-        # Cumulative stats to help with Q updates
-        self.N_sa = np.zeros((env.Ny, env.Nx, env.Nactions), dtype=np.int)
-        self.N_s = np.zeros((env.Ny, env.Nx), dtype=np.int)
-        self.R_total = np.zeros((env.Ny, env.Nx, env.Nactions), dtype=np.float)
-        self.R_avg = np.zeros((env.Ny, env.Nx, env.Nactions), dtype=np.float)
+        # Helper variables
+        self.state_action_dim = env.state_action_dim
+        self.state_dim = env.state_dim
 
-        # Find non-zero visits of the most recent episode
-        self.sa_visited = np.nonzero(self.N_sa)  # find visited (state, action)
-        self.sa_zipped = zip(self.sa_visited[0], self.sa_visited[1], self.sa_visited[2])
-        self.s_visited = np.nonzero(self.N_s)  # find visited (state)
-        self.s_zipped = zip(self.s_visited[0], self.s_visited[1])
+    # ========================
+    # Counters
+    # ========================
+    def reset_run_counters(self):
+        self.k_state_action_run = np.zeros(self.state_action_dim, dtype=np.int)
+        self.R_state_action_run = np.zeros(self.state_action_dim, dtype=np.float)
 
-    def update_Q(self, state_history, reward):
-        Q_old = self.Q.copy()
-        for i, sa in enumerate(sa_zipped):
-            self.N_sa[sa] += 1
-            self.R_total[sa] += reward
-            self.R_avg[sa] = self.R_total[sa] / self.N_sa[sa]
-            self.Q[sa] = self.R_avg[sa]
-        dQ = norm(self.Q - Q_old)
-        return dQ
+    def update_run_counters(self):
+        state_action_episode_unique = list(set(self.state_action_history_episode))
+        for sa in state_action_episode_unique:
+            self.k_state_action_run[sa] += 1
+            self.R_state_action_run[sa] += self.R_total_episode
 
-    def update_policy(self, env):
-        policy_old = self.policy.copy()
-        for i, s in enumerate(s_zipped):
-            # greedy policy on the subset of available actions
-            index_actions_usable = env.allowed_actions(s, info)
-            j = np.argmax(self.Q[s[0], s[1], index_actions_usable])
-            self.policy[s[0], s[1]] = index_actions_usable[j]
-        dpolicy = norm(self.policy - policy_old)
-        return dpolicy
+    def reset_episode_counters(self):
+        self.N_actions_episode = 0
+        self.R_total_episode = 0.0
+        self.N_state_action_episode = np.zeros(self.state_action_dim, dtype=np.int)
+        self.N_state_episode = np.zeros(self.state_dim, dtype=np.int)
+        self.R_state_action_episode = np.zeros(self.state_action_dim, dtype=np.float)
+        self.state_action_history_episode = []  # list of tuples
+        self.state_history_episode = []  # list of tuples
 
-    def update_N(self, state, action):
-        self.N_sa[state[0], state[1], action] += 1
-        self.N_s[state[0], state[1]] = 1
+    def update_episode_counters(self, state, action, reward):
+        sa = tuple(list(state) + [action])
+        s = tuple(list(state))
+        self.N_actions_episode += 1
+        self.R_total_episode += reward
+        self.N_state_action_episode[sa] += 1
+        self.N_state_episode[s] += 1
+        self.R_state_action_episode[sa] += reward
+        self.state_action_history_episode.append(sa)  # list of tuples
+        self.state_history_episode.append(s)  # list of tuples
 
-    def randomize_policy(self, env):
-        for state in list(itertools.product(range(env.n_states_y), range(env.n_states_x))):
-            index_actions_allowed = env.allowed_actions(state)
-            self.policy[state[0], state[1]] = \
-                random.choice(index_actions_allowed)  # choose random allowed
+    # ========================
+    # Q(s,a) state-action values
+    # ========================
+    def update_Q(self):
+        state_action_episode_unique = list(set(self.state_action_history_episode))
+        dQsum = 0.0
+        for sa in state_action_episode_unique:  # state_action_history
+            k_sa = self.k_state_action_run[sa]
+            reward_total_sa = self.R_total_episode
+            dQ = (reward_total_sa - self.Q[sa]) / (k_sa)  # assumes k counter already updated
+            self.Q[sa] += dQ
+            dQsum += np.abs(dQ)
+        return dQsum
 
-    # Under a epsilon-greedy policy, we find the action to be take be a state
+    def argmax_Q_actions_allowed(self, state, env):
+        actions_allowed = env.allowed_actions(state)
+        Q_s = self.Q[state[0], state[1], actions_allowed]
+        actions_Qmax_allowed = actions_allowed[np.flatnonzero(Q_s == np.max(Q_s))]
+        return actions_Qmax_allowed
+
+    def explore_actions_allowed(self, state, env):
+        actions_explore_allowed = env.allowed_actions(state)
+        return actions_explore_allowed
+
+    # Pick up action using epsilon-greedy agent
     def get_action(self, state, env):
-        idx_actions = env.allowed_actions(state)
-        rand = random.uniform(0, 1)
-        if rand < self.epsilon:
-            idx_action = random.choice(idx_actions.tolist())
+        if random.uniform(0, 1) < self.epsilon:
+            actions_explore_allowed = self.explore_actions_allowed(state, env)
+            return np.random.choice(actions_explore_allowed)
         else:
-            idx_action = np.argmax(self.Q[state[0], state[1], :])
-        return idx_action
+            actions_Qmax_allowed = self.argmax_Q_actions_allowed(state, env)
+            return np.random.choice(actions_Qmax_allowed)
 
+    # ========================
+    # Policy
+    # ========================
+    def compute_policy(self, env):
+        Ny = self.Q.shape[0]
+        Nx = self.Q.shape[1]
+        policy = np.zeros((Ny, Nx), dtype=int)
+        for state in list(itertools.product(range(Ny), range(Nx))):
+            actions_Qmax_allowed = self.argmax_Q_actions_allowed(state, env)
+            policy[state[0], state[1]] = random.choice(actions_Qmax_allowed)  # choose random allowed
+        return policy
 
 # Driver 
 if __name__ == '__main__':
