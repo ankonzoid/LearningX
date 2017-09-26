@@ -9,7 +9,7 @@ We provide here a set of beginner hands-on Python examples in both Classical & D
 
 * [Training an Agent to beat GridWorld](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld) (`gridworld.py`) 
 
-* [Learning to hunt in 2D] (`hunterprey.py`) 
+* Learning to hunt in 2D (`hunterprey.py`) 
 
  ## Deep Reinforcement Learning
  
