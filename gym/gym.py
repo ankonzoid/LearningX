@@ -1,8 +1,10 @@
 """
 
- agent_PG.py (author: Anson Wong / git: ankonzoid)
+ gym.py  (author: Anson Wong / git: ankonzoid)
 
- Policy gradients NN approach for solve the opengym cart pole environment.
+ Solving various OpenGym environments using the standard
+ reinforcement learning method of policy gradients and
+ an epsilon-greedy agent.
 
 """
 import numpy as np
