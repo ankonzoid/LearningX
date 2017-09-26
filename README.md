@@ -7,7 +7,7 @@ We provide here a set of beginner hands-on Python examples in both Classical & D
  
 * [Solving the multi-armed bandit problem](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/multiarmed_bandit) (`multiarmed_bandit.py`)
 
-* [Training an agent to move GridWorld](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld) (`gridworld.py`) 
+* [Training an agent to beat GridWorld](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld) (`gridworld.py`) 
 
 
  ## Deep Reinforcement Learning
