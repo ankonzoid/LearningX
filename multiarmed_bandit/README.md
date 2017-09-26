@@ -6,7 +6,7 @@ In this code, we deploy an epsilon-greedy agent to play the multi-armed bandit g
 
 
 <p align="center">
-<img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/multiarmed_bandit/results/MAB_actions.png"  width="50%">
+<img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/multiarmed_bandit/results/MAB_actions.png"  width="75%">
 </p>
 
 ### Usage:
