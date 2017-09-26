@@ -5,10 +5,11 @@ We provide here a set of beginner hands-on Python examples in both Classical & D
 
  ## Classical Reinforcement Learning
  
-* [Solving the multi-armed bandit problem](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/multiarmed_bandit) (`multiarmed_bandit.py`)
+* [Solving the Multi-Armed Bandit Problem](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/multiarmed_bandit) (`multiarmed_bandit.py`)
 
-* [Training an agent to beat GridWorld](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld) (`gridworld.py`) 
+* [Training an Agent to beat GridWorld](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld) (`gridworld.py`) 
 
+* [Learning to hunt in 2D] (`hunterprey.py`) 
 
  ## Deep Reinforcement Learning
  
