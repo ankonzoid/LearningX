@@ -46,46 +46,40 @@ def main():
     agent_info = {"epsilon": 0.5}
 
     # =========================
-    # Set up environment, agent, memory and brain
-    # =========================
-    env = Environment(env_info)  # set up environment rewards and state-transition rules
-    agent = Agent(agent_info)  # set up epsilon-greedy agent
-    brain = Brain(env)  # stores and updates Q(s,a) and policy(s)
-    memory = Memory(env)  # keeps track of run and episode (s,a) histories
-
-    # =========================
     # Train agent
     # =========================
-    memory.reset_run_counters()  # reset run counters once only
-    print("\nTraining {} agent on {} environment for {} episodes (epsilon = {})...\n".format(
-        agent.name, env.name, N_episodes, agent.epsilon))
+    env = Environment(env_info)  # set up environment
+    agent = Agent(env, agent_info)  # set up agent
+
+    agent.reset_run_counters()  # reset run counters once only
+    print("\nTraining epsilon-greedy agent on GridWorld for {} episodes (epsilon = {})...\n".format(N_episodes, agent.epsilon))
     for episode in range(N_episodes):
-        memory.reset_episode_counters()  # reset episodic counters
+        agent.reset_episode_counters()  # reset episodic counters
 
         state = env.starting_state()  # starting state
         while not env.is_terminal(state):
             # Get action from policy, and collect reward from environment
-            action = agent.get_action(state, brain, env)  # get action from policy
+            action = agent.get_action(state, env)  # get action from policy
             reward = env.get_reward(state, action)  # get reward
             # Update episode counters, and transition to next state
-            memory.update_episode_counters(state, action, reward)  # update our episodic counters
+            agent.update_episode_counters(state, action, reward)  # update our episodic counters
             state = env.perform_action(state, action)  # observe next state
 
         # Update run counters first (before updating Q)
-        memory.update_run_counters()
+        agent.update_run_counters()
         # Update Q
-        dQsum = brain.update_Q(memory)
+        dQsum = agent.update_Q()
 
         # Print
         if (episode+1) % (N_episodes/20) == 0:
             print(" episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(
-                episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode, dQsum))
+                episode + 1, N_episodes, agent.R_total_episode, agent.N_actions_episode, dQsum))
 
     # =======================
     # Print results
     # =======================
     print("\nFinal policy:\n")
-    print(brain.compute_policy(env))
+    print(agent.compute_policy(env))
     print("")
     for (key, val) in sorted(env.action_dict.items(), key=operator.itemgetter(1)):
         print(" action['{}'] = {}".format(key, val))
@@ -97,12 +91,10 @@ def main():
 #
 # ======================
 class Environment:
-    def __init__(self, env_info):
-        self.name = "GridWorld"
-
+    def __init__(self, agent_info):
         # State space
-        self.Ny = env_info["Ny"]  # y-grid size
-        self.Nx = env_info["Nx"]  # x-grid size
+        self.Ny = agent_info["Ny"]  # y-grid size
+        self.Nx = agent_info["Nx"]  # x-grid size
 
         # Action space
         self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}
@@ -169,99 +161,23 @@ class Environment:
 #
 # ======================
 class Agent:
-    def __init__(self, agent_info):
-        self.name = "epsilon-greedy"
-        self.epsilon = agent_info["epsilon"]  # exploration probability
+    def __init__(self, env, env_info):
+        # Agent settings
+        self.epsilon = env_info["epsilon"]  # exploration probability
 
-    def get_action(self, state, brain, env):
+        # Q state-action value
+        self.Q = np.zeros(env.state_action_dim, dtype=np.float)
 
-        # Explore actions
-        def explore_actions_allowed(state, env):
-            actions_explore_allowed = env.allowed_actions(state)
-            return actions_explore_allowed
-        # Choose highest value action
-        def argmax_Q_actions_allowed(Q, state, env):
-            actions_allowed = env.allowed_actions(state)
-            Q_s = Q[state[0], state[1], actions_allowed]
-            actions_Qmax_allowed = actions_allowed[np.flatnonzero(Q_s == np.max(Q_s))]
-            return actions_Qmax_allowed
-
-        # Perform epsilone-greedy selection
-        if random.uniform(0, 1) < self.epsilon:
-            actions_explore_allowed = explore_actions_allowed(state, env)
-            return np.random.choice(actions_explore_allowed)
-        else:
-            actions_Qmax_allowed = argmax_Q_actions_allowed(brain.Q, state, env)
-            return np.random.choice(actions_Qmax_allowed)
-
-
-# ======================
-#
-# Brain Class
-#
-# ======================
-class Brain:
-    def __init__(self, env):
-        self.Q = np.zeros(env.state_action_dim, dtype=np.float)  # Q state-action value
+        # Helper variables
         self.state_action_dim = env.state_action_dim
         self.state_dim = env.state_dim
 
     # ========================
-    # Q(s,a) state-action values
-    # ========================
-    def update_Q(self, memory):
-        state_action_episode_unique = list(set(memory.state_action_history_episode))
-        dQsum = 0.0
-        for sa in state_action_episode_unique:  # state_action_history
-            k_sa = memory.k_state_action_run[sa]
-            reward_total_sa = memory.R_total_episode
-            dQ = (reward_total_sa - self.Q[sa]) / (k_sa)  # assumes k counter already updated
-            self.Q[sa] += dQ
-            dQsum += np.abs(dQ)
-        return dQsum
-
-    # ========================
-    # Policy
-    # ========================
-    def compute_policy(self, env):
-        # Choose highest value action
-        def argmax_Q_actions_allowed(Q, state, env):
-            actions_allowed = env.allowed_actions(state)
-            Q_s = Q[state[0], state[1], actions_allowed]
-            actions_Qmax_allowed = actions_allowed[np.flatnonzero(Q_s == np.max(Q_s))]
-            return actions_Qmax_allowed
-
-        Ny = self.Q.shape[0]
-        Nx = self.Q.shape[1]
-        policy = np.zeros((Ny, Nx), dtype=int)
-        for state in list(itertools.product(range(Ny), range(Nx))):
-            actions_Qmax_allowed = argmax_Q_actions_allowed(state, env)
-            policy[state[0], state[1]] = random.choice(actions_Qmax_allowed)  # choose random allowed
-        return policy
-
-
-# ======================
-#
-# Memory Class
-#
-# ======================
-class Memory:
-    def __init__(self, env):
-        self.state_action_dim = env.state_action_dim  # (s,a) dimension
-        self.state_dim = env.state_dim  # (s) dimension
-
-        # Run memory
-        self.reset_run_counters()
-
-        # Episode memory
-        self.reset_episode_counters()
-
-    # ========================
-    # Run memory counters
+    # Counters
     # ========================
     def reset_run_counters(self):
-        self.k_state_action_run = np.zeros(self.state_action_dim, dtype=np.int)  # counts # of first occurrence-per-episodes (s,a) pairs
-        self.R_state_action_run = np.zeros(self.state_action_dim, dtype=np.float)  # counts total reward of first occurrence-per-episodes (s,a) pairs
+        self.k_state_action_run = np.zeros(self.state_action_dim, dtype=np.int)
+        self.R_state_action_run = np.zeros(self.state_action_dim, dtype=np.float)
 
     def update_run_counters(self):
         state_action_episode_unique = list(set(self.state_action_history_episode))
@@ -269,17 +185,14 @@ class Memory:
             self.k_state_action_run[sa] += 1
             self.R_state_action_run[sa] += self.R_total_episode
 
-    # ========================
-    # Episode memory counters
-    # ========================
     def reset_episode_counters(self):
-        self.N_actions_episode = 0  # counts total # of actions in episode (scalar)
-        self.R_total_episode = 0.0  # counts total reward collected in episode (scalar)
-        self.N_state_action_episode = np.zeros(self.state_action_dim, dtype=np.int)  # counts total # of (s,a) pairs in episode
-        self.N_state_episode = np.zeros(self.state_dim, dtype=np.int)  # counts total # of (s) in episode
-        self.R_state_action_episode = np.zeros(self.state_action_dim, dtype=np.float)  # sum R(s,a) pairs in episode
-        self.state_action_history_episode = []  # list of (s,a) tuples (not unique)
-        self.state_history_episode = []  # list of tuples (s) tuples (not unique)
+        self.N_actions_episode = 0
+        self.R_total_episode = 0.0
+        self.N_state_action_episode = np.zeros(self.state_action_dim, dtype=np.int)
+        self.N_state_episode = np.zeros(self.state_dim, dtype=np.int)
+        self.R_state_action_episode = np.zeros(self.state_action_dim, dtype=np.float)
+        self.state_action_history_episode = []  # list of tuples
+        self.state_history_episode = []  # list of tuples
 
     def update_episode_counters(self, state, action, reward):
         sa = tuple(list(state) + [action])
@@ -289,10 +202,54 @@ class Memory:
         self.N_state_action_episode[sa] += 1
         self.N_state_episode[s] += 1
         self.R_state_action_episode[sa] += reward
-        self.state_action_history_episode.append(sa)
-        self.state_history_episode.append(s)
+        self.state_action_history_episode.append(sa)  # list of tuples
+        self.state_history_episode.append(s)  # list of tuples
 
+    # ========================
+    # Q(s,a) state-action values
+    # ========================
+    def update_Q(self):
+        state_action_episode_unique = list(set(self.state_action_history_episode))
+        dQsum = 0.0
+        for sa in state_action_episode_unique:  # state_action_history
+            k_sa = self.k_state_action_run[sa]
+            reward_total_sa = self.R_total_episode
+            dQ = (reward_total_sa - self.Q[sa]) / (k_sa)  # assumes k counter already updated
+            self.Q[sa] += dQ
+            dQsum += np.abs(dQ)
+        return dQsum
 
-# Driver
+    def argmax_Q_actions_allowed(self, state, env):
+        actions_allowed = env.allowed_actions(state)
+        Q_s = self.Q[state[0], state[1], actions_allowed]
+        actions_Qmax_allowed = actions_allowed[np.flatnonzero(Q_s == np.max(Q_s))]
+        return actions_Qmax_allowed
+
+    def explore_actions_allowed(self, state, env):
+        actions_explore_allowed = env.allowed_actions(state)
+        return actions_explore_allowed
+
+    # Pick up action using epsilon-greedy agent
+    def get_action(self, state, env):
+        if random.uniform(0, 1) < self.epsilon:
+            actions_explore_allowed = self.explore_actions_allowed(state, env)
+            return np.random.choice(actions_explore_allowed)
+        else:
+            actions_Qmax_allowed = self.argmax_Q_actions_allowed(state, env)
+            return np.random.choice(actions_Qmax_allowed)
+
+    # ========================
+    # Policy
+    # ========================
+    def compute_policy(self, env):
+        Ny = self.Q.shape[0]
+        Nx = self.Q.shape[1]
+        policy = np.zeros((Ny, Nx), dtype=int)
+        for state in list(itertools.product(range(Ny), range(Nx))):
+            actions_Qmax_allowed = self.argmax_Q_actions_allowed(state, env)
+            policy[state[0], state[1]] = random.choice(actions_Qmax_allowed)  # choose random allowed
+        return policy
+
+# Driver 
 if __name__ == '__main__':
     main()

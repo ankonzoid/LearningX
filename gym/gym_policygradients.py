@@ -32,17 +32,9 @@ def main():
         n_train_episodes = 1000  # training episodes
         reward_success = 200  # minimum reward to be considered success
     elif 0:
-        env_str = 'MountainCar-v0'
-        n_train_episodes = 1000  # training episodes
-        reward_success = -110  # minimum reward to be considered success
-    elif 0:
         env_str = 'LunarLander-v2'
         n_train_episodes = 1000  # training episodes
         reward_success = 200  # minimum reward to be considered success
-    elif 0:
-        env_str = 'AirRaid-ram-v0'
-        n_train_episodes = 200  # training episodes
-        reward_success = 2000  # minimum reward to be considered success
     else:
         print("Invalid environment given!")
         exit()
