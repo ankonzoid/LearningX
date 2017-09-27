@@ -32,13 +32,15 @@
   action['left'] = 3
 
 """
-import numpy as np
-import random, itertools, operator, sys, os
+import operator, sys
 
-sys.path.append("../src")
-from AgentClass import Agent
-from BrainClass import Brain
-from EnvironmentClass import Environment
+sys.path.append("./src/agent")
+sys.path.append("./src/brain")
+sys.path.append("./src/environment")
+sys.path.append("./src/memory")
+from EpsilonGreedy_AgentClass import Agent
+from SampleAveraging_BrainClass import Brain
+from Plain2D_EnvironmentClass import Environment
 from MemoryClass import Memory
 
 def main():
