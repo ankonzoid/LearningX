@@ -3,7 +3,7 @@
 The multi-armed bandit problem is a classic reinforcement learning example where we are given a slot machine with n arms (bandits) with each arm having its own rigged probability distribution of success. Pulling any one of the arms gives you a stochastic reward of either R=+1 for success, or R=0 for failure. Our objective is to pull the arms one-by-one in sequence such that we maximize our total reward collected in the long run.
 
 <p align="center">
-<img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/multiarmed_bandit/images/multiarmed_bandit.png"  width="50%">
+<img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/multiarmed_bandit/images/coverart.png"  width="50%">
 </p>
 
 In this code, we deploy an epsilon-greedy agent to play the multi-armed bandit game for a fixed number of episodes using a well-established classical reinforcement learning method of an epsilon-greedy agent and reward-average sampling to compute the action-values Q(a).
