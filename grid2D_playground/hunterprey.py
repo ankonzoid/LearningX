@@ -57,10 +57,10 @@ def main():
         state_prey = env.random_state()  # starting prey state
 
         while not env.is_terminal(state_hunter):
-            # Get action from policy, and collect reward from environment
+            # Get action from policy
             action_hunter = agent_hunter.get_action(state_hunter, brain_hunter, env)  # get action from policy
             action_prey = agent_prey.get_action(state_prey, brain_prey, env)  # get action from policy
-
+            # Collect reward from environment
             reward_hunter = env.get_reward(state_hunter, action_hunter)  # get reward
             reward_prey = env.get_reward(state_prey, action_prey)  # get reward
             # Update episode counters

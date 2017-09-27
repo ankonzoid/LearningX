@@ -73,8 +73,9 @@ def main():
         memory.reset_episode_counters()  # reset episodic counters
         state = env.starting_state()  # starting state
         while not env.is_terminal(state):
-            # Get action from policy, and collect reward from environment
+            # Get action from policy
             action = agent.get_action(state, brain, env)  # get action from policy
+            # Collect reward from environment
             reward = env.get_reward(state, action)  # get reward
             # Update episode counters
             memory.update_episode_counters(state, action, reward)  # update our episodic counters
