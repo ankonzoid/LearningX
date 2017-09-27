@@ -41,7 +41,7 @@ def main():
     # =========================
     # Settings
     # =========================
-    N_episodes = 50000  # specify number of training episodes
+    N_episodes = 100000  # specify number of training episodes
     env_info = {"Ny": 7, "Nx": 7}
     agent_info = {"epsilon": 0.5}
 
@@ -56,12 +56,11 @@ def main():
     # =========================
     # Train agent
     # =========================
+    print("\nTraining {} agent on {} environment for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes, agent.epsilon))
+
     memory.reset_run_counters()  # reset run counters once only
-    print("\nTraining {} agent on {} environment for {} episodes (epsilon = {})...\n".format(
-        agent.name, env.name, N_episodes, agent.epsilon))
     for episode in range(N_episodes):
         memory.reset_episode_counters()  # reset episodic counters
-
         state = env.starting_state()  # starting state
         while not env.is_terminal(state):
             # Get action from policy, and collect reward from environment
@@ -78,8 +77,7 @@ def main():
 
         # Print
         if (episode+1) % (N_episodes/20) == 0:
-            print(" episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(
-                episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode, dQsum))
+            print(" episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode, dQsum))
 
     # =======================
     # Print results
@@ -212,7 +210,7 @@ class Brain:
     def update_Q(self, memory):
         state_action_episode_unique = list(set(memory.state_action_history_episode))
         dQsum = 0.0
-        for sa in state_action_episode_unique:  # state_action_history
+        for sa in state_action_episode_unique:  # state-action history
             k_sa = memory.k_state_action_run[sa]
             reward_total_sa = memory.R_total_episode
             dQ = (reward_total_sa - self.Q[sa]) / (k_sa)  # assumes k counter already updated
@@ -235,7 +233,7 @@ class Brain:
         Nx = self.Q.shape[1]
         policy = np.zeros((Ny, Nx), dtype=int)
         for state in list(itertools.product(range(Ny), range(Nx))):
-            actions_Qmax_allowed = argmax_Q_actions_allowed(state, env)
+            actions_Qmax_allowed = argmax_Q_actions_allowed(self.Q, state, env)
             policy[state[0], state[1]] = random.choice(actions_Qmax_allowed)  # choose random allowed
         return policy
 
@@ -276,7 +274,7 @@ class Memory:
         self.N_actions_episode = 0  # counts total # of actions in episode (scalar)
         self.R_total_episode = 0.0  # counts total reward collected in episode (scalar)
         self.N_state_action_episode = np.zeros(self.state_action_dim, dtype=np.int)  # counts total # of (s,a) pairs in episode
-        self.N_state_episode = np.zeros(self.state_dim, dtype=np.int)  # counts total # of (s) in episode
+        self.N_states_episode = np.zeros(self.state_dim, dtype=np.int)  # counts total # of (s) in episode
         self.R_state_action_episode = np.zeros(self.state_action_dim, dtype=np.float)  # sum R(s,a) pairs in episode
         self.state_action_history_episode = []  # list of (s,a) tuples (not unique)
         self.state_history_episode = []  # list of tuples (s) tuples (not unique)
@@ -287,7 +285,7 @@ class Memory:
         self.N_actions_episode += 1
         self.R_total_episode += reward
         self.N_state_action_episode[sa] += 1
-        self.N_state_episode[s] += 1
+        self.N_states_episode[s] += 1
         self.R_state_action_episode[sa] += reward
         self.state_action_history_episode.append(sa)
         self.state_history_episode.append(s)
