@@ -66,9 +66,9 @@ def main():
             # Update episode counters
             memory_hunter.update_episode_counters(state_hunter, action_hunter, reward_hunter)  # update our episodic counters
             memory_prey.update_episode_counters(state_prey, action_prey, reward_prey)  # update our episodic counters
-            # Compute next state
-            state_hunter_next = env.perform_action(state_hunter, action_hunter)  # observe next state
-            state_prey_next = env.perform_action(state_prey, action_prey)  # observe next state
+            # Compute and observe next state
+            state_hunter_next = env.perform_action(state_hunter, action_hunter)
+            state_prey_next = env.perform_action(state_prey, action_prey)
             # Update Q after episode (if needed)
             if "update_Q_during_episode" in utils.method_list(Brain):
                 brain_hunter.update_Q_during_episode(state_hunter, action_hunter, state_hunter_next, reward_hunter)

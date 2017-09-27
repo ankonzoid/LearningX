@@ -79,8 +79,8 @@ def main():
             reward = env.get_reward(state, action)  # get reward
             # Update episode counters
             memory.update_episode_counters(state, action, reward)  # update our episodic counters
-            # Compute next state
-            state_next = env.perform_action(state, action)  # observe next state
+            # Compute and observe next state
+            state_next = env.perform_action(state, action)
             # Update Q during episode (if needed)
             if "update_Q_during_episode" in utils.method_list(Brain):
                 brain.update_Q_during_episode(state, action, state_next, reward)
