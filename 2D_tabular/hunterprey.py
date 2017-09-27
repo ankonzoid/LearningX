@@ -14,7 +14,7 @@ sys.path.append("./src/environment")
 sys.path.append("./src/memory")
 from EpsilonGreedy_AgentClass import Agent
 from SampleAveraging_BrainClass import Brain
-from Plain2D_EnvironmentClass import Environment
+from GridWorld_EnvironmentClass import Environment
 from MemoryClass import Memory
 
 def main():
