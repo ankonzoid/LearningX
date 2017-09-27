@@ -8,7 +8,7 @@ import random
 
 class Agent:
     def __init__(self, agent_info):
-        self.name = "epsilon-greedy"
+        self.name = agent_info["name"]
         self.epsilon = agent_info["epsilon"]  # exploration probability
 
     def get_action(self, state, brain, env):

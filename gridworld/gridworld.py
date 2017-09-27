@@ -47,7 +47,7 @@ def main():
     # =========================
     N_episodes = 100000  # specify number of training episodes
     env_info = {"Ny": 7, "Nx": 7}
-    agent_info = {"epsilon": 0.5}
+    agent_info = {"name": "epsilon-greedy", "epsilon": 0.5}
 
     # =========================
     # Set up environment, agent, memory and brain
