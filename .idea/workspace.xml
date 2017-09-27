@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld/gridworld.py" afterPath="$PROJECT_DIR$/gridworld/gridworld.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/hunterprey.py" afterPath="$PROJECT_DIR$/hunterprey/hunterprey.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -16,21 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="hunterprey.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hunterprey.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hunterprey/hunterprey.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="321">
+              <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+              <folding>
+                <element signature="e#132#150#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gridworld.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gridworld.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="219">
+              <caret line="48" column="15" lean-forward="false" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="33" />
               <folding>
                 <element signature="e#1012#1030#0" expanded="true" />
               </folding>
@@ -85,12 +86,12 @@
         <option value="$PROJECT_DIR$/gym/gym_policygradients.py" />
         <option value="$PROJECT_DIR$/gym/cartpole_keras.py" />
         <option value="$PROJECT_DIR$/gym/pong_keras.py" />
-        <option value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/AgentClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/BrainClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/MemoryClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/EnvironmentClass.py" />
         <option value="$PROJECT_DIR$/gridworld/gridworld.py" />
+        <option value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
       </list>
     </option>
   </component>
@@ -133,6 +134,11 @@
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
               <item name="hunterprey" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1205,27 +1211,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gridworld">
-    <configuration name="gridworld" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.hunterprey">
+    <configuration name="hunterprey" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gridworld" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hunterprey" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gridworld/gridworld.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.gridworld" />
+        <item index="0" class="java.lang.String" itemvalue="Python.hunterprey" />
       </list>
     </recent_temporary>
   </component>
@@ -1394,7 +1400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506541367666</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update">
+      <created>1506542463656</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1506542463656</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1406,7 +1419,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32824427" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32824427" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20179877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1754,20 +1767,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hunterprey/hunterprey.py">
+    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="219">
+          <caret line="48" column="15" lean-forward="false" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="33" />
+          <folding>
+            <element signature="e#1012#1030#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
+    <entry file="file://$PROJECT_DIR$/hunterprey/hunterprey.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="321">
+          <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
           <folding>
-            <element signature="e#1012#1030#0" expanded="true" />
+            <element signature="e#132#150#0" expanded="true" />
           </folding>
         </state>
       </provider>
