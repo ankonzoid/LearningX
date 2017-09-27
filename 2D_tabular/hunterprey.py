@@ -8,12 +8,14 @@
 import numpy as np
 import random, itertools, operator, sys, os
 
-sys.path.append("../src")
-from AgentClass import Agent
-from BrainClass import Brain
-from EnvironmentClass import Environment
+sys.path.append("./src/agent")
+sys.path.append("./src/brain")
+sys.path.append("./src/environment")
+sys.path.append("./src/memory")
+from EpsilonGreedy_AgentClass import Agent
+from SampleAveraging_BrainClass import Brain
+from Plain2D_EnvironmentClass import Environment
 from MemoryClass import Memory
-
 
 def main():
     print("Hunter-Prey world")
@@ -32,7 +34,7 @@ def main():
 
     # Train agent on environment
     N_episodes = 10000
-    print("\nTraining {} agent to hunt {} agent on {} environment for {} episodes (hunter_epsilon = {}, prey_epsilon = {})...\n".format(hunter_agent.name, prey_agent.name, env.name, N_episodes, hunter_agent.epsilon, prey_agent.epsilon))
+    print("\nTraining '{}' agent to hunt '{}' agent on {} environment for {} episodes (hunter_epsilon = {}, prey_epsilon = {})...\n".format(hunter_agent.name, prey_agent.name, env.name, N_episodes, hunter_agent.epsilon, prey_agent.epsilon))
 
 
     exit()
