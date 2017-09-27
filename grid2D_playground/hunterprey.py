@@ -15,6 +15,7 @@ sys.path.append("./src/environment")
 sys.path.append("./src/memory")
 from EpsilonGreedy_AgentClass import Agent
 from SampleAveraging_BrainClass import Brain
+#from QLearning_BrainClass import Brain
 from HunterPrey_EnvironmentClass import Environment
 from MemoryClass import Memory
 import utils
@@ -27,8 +28,8 @@ def main():
     agent_hunter_info = {"name": "hunter", "epsilon": 0.5}
     agent_prey_info = {"name": "prey", "epsilon": 1.0}
     env_info = {"Ny": 7, "Nx": 7}
-    brain_hunter_info = {"learning_rate": 1.0, "discount": 1.0}  # only relevant for Q-learning
-    brain_prey_info = {"learning_rate": 1.0, "discount": 1.0}  # only relevant for Q-learning
+    brain_hunter_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
+    brain_prey_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
 
     # =========================
     # Set up environment, agent, memory and brain
