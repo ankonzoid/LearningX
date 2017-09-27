@@ -50,13 +50,14 @@ def main():
     N_episodes = 100000  # specify number of training episodes
     env_info = {"Ny": 7, "Nx": 7}
     agent_info = {"name": "epsilon-greedy", "epsilon": 0.5}
+    brain_info = {"learning_rate": 1.0, "discount": 1.0}  # only relevant for Q-learning
 
     # =========================
     # Set up environment, agent, memory and brain
     # =========================
     env = Environment(env_info)  # set up environment rewards and state-transition rules
     agent = Agent(agent_info)  # set up epsilon-greedy agent
-    brain = Brain(env)  # stores and updates Q(s,a) and policy(s)
+    brain = Brain(env, brain_info)  # stores and updates Q(s,a) and policy(s)
     memory = Memory(env)  # keeps track of run and episode (s,a) histories
 
     # =========================

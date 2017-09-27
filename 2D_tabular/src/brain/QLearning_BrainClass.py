@@ -12,6 +12,9 @@ class Brain:
         self.state_action_dim = env.state_action_dim
         self.state_dim = env.state_dim
 
+        self.learning_rate = brain_info["learning_rate"]  # beta
+        self.discount = brain_info["discount"]  # gamma
+
     # ========================
     # Q(s,a) state-action values
     # ========================

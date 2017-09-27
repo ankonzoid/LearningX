@@ -22,18 +22,20 @@ def main():
     # Settings
     # =========================
     N_episodes = 100000
-    hunter_agent_info = {"name": "hunter", "epsilon": 0.5}
-    prey_agent_info = {"name": "prey", "epsilon": 1.0}
+    agent_hunter_info = {"name": "hunter", "epsilon": 0.5}
+    agent_prey_info = {"name": "prey", "epsilon": 1.0}
     env_info = {"Ny": 7, "Nx": 7}
+    brain_hunter_info = {"learning_rate": 1.0, "discount": 1.0}  # only relevant for Q-learning
+    brain_prey_info = {"learning_rate": 1.0, "discount": 1.0}  # only relevant for Q-learning
 
     # =========================
     # Set up environment, agent, memory and brain
     # =========================
-    agent_hunter = Agent(hunter_agent_info)
-    agent_prey = Agent(prey_agent_info)
+    agent_hunter = Agent(agent_hunter_info)
+    agent_prey = Agent(agent_prey_info)
     env = Environment(env_info)
-    brain_hunter = Brain(env)
-    brain_prey = Brain(env)
+    brain_hunter = Brain(env, brain_hunter_info)
+    brain_prey = Brain(env, brain_prey_info)
     memory_hunter = Memory(env)
     memory_prey = Memory(env)
 
