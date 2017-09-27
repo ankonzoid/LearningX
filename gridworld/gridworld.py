@@ -105,15 +105,15 @@ class Environment:
         # Action space
         self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}
         self.action_coords = np.array([[-1,0], [0,1], [1,0], [0,-1]], dtype=np.int)
-        self.Nactions = len(self.action_dict.keys())
-        self.state_action_dim = (self.Ny, self.Nx, self.Nactions)
+        self.N_actions = len(self.action_dict.keys())
+        self.state_action_dim = (self.Ny, self.Nx, self.N_actions)
         self.state_dim = (self.Ny, self.Nx)
 
         # Rewards
         self.reward = self.define_rewards()
 
         # Make checks
-        if self.Nactions != len(self.action_coords):
+        if self.N_actions != len(self.action_coords):
             raise IOError("Inconsistent actions given")
 
     # ========================
