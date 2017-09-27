@@ -62,7 +62,7 @@ def main():
     # =========================
     # Train agent
     # =========================
-    print("\nTraining {} agent on {} environment for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes, agent.epsilon))
+    print("\nTraining '{}' agent on '{}' environment for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes, agent.epsilon))
 
     memory.reset_run_counters()  # reset run counters once only
     for episode in range(N_episodes):
@@ -72,12 +72,14 @@ def main():
             # Get action from policy, and collect reward from environment
             action = agent.get_action(state, brain, env)  # get action from policy
             reward = env.get_reward(state, action)  # get reward
-            # Update episode counters, and transition to next state
+            # Update episode counters
             memory.update_episode_counters(state, action, reward)  # update our episodic counters
+            # Transition to next state
             state = env.perform_action(state, action)  # observe next state
 
         # Update run counters first (before updating Q)
         memory.update_run_counters()
+
         # Update Q
         dQsum = brain.update_Q(memory)
 
@@ -86,7 +88,7 @@ def main():
             print(" episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode, dQsum))
 
     # =======================
-    # Print results
+    # Print final policy
     # =======================
     print("\nFinal policy:\n")
     print(brain.compute_policy(env))

@@ -4,10 +4,11 @@
 
 """
 import numpy as np
+import random
 
 class Environment:
     def __init__(self, env_info):
-        self.name = "GridWorld"
+        self.name = "HunterPrey"
 
         # State space
         self.Ny = env_info["Ny"]  # y-grid size
@@ -61,6 +62,9 @@ class Environment:
     # ========================
     def starting_state(self):
         return np.array([0, 0], dtype=np.int)
+
+    def random_state(self):
+        return np.array([random.randint(0, self.Ny-1), random.randint(0, self.Nx-1)], dtype=np.int)
 
     def is_terminal(self, state):
         return np.array_equal(state, np.array([self.Ny-1, self.Nx-1], dtype=np.int))
