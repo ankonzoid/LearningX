@@ -70,8 +70,8 @@ def main():
             state_prey_next = env.perform_action(state_prey, action_prey)  # observe next state
             # Update Q after episode (if needed)
             if "update_Q_during_episode" in utils.method_list(Brain):
-                brain_hunter.update_Q_during_episode(memory_hunter)
-                brain_prey.update_Q_during_episode(memory_prey)
+                brain_hunter.update_Q_during_episode(state_hunter, action_hunter, state_hunter_next, reward_hunter)
+                brain_prey.update_Q_during_episode(state_prey, action_prey, state_prey_next, reward_prey)
             # Transition to next state
             state_hunter = state_hunter_next
             state_prey = state_prey_next

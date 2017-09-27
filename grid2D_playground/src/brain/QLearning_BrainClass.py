@@ -18,22 +18,17 @@ class Brain:
     # ========================
     # Q(s,a) state-action values
     # ========================
-    # todo implement Q-learning and also plan out framework as this is different to how the updates on Q-happen in sample averaging
-    def update_Q_during_episode(self, memory):
-        state_action_episode_unique = list(set(memory.state_action_history_episode))
-        dQsum = 0.0
-        for sa in state_action_episode_unique:  # state-action history
-            reward_total_sa = memory.R_total_episode
-            beta = self.learning_rate
-            gamma = self.discount
-            s_next = 0
-            Qmax_next = np.max(self.Q[s_next,:])
+    def update_Q_during_episode(self, state, action, state_next, reward):
+        beta = self.learning_rate
+        gamma = self.discount
+        sa = tuple(list(state) + [action])
+        Qmax_next = np.max(self.Q[state_next])
 
-            dQ = beta * (reward_total_sa + gamma*Qmax_next - self.Q[sa])   # assumes k counter already updated
-            self.Q[sa] += dQ
+        dQ = beta * (reward + gamma*Qmax_next - self.Q[sa])   # assumes k counter already updated
+        self.Q[sa] += dQ
 
-            dQsum += np.abs(dQ)
-        return dQsum
+        dQabs = np.abs(dQ)
+        return dQabs
 
     # ========================
     # Policy
