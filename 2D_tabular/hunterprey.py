@@ -22,7 +22,7 @@ def main():
     # Settings
     # =========================
     N_episodes = 100000
-    hunter_agent_info = {"name": "hunter", "epsilon": 0.2}
+    hunter_agent_info = {"name": "hunter", "epsilon": 0.5}
     prey_agent_info = {"name": "prey", "epsilon": 1.0}
     env_info = {"Ny": 7, "Nx": 7}
 
@@ -68,8 +68,8 @@ def main():
             state_prey = env.perform_action(state_prey, action_prey)  # observe next state
 
         # Update run counters first (before updating Q)
-        memory_hunter.update_run_counters()
-        memory_prey.update_run_counters()
+        memory_hunter.update_run_counters()  # use episode counters to update run counters
+        memory_prey.update_run_counters()  # use episode counters to update run counters
 
         # Update Q
         dQsum_hunter = brain_hunter.update_Q(memory_hunter)

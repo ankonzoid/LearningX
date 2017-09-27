@@ -78,7 +78,7 @@ def main():
             state = env.perform_action(state, action)  # observe next state
 
         # Update run counters first (before updating Q)
-        memory.update_run_counters()
+        memory.update_run_counters()  # use episode counters to update run counters
 
         # Update Q
         dQsum = brain.update_Q(memory)
