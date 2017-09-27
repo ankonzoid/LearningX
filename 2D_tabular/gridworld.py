@@ -34,6 +34,7 @@
 """
 import operator, sys
 
+sys.path.append("./src")
 sys.path.append("./src/agent")
 sys.path.append("./src/brain")
 sys.path.append("./src/environment")
@@ -42,6 +43,7 @@ from EpsilonGreedy_AgentClass import Agent
 from SampleAveraging_BrainClass import Brain
 from GridWorld_EnvironmentClass import Environment
 from MemoryClass import Memory
+import utils
 
 def main():
     # =========================
@@ -75,14 +77,21 @@ def main():
             reward = env.get_reward(state, action)  # get reward
             # Update episode counters
             memory.update_episode_counters(state, action, reward)  # update our episodic counters
+            # Compute next state
+            state_next = env.perform_action(state, action)  # observe next state
+            # Update Q during episode (if needed)
+            if "update_Q_during_episode" in utils.method_list(Brain):
+                brain.update_Q_during_episode(memory)
             # Transition to next state
-            state = env.perform_action(state, action)  # observe next state
+            state = state_next
 
         # Update run counters first (before updating Q)
         memory.update_run_counters()  # use episode counters to update run counters
 
-        # Update Q
-        dQsum = brain.update_Q(memory)
+        # Update Q after episode (if needed)
+        dQsum = -1
+        if "update_Q_after_episode" in utils.method_list(Brain):
+            dQsum = brain.update_Q_after_episode(memory)
 
         # Print
         if (episode+1) % (N_episodes/20) == 0:

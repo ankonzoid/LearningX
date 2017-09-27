@@ -8,6 +8,7 @@
 import numpy as np
 import random, itertools, operator, sys, os
 
+sys.path.append("./src")
 sys.path.append("./src/agent")
 sys.path.append("./src/brain")
 sys.path.append("./src/environment")
@@ -16,6 +17,7 @@ from EpsilonGreedy_AgentClass import Agent
 from SampleAveraging_BrainClass import Brain
 from HunterPrey_EnvironmentClass import Environment
 from MemoryClass import Memory
+import utils
 
 def main():
     # =========================
@@ -60,22 +62,30 @@ def main():
 
             reward_hunter = env.get_reward(state_hunter, action_hunter)  # get reward
             reward_prey = env.get_reward(state_prey, action_prey)  # get reward
-
             # Update episode counters
             memory_hunter.update_episode_counters(state_hunter, action_hunter, reward_hunter)  # update our episodic counters
             memory_prey.update_episode_counters(state_prey, action_prey, reward_prey)  # update our episodic counters
-
+            # Compute next state
+            state_hunter_next = env.perform_action(state_hunter, action_hunter)  # observe next state
+            state_prey_next = env.perform_action(state_prey, action_prey)  # observe next state
+            # Update Q after episode (if needed)
+            if "update_Q_during_episode" in utils.method_list(Brain):
+                brain_hunter.update_Q_during_episode(memory_hunter)
+                brain_prey.update_Q_during_episode(memory_prey)
             # Transition to next state
-            state_hunter = env.perform_action(state_hunter, action_hunter)  # observe next state
-            state_prey = env.perform_action(state_prey, action_prey)  # observe next state
+            state_hunter = state_hunter_next
+            state_prey = state_prey_next
 
         # Update run counters first (before updating Q)
         memory_hunter.update_run_counters()  # use episode counters to update run counters
         memory_prey.update_run_counters()  # use episode counters to update run counters
 
-        # Update Q
-        dQsum_hunter = brain_hunter.update_Q(memory_hunter)
-        dQsum_prey = brain_prey.update_Q(memory_prey)
+        # Update Q after episode (if needed)
+        dQsum_hunter = -1
+        dQsum_prey = -1
+        if "update_Q_after_episode" in utils.method_list(Brain):
+            dQsum_hunter = brain_hunter.update_Q_after_episode(memory_hunter)
+            dQsum_prey = brain_prey.update_Q_after_episode(memory_prey)
 
         # Print
         if (episode + 1) % (N_episodes / 20) == 0:

@@ -15,14 +15,16 @@ class Brain:
     # ========================
     # Q(s,a) state-action values
     # ========================
-    def update_Q(self, memory):
+    def update_Q_after_episode(self, memory):
         state_action_episode_unique = list(set(memory.state_action_history_episode))
         dQsum = 0.0
         for sa in state_action_episode_unique:  # state-action history
             k_sa = memory.k_state_action_run[sa]
             reward_total_sa = memory.R_total_episode
+
             dQ = (reward_total_sa - self.Q[sa]) / (k_sa)  # assumes k counter already updated
             self.Q[sa] += dQ
+
             dQsum += np.abs(dQ)
         return dQsum
 
