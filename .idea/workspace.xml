@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/hunterprey.py" afterPath="$PROJECT_DIR$/hunterprey/hunterprey.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py" afterPath="$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="HunterPrey_EnvironmentClass.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+            <state relative-caret-position="-76">
+              <caret line="71" column="38" lean-forward="true" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -536,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506624367470</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="update">
+      <created>1506628996629</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1506628996629</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -820,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+        <state relative-caret-position="-76">
+          <caret line="71" column="38" lean-forward="true" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
           <folding />
         </state>
       </provider>

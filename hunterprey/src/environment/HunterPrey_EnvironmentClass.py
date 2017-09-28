@@ -66,12 +66,10 @@ class Environment:
     # ========================
     def allowed_actions(self, state):
         actions = []
-        y = state[0]
-        x = state[1]
-        if (y > 0): actions.append(self.action_dict["up"])
-        if (y < self.Ny-1): actions.append(self.action_dict["down"])
-        if (x > 0): actions.append(self.action_dict["left"])
-        if (x < self.Nx-1): actions.append(self.action_dict["right"])
+        for action in range(self.N_actions):
+            state_query = self.perform_action(state, action)
+            if self.is_allowed_state(state_query):
+                actions.append(action)
         actions = np.array(actions, dtype=np.int)
         return actions
 
