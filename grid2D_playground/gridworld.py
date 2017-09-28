@@ -91,13 +91,12 @@ def main():
         memory.update_run_counters()  # use episode counters to update run counters
 
         # Update Q after episode (if needed)
-        dQsum = -1
         if "update_Q_after_episode" in utils.method_list(Brain):
-            dQsum = brain.update_Q_after_episode(memory)
+            brain.update_Q_after_episode(memory)
 
         # Print
         if (episode+1) % (N_episodes/20) == 0:
-            print(" episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode, dQsum))
+            print(" episode = {}/{}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode))
 
     # =======================
     # Print final policy

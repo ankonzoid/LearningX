@@ -2,7 +2,7 @@
 
  hunterprey.py  (author: Anson Wong / git: ankonzoid)
 
- Trains a hunter agent to capture a prey agent on a (Ny, Nx) grid.
+ Trains a hunter agent to capture a prey agent on an (Ny, Nx) grid.
 
 """
 import numpy as np
@@ -82,16 +82,14 @@ def main():
         memory_prey.update_run_counters()  # use episode counters to update run counters
 
         # Update Q after episode (if needed)
-        dQsum_hunter = -1
-        dQsum_prey = -1
         if "update_Q_after_episode" in utils.method_list(Brain):
-            dQsum_hunter = brain_hunter.update_Q_after_episode(memory_hunter)
-            dQsum_prey = brain_prey.update_Q_after_episode(memory_prey)
+            brain_hunter.update_Q_after_episode(memory_hunter)
+            brain_prey.update_Q_after_episode(memory_prey)
 
         # Print
         if (episode + 1) % (N_episodes / 20) == 0:
-            print(" hunter: episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(episode + 1, N_episodes, memory_hunter.R_total_episode, memory_hunter.N_actions_episode, dQsum_hunter))
-            print(" prey: episode = {}/{}, reward = {:.1F}, n_actions = {}, dQsum = {:.2E}".format(episode + 1, N_episodes, memory_prey.R_total_episode, memory_prey.N_actions_episode, dQsum_prey))
+            print(" hunter: episode = {}/{}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, memory_hunter.R_total_episode, memory_hunter.N_actions_episode))
+            print(" prey: episode = {}/{}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, memory_prey.R_total_episode, memory_prey.N_actions_episode))
 
 
     # =======================
