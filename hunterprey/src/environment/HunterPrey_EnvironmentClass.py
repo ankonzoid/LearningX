@@ -61,13 +61,18 @@ class Environment:
     # Environment Details
     # ========================
     def starting_state(self):
-        return np.array([0, 0], dtype=np.int)
+        starting_state = np.array([0, 0], dtype=np.int)
+        return starting_state
 
     def random_state(self):
-        return np.array([random.randint(0, self.Ny-1), random.randint(0, self.Nx-1)], dtype=np.int)
+        state_random = np.array([random.randint(0, self.Ny-1), random.randint(0, self.Nx-1)], dtype=np.int)
+        while self.is_terminal(state_random):
+            state_random = np.array([random.randint(0, self.Ny - 1), random.randint(0, self.Nx - 1)], dtype=np.int)
+        return state_random
 
     def is_terminal(self, state):
-        return np.array_equal(state, np.array([self.Ny-1, self.Nx-1], dtype=np.int))
+        state_terminal = np.array([self.Ny-1, self.Nx-1], dtype=np.int)
+        return np.array_equal(state, state_terminal)
 
     # ========================
     # Action utilities

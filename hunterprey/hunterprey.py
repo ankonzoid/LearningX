@@ -24,9 +24,9 @@ def main():
     # =========================
     # Settings
     # =========================
-    N_episodes = 100000
+    N_episodes = 10000
     agent_hunter_info = {"name": "hunter", "epsilon": 0.5}
-    agent_prey_info = {"name": "prey", "epsilon": 1.0}
+    agent_prey_info = {"name": "prey", "epsilon": 0.5}
     env_info = {"Ny": 7, "Nx": 7}
     brain_hunter_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
     brain_prey_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
@@ -54,9 +54,9 @@ def main():
         memory_prey.reset_episode_counters()  # reset episodic counters
 
         state_hunter = env.starting_state()  # starting hunter state
-        state_prey = env.random_state()  # starting prey state
+        state_prey = env.starting_state()  # starting prey state
 
-        while not env.is_terminal(state_hunter):
+        while not env.is_terminal(state_hunter):  # NOTE: terminates when hunter reaches terminal state (not prey)
             # Get action from policy
             action_hunter = agent_hunter.get_action(state_hunter, brain_hunter, env)  # get action from policy
             action_prey = agent_prey.get_action(state_prey, brain_prey, env)  # get action from policy
