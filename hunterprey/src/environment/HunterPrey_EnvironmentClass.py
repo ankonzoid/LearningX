@@ -24,6 +24,9 @@ class Environment:
         self.action_dim = (self.N_actions,) * self.N_agents
         self.state_action_dim = self.state_dim + self.action_dim
 
+        # Terminal state
+        self.state_terminal = np.array([self.Ny-1, self.Nx-1], dtype=np.int)
+
         # Rewards
         self.reward = self.define_rewards()
 
@@ -34,12 +37,24 @@ class Environment:
     # ========================
     # Rewards
     # ========================
+    def _find_sa_to_terminal(self):
+        state_terminal = self.state_terminal
+        sa_candidate_list = []
+        for action in range(self.N_actions):
+            state_candidate = np.array(state_terminal, dtype=np.int) - self.action_coords[action]
+            if self.is_allowed_state(state_candidate):
+                sa = tuple(state_candidate) + (action,)
+                sa_candidate_list.append(sa)
+        return sa_candidate_list
+
     def define_rewards(self):
         R_goal = 100  # reward for arriving at a goal state
         R_nongoal = -0.1  # reward for arriving at a non-goal state
         reward = R_nongoal * np.ones(self.state_action_dim, dtype=np.float)
-        reward[self.Ny-2, self.Nx-1, self.action_dict["down"]] = R_goal
-        reward[self.Ny-1, self.Nx-2, self.action_dict["right"]] = R_goal
+        # Set R_goal for all (s,a) that lead to terminal state
+        sa_to_goal_list = self._find_sa_to_terminal()
+        for sa in sa_to_goal_list:
+            reward[sa] = R_goal
         return reward
 
     def get_reward(self, state, action):
@@ -60,6 +75,14 @@ class Environment:
         actions = np.array(actions, dtype=np.int)
         return actions
 
+    def is_allowed_state(self, state):
+        y = state[0]
+        x = state[1]
+        if (y >= 0) and (y < self.Ny) and (x >= 0) and (x < self.Nx):
+            return True
+        else:
+            return False
+
     # ========================
     # Environment Details
     # ========================
@@ -74,8 +97,7 @@ class Environment:
         return state_random
 
     def is_terminal(self, state):
-        state_terminal = np.array([self.Ny-1, self.Nx-1], dtype=np.int)
-        return np.array_equal(state, state_terminal)
+        return np.array_equal(state, self.state_terminal)
 
     # ========================
     # Action utilities

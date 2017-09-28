@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld/src/environment/GridWorld_EnvironmentClass.py" afterPath="$PROJECT_DIR$/gridworld/src/environment/GridWorld_EnvironmentClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/hunterprey.py" afterPath="$PROJECT_DIR$/hunterprey/hunterprey.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py" afterPath="$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py" />
     </list>
@@ -20,18 +19,28 @@
       <file leaf-file-name="hunterprey.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunterprey/hunterprey.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="460">
+              <caret line="42" column="27" lean-forward="true" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gridworld.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
+      <file leaf-file-name="HunterPrey_EnvironmentClass.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="76" column="45" lean-forward="true" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+            <state relative-caret-position="315">
+              <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SampleAveraging_BrainClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hunterprey/src/brain/SampleAveraging_BrainClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,11 +121,11 @@
         <option value="$PROJECT_DIR$/grid2D_playground/gridworld.py" />
         <option value="$PROJECT_DIR$/gridworld/gridworld.py" />
         <option value="$PROJECT_DIR$/gridworld/README.md" />
-        <option value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
-        <option value="$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py" />
         <option value="$PROJECT_DIR$/gridworld/src/memory/MemoryClass.py" />
-        <option value="$PROJECT_DIR$/hunterprey/src/memory/MemoryClass.py" />
         <option value="$PROJECT_DIR$/gridworld/src/environment/GridWorld_EnvironmentClass.py" />
+        <option value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
+        <option value="$PROJECT_DIR$/hunterprey/src/memory/MemoryClass.py" />
+        <option value="$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py" />
       </list>
     </option>
   </component>
@@ -226,24 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gridworld">
-    <configuration name="gridworld" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gridworld" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gridworld/gridworld.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.hunterprey">
     <configuration name="hunterprey" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -261,14 +253,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.hunterprey" />
-      <item index="1" class="java.lang.String" itemvalue="Python.gridworld" />
-    </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.gridworld" />
-        <item index="1" class="java.lang.String" itemvalue="Python.hunterprey" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.hunterprey" />
       </list>
     </recent_temporary>
   </component>
@@ -542,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506613542956</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="update">
+      <created>1506624367470</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1506624367470</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -744,14 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hunterprey/src/brain/SampleAveraging_BrainClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hunterprey/src/agent/EpsilonGreedy_AgentClass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -784,22 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hunterprey/hunterprey.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gridworld/src/environment/GridWorld_EnvironmentClass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -816,18 +786,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hunterprey/src/memory/MemoryClass.py">
+    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="407">
+          <caret line="92" column="64" lean-forward="true" selection-start-line="92" selection-start-column="64" selection-end-line="92" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
+    <entry file="file://$PROJECT_DIR$/hunterprey/hunterprey.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="76" column="45" lean-forward="true" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+        <state relative-caret-position="460">
+          <caret line="42" column="27" lean-forward="true" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hunterprey/src/memory/MemoryClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hunterprey/src/brain/SampleAveraging_BrainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
           <folding />
         </state>
       </provider>

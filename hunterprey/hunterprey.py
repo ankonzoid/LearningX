@@ -21,98 +21,65 @@ from MemoryClass import Memory
 import utils
 
 def main():
-
-    if 0:
-        A = np.zeros(2)
-        N_agents = 1
-        state_space = (7,7) * N_agents
-        action_space = (4,) * N_agents
-        state_action_space = state_space + action_space
-        print(state_action_space)
-        exit()
-
     # =========================
     # Settings
     # =========================
     N_episodes = 10000
-    agent_hunter_info = {"name": "hunter", "epsilon": 0.5}
-    agent_prey_info = {"name": "prey", "epsilon": 0.5}
+    agent_info = {"name": "hunter", "epsilon": 0.5}
     env_info = {"N_agents": 1, "Ny": 7, "Nx": 7}
-    brain_hunter_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
-    brain_prey_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
+    brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
 
     # =========================
     # Set up environment, agent, memory and brain
     # =========================
-    agent_hunter = Agent(agent_hunter_info)
-    agent_prey = Agent(agent_prey_info)
+    agent = Agent(agent_info)
     env = Environment(env_info)
-    brain_hunter = Brain(env, brain_hunter_info)
-    brain_prey = Brain(env, brain_prey_info)
-    memory_hunter = Memory(env)
-    memory_prey = Memory(env)
+    brain = Brain(env, brain_info)
+    memory = Memory(env)
 
     # =========================
     # Train agent
     # =========================
-    print("\nTraining '{}' agent to hunt '{}' agent on '{}' environment for {} episodes (hunter_epsilon = {}, prey_epsilon = {})...\n".format(agent_hunter.name, agent_prey.name, env.name, N_episodes, agent_hunter.epsilon, agent_prey.epsilon))
+    print("\nTraining '{}' agent on '{}' environment for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes, agent.epsilon))
 
-    memory_hunter.reset_run_counters()  # reset run counters once only
-    memory_prey.reset_run_counters()  # reset run counters once only
+    memory.reset_run_counters()  # reset run counters once only
     for episode in range(N_episodes):
-        memory_hunter.reset_episode_counters()  # reset episodic counters
-        memory_prey.reset_episode_counters()  # reset episodic counters
+        memory.reset_episode_counters()  # reset episodic counters
 
-        state_hunter = env.starting_state()  # starting hunter state
-        state_prey = env.starting_state()  # starting prey state
+        state = env.starting_state()  # starting hunter state
 
-        while not env.is_terminal(state_hunter):  # NOTE: terminates when hunter reaches terminal state (not prey)
+        while not env.is_terminal(state):  # NOTE: terminates when hunter reaches terminal state (not prey)
             # Get action from policy
-            action_hunter = agent_hunter.get_action(state_hunter, brain_hunter, env)  # get action from policy
-            action_prey = agent_prey.get_action(state_prey, brain_prey, env)  # get action from policy
+            action = agent.get_action(state, brain, env)  # get action from policy
             # Collect reward from environment
-            reward_hunter = env.get_reward(state_hunter, action_hunter)  # get reward
-            reward_prey = env.get_reward(state_prey, action_prey)  # get reward
+            reward = env.get_reward(state, action)  # get reward
             # Update episode counters
-            memory_hunter.update_episode_counters(state_hunter, action_hunter, reward_hunter)  # update our episodic counters
-            memory_prey.update_episode_counters(state_prey, action_prey, reward_prey)  # update our episodic counters
+            memory.update_episode_counters(state, action, reward)  # update our episodic counters
             # Compute and observe next state
-            state_hunter_next = env.perform_action(state_hunter, action_hunter)
-            state_prey_next = env.perform_action(state_prey, action_prey)
+            state_next = env.perform_action(state, action)
             # Update Q after episode (if needed)
             if "update_Q_during_episode" in utils.method_list(Brain):
-                brain_hunter.update_Q_during_episode(state_hunter, action_hunter, state_hunter_next, reward_hunter)
-                brain_prey.update_Q_during_episode(state_prey, action_prey, state_prey_next, reward_prey)
+                brain.update_Q_during_episode(state, action, state_next, reward)
             # Transition to next state
-            state_hunter = state_hunter_next
-            state_prey = state_prey_next
+            state = state_next
 
         # Update run counters first (before updating Q)
-        memory_hunter.update_run_counters()  # use episode counters to update run counters
-        memory_prey.update_run_counters()  # use episode counters to update run counters
+        memory.update_run_counters()  # use episode counters to update run counters
 
         # Update Q after episode (if needed)
         if "update_Q_after_episode" in utils.method_list(Brain):
-            brain_hunter.update_Q_after_episode(memory_hunter)
-            brain_prey.update_Q_after_episode(memory_prey)
+            brain.update_Q_after_episode(memory)
 
         # Print
         if (episode + 1) % (N_episodes / 20) == 0:
-            print(" hunter: episode = {}/{}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, memory_hunter.R_total_episode, memory_hunter.N_actions_episode))
-            print(" prey: episode = {}/{}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, memory_prey.R_total_episode, memory_prey.N_actions_episode))
+            print(" hunter: episode = {}/{}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode))
 
 
     # =======================
     # Print final policy
     # =======================
     print("\nFinal policy (hunter):\n")
-    print(brain_hunter.compute_policy(env))
-    print("")
-    for (key, val) in sorted(env.action_dict.items(), key=operator.itemgetter(1)):
-        print(" action['{}'] = {}".format(key, val))
-
-    print("\nFinal policy (prey):\n")
-    print(brain_prey.compute_policy(env))
+    print(brain.compute_policy(env))
     print("")
     for (key, val) in sorted(env.action_dict.items(), key=operator.itemgetter(1)):
         print(" action['{}'] = {}".format(key, val))
