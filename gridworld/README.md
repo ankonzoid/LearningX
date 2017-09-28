@@ -1,4 +1,4 @@
-# Training an Agent to beat Grid World (`gridworld.py`)
+# Training an Agent to beat GridWorld (`gridworld.py`)
 
 Given a 2D rectangular grid with opposing corners at (0, 0) and (Ny-1, Nx-1) for Ny, Nx integers, we train an agent standing at (0,0) to find an optimized path to (Ny-1, Nx-1) in the least number of grid steps possible. 
 
