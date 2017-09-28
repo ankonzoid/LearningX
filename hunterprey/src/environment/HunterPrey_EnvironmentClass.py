@@ -25,8 +25,10 @@ class Environment:
         self.state_action_dim = self.state_dim + self.action_dim
 
         # Terminal state
-        self.state_terminal = np.array([self.Ny-1, self.Nx-1], dtype=np.int)
-        #self.state_terminal = np.array([self.Ny-3, self.Nx-3], dtype=np.int)
+        #self.starting_state = np.array([0, 0], dtype=np.int)
+        #self.state_terminal = np.array([self.Ny-1, self.Nx-1], dtype=np.int)
+        self.starting_state = np.array([0, 5], dtype=np.int)
+        self.state_terminal = np.array([self.Ny-2, self.Nx-2], dtype=np.int)
 
         # Rewards
         self.reward = self.define_rewards()
@@ -85,8 +87,8 @@ class Environment:
     # ========================
     # Environment Details
     # ========================
-    def starting_state(self):
-        starting_state = np.array([0, 0], dtype=np.int)
+    def get_starting_state(self):
+        starting_state = self.starting_state
         return starting_state
 
     def random_state(self):

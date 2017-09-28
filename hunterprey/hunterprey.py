@@ -46,7 +46,7 @@ def main():
     for episode in range(N_episodes):
         memory.reset_episode_counters()  # reset episodic counters
 
-        state = env.starting_state()  # starting hunter state
+        state = env.get_starting_state()  # starting hunter state
 
         while not env.is_terminal(state):  # NOTE: terminates when hunter reaches terminal state (not prey)
             # Get action from policy
