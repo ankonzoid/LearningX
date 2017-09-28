@@ -26,6 +26,7 @@ class Environment:
 
         # Terminal state
         self.state_terminal = np.array([self.Ny-1, self.Nx-1], dtype=np.int)
+        #self.state_terminal = np.array([self.Ny-3, self.Nx-3], dtype=np.int)
 
         # Rewards
         self.reward = self.define_rewards()
@@ -91,7 +92,7 @@ class Environment:
     def random_state(self):
         state_random = np.array([random.randint(0, self.Ny-1), random.randint(0, self.Nx-1)], dtype=np.int)
         while self.is_terminal(state_random):
-            state_random = np.array([random.randint(0, self.Ny - 1), random.randint(0, self.Nx - 1)], dtype=np.int)
+            state_random = np.array([random.randint(0, self.Ny-1), random.randint(0, self.Nx-1)], dtype=np.int)
         return state_random
 
     def is_terminal(self, state):
