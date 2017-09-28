@@ -21,13 +21,23 @@ from MemoryClass import Memory
 import utils
 
 def main():
+
+    if 0:
+        A = np.zeros(2)
+        N_agents = 1
+        state_space = (7,7) * N_agents
+        action_space = (4,) * N_agents
+        state_action_space = state_space + action_space
+        print(state_action_space)
+        exit()
+
     # =========================
     # Settings
     # =========================
     N_episodes = 10000
     agent_hunter_info = {"name": "hunter", "epsilon": 0.5}
     agent_prey_info = {"name": "prey", "epsilon": 0.5}
-    env_info = {"Ny": 7, "Nx": 7}
+    env_info = {"N_agents": 1, "Ny": 7, "Nx": 7}
     brain_hunter_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
     brain_prey_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
 

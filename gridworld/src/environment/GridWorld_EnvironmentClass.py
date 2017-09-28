@@ -9,16 +9,18 @@ class Environment:
     def __init__(self, env_info):
         self.name = "GridWorld"
 
-        # State space
+        # Read environment parameters
         self.Ny = env_info["Ny"]  # y-grid size
         self.Nx = env_info["Nx"]  # x-grid size
 
-        # Action space
+        # State and Action space
         self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}
         self.action_coords = np.array([[-1,0], [0,1], [1,0], [0,-1]], dtype=np.int)
         self.N_actions = len(self.action_dict.keys())
-        self.state_action_dim = (self.Ny, self.Nx, self.N_actions)
+
         self.state_dim = (self.Ny, self.Nx)
+        self.action_dim = (self.N_actions,)
+        self.state_action_dim = self.state_dim + self.action_dim
 
         # Rewards
         self.reward = self.define_rewards()
