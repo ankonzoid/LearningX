@@ -26,7 +26,7 @@ def main():
     # =========================
     N_episodes = 100000
     agent_info = {"name": "hunter", "epsilon": 0.5}
-    env_info = {"N_agents": 2, "Ny": 7, "Nx": 7}
+    env_info = {"Ny": 7, "Nx": 7}
     brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
 
     # =========================
@@ -46,22 +46,26 @@ def main():
     for episode in range(N_episodes):
         memory.reset_episode_counters()  # reset episodic counters
 
-        state = env.get_starting_state()  # starting hunter state
+        # state = position of hunter relative to prey
+        # state_global = global position of hunter
+        # -> global position of prey = state_global - state
+        (state, state_global) = env.get_random_state()
 
-        while not env.is_terminal(state):  # NOTE: terminates when hunter reaches terminal state (not prey)
+        while not env.is_terminal(state):  # NOTE: terminates when local prey coordinates hit (0,0)
             # Get action from policy
-            action = agent.get_action(state, brain, env)  # get action from policy
+            action = agent.get_action(state, state_global, brain, env)  # get action from policy
             # Collect reward from environment
             reward = env.get_reward(state, action)  # get reward
             # Update episode counters
             memory.update_episode_counters(state, action, reward)  # update our episodic counters
             # Compute and observe next state
-            state_next = env.perform_action(state, action)
+            (state_next, state_global_next) = env.perform_action(state, state_global, action)
             # Update Q after episode (if needed)
             if "update_Q_during_episode" in utils.method_list(Brain):
                 brain.update_Q_during_episode(state, action, state_next, reward)
             # Transition to next state
             state = state_next
+            state_global = state_global_next
 
         # Update run counters first (before updating Q)
         memory.update_run_counters()  # use episode counters to update run counters
