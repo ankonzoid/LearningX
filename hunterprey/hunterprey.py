@@ -24,9 +24,9 @@ def main():
     # =========================
     # Settings
     # =========================
-    N_episodes = 100000
+    N_episodes = 10000
     agent_info = {"name": "hunter", "epsilon": 0.5}
-    env_info = {"Ny": 7, "Nx": 7}
+    env_info = {"Ny": 4, "Nx": 4}
     brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
 
     # =========================
@@ -49,7 +49,15 @@ def main():
         # state = position of hunter relative to prey
         # state_global = global position of hunter
         # -> global position of prey = state_global - state
-        (state, state_global) = env.get_random_state()
+        (state, state_global, state_target_global) = env.get_random_state()
+
+        if 0:
+            print("state (local): {}".format(state))
+            print("state (global): {}".format(state_global))
+            print()
+            print("local hunter grid coord: {} {}".format(env.ygrid[state[0]], env.xgrid[state[1]]))
+            print("global hunter grid coord: {} {}".format(env.ygrid_global[state_global[0]], env.xgrid_global[state_global[1]]))
+            print("global prey grid coord: {} {}".format(env.ygrid_global[state_target_global[0]], env.xgrid_global[state_target_global[1]]))
 
         while not env.is_terminal(state):  # NOTE: terminates when local prey coordinates hit (0,0)
             # Get action from policy
@@ -66,6 +74,8 @@ def main():
             # Transition to next state
             state = state_next
             state_global = state_global_next
+
+        #print("episode {}".format(episode))
 
         # Update run counters first (before updating Q)
         memory.update_run_counters()  # use episode counters to update run counters

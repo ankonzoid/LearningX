@@ -31,8 +31,8 @@ class Environment:
         self.action_dim = (self.N_actions,)
         self.state_action_dim = self.state_dim + self.action_dim
 
-        # Terminal state  (local)
-        self.state_terminal = np.array([0, 0], dtype=np.int)  # relative to global terminal state
+        # Terminal state (local)
+        self.state_terminal = np.array([self.Ny_global-1, self.Nx_global-1], dtype=np.int)  # local grid coord [0,0]
 
         # Rewards
         self.reward = self.define_rewards()
@@ -80,10 +80,6 @@ class Environment:
         actions = []
         for action in range(self.N_actions):
             (state_query, state_global_query) = self.perform_action(state, state_global, action)
-            print("Ny_global = {}, Nx_global = {}, Ny = {}, Nx = {}".format(
-                self.Ny_global, self.Nx_global, self.Ny, self.Nx))
-            print("query = {}, query_global = {} ".format(state_query, state_global_query))
-
             if self.is_allowed_state(state_query, state_global_query):
                 actions.append(action)
         actions = np.array(actions, dtype=np.int)
@@ -94,25 +90,12 @@ class Environment:
     def is_allowed_state(self, state, state_global):  # does not use state (but should include it)
         Ny_global = self.Ny_global
         Nx_global = self.Nx_global
-
-        ygrid_global = self.ygrid_global
-        xgrid_global = self.xgrid_global
-        ygrid = self.ygrid
-        xgrid = self.xgrid
-
-        print(ygrid_global)
-        print(xgrid_global)
-        print(state_global)
-
-        y_coord_global = ygrid_global[state_global[0]]
-        x_coord_global = xgrid_global[state_global[1]]
-        y_coord = ygrid[state[0]]
-        x_coord = xgrid[state[1]]
-
-        if (y_coord_global >= 0) and (y_coord_global < Ny_global) and \
-           (x_coord_global >= 0) and (x_coord_global < Nx_global) and \
-           (y_coord >= -Ny_global) and (y_coord <= Ny_global) and \
-           (x_coord >= -Nx_global) and (x_coord <= Nx_global):
+        Ny = self.Ny
+        Nx = self.Nx
+        if (state_global[0] >= 0) and (state_global[0] < Ny_global) and \
+           (state_global[1] >= 0) and (state_global[1] < Nx_global) and \
+           (state[0] >= -Ny) and (state[0] <= Ny) and \
+           (state[1] >= -Nx) and (state[1] <= Nx):
             return True
         else:
             return False
@@ -137,8 +120,6 @@ class Environment:
         state_global = random_state_global()
         state_target_global = random_state_global_prey(state_global)
 
-
-
         y_coord_state_global = self.ygrid_global[state_global[0]]
         x_coord_state_global = self.xgrid_global[state_global[1]]
         y_coord_state_target_global = self.ygrid_global[state_target_global[0]]
@@ -156,7 +137,7 @@ class Environment:
             raise IOError("state_x is not in proper range")
         state = np.array([state_y, state_x], dtype=np.int)
 
-        return (state, state_global)
+        return (state, state_global, state_target_global)
 
     def is_terminal(self, state):
         return np.array_equal(state, self.state_terminal)
@@ -166,5 +147,5 @@ class Environment:
     # ========================
     def perform_action(self, state, state_global, action):
         state_next = np.add(state, self.action_coords[action])
-        state_next_global = np.add(state, self.action_coords[action])
+        state_next_global = np.add(state_global, self.action_coords[action])
         return (state_next, state_next_global)
