@@ -16,8 +16,8 @@ class Environment:
         self.N_agents = env_info["N_agents"]
 
         # State and Action space
-        self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}
-        self.action_coords = np.array([[-1,0], [0,1], [1,0], [0,-1]], dtype=np.int)
+        self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3, "nothing": 4}
+        self.action_coords = np.array([[-1,0], [0,1], [1,0], [0,-1], [0,0]], dtype=np.int)
         self.N_actions = len(self.action_dict.keys())
 
         self.state_dim = (self.Ny, self.Nx) * self.N_agents

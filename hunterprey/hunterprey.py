@@ -26,7 +26,7 @@ def main():
     # =========================
     N_episodes = 100000
     agent_info = {"name": "hunter", "epsilon": 0.5}
-    env_info = {"N_agents": 1, "Ny": 7, "Nx": 7}
+    env_info = {"N_agents": 2, "Ny": 7, "Nx": 7}
     brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
 
     # =========================
