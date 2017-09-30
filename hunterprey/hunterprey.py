@@ -24,7 +24,8 @@ def main():
     # =========================
     # Settings
     # =========================
-    N_episodes = 1000000
+    N_episodes = 10000
+    N_episodes_test = 20
     agent_info = {"name": "hunter", "epsilon": 0.5}
     env_info = {"Ny_global": 7, "Nx_global": 7}
     brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
@@ -43,18 +44,22 @@ def main():
     print("\nTraining '{}' agent on '{}' environment for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes, agent.epsilon))
 
     memory.reset_run_counters()  # reset run counters once only
-    for episode in range(N_episodes):
+    for episode in range(N_episodes + N_episodes_test):
+        if episode >= N_episodes:
+            agent.epsilon = 0  # set no exploration for test episodes
         memory.reset_episode_counters()  # reset episodic counters
 
         # state = position of hunter relative to prey (want to get to [0,0])
         # state_global = global position of hunter
         # state_target_global = global position of prey
-        (state, state_global, state_target_global) = env.get_random_state()
+        if episode == 0:
+            (state, state_global, state_target_global) = env.get_random_state()
+        else:
+            (state, state_global, state_target_global) = env.get_random_state(set_state_global=state_global)
         env.set_state_terminal_global(state_target_global)
-        state_start_global = state_global
 
         state_global_history = [state_global]
-        while not env.is_terminal(state):  # NOTE: terminates when local prey coordinates hit (0,0)
+        while not env.is_terminal(state):  # NOTE: terminates when hunter hits local coordinates of (0,0)
             # Get action from policy
             action = agent.get_action(state, brain, env)  # get action from policy
             # Collect reward from environment
@@ -80,29 +85,26 @@ def main():
             brain.update_Q_after_episode(memory)
 
         # Print
-        if (episode + 1) % (N_episodes / 20) == 0:
-            n_optimal = np.abs(env.ygrid_global[state_start_global[0]] - env.ygrid_global[state_target_global[0]]) + np.abs(env.xgrid_global[state_start_global[1]] - env.xgrid_global[state_target_global[1]])
+        if (episode + 1) % (N_episodes / 20) == 0 or (episode >= N_episodes):
+            n_optimal = np.abs(env.ygrid_global[state_global_history[0][0]] - env.ygrid_global[state_target_global[0]]) + np.abs(env.xgrid_global[state_global_history[0][1]] - env.xgrid_global[state_target_global[1]])
 
-            print(" [train episode = {}/{}] total reward = {:.1F}, n_actions = {}, n_optimal = {}".format(episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode, n_optimal))
-            print(" grid goal: [{},{}] -> [{},{}]".format(env.ygrid_global[state_start_global[0]], env.xgrid_global[state_start_global[1]], env.ygrid_global[state_target_global[0]], env.xgrid_global[state_target_global[1]]))
-            grid_path_str = " grid path: "
-            for i, s in enumerate(state_global_history):
-                grid_path_str += "[{},{}]".format(env.ygrid_global[s[0]], env.xgrid_global[s[1]])
-                if i < len(state_global_history) - 1:
-                    grid_path_str += " -> "
-            print("{}\n".format(grid_path_str))
+            mode = "train" if(episode < N_episodes) else "test"
+            if mode == "train":
+
+                print(" [{} episode = {}/{}] epsilon = {}, total reward = {:.1F}, n_actions = {}, n_optimal = {}".format(mode, episode + 1, N_episodes + N_episodes_test, agent.epsilon, memory.R_total_episode, memory.N_actions_episode, n_optimal))
+
+            if mode == "test":
+                print("")
+                print(" [{} episode = {}/{}] epsilon = {}, total reward = {:.1F}, n_actions = {}, n_optimal = {}".format(mode, episode + 1, N_episodes + N_episodes_test, agent.epsilon, memory.R_total_episode, memory.N_actions_episode, n_optimal))
+                print("  grid goal: [{},{}] -> [{},{}]".format(env.ygrid_global[state_global_history[0][0]], env.xgrid_global[state_global_history[0][1]], env.ygrid_global[state_target_global[0]], env.xgrid_global[state_target_global[1]]))
+                grid_path_str = "  grid path: "
+                for i, s in enumerate(state_global_history):
+                    grid_path_str += "[{},{}]".format(env.ygrid_global[s[0]], env.xgrid_global[s[1]])
+                    if i < len(state_global_history) - 1:
+                        grid_path_str += " -> "
+                print("{}".format(grid_path_str))
 
 
-    # Test our policy
-
-    # =======================
-    # Print final policy
-    # =======================
-    #print("\nFinal policy (hunter):\n")
-    #print(brain.compute_policy(env))
-    #print("")
-    #for (key, val) in sorted(env.action_dict.items(), key=operator.itemgetter(1)):
-    #    print(" action['{}'] = {}".format(key, val))
 
 
 # Driver

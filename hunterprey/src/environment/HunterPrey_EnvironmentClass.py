@@ -115,7 +115,7 @@ class Environment:
     def set_state_terminal_global(self, state_terminal_global):
         self.state_terminal_global = state_terminal_global
 
-    def get_random_state(self):
+    def get_random_state(self, set_state_global=None):
 
         def random_state_global():
             state_random_global = np.array([random.randint(0, self.Ny_global-1),
@@ -129,7 +129,10 @@ class Environment:
             return state_target_random_global
 
         # Choose random state and target state, the compute relative state
-        state_global = random_state_global()
+        if set_state_global is None:
+            state_global = random_state_global()
+        else:
+            state_global = set_state_global
         state_target_global = random_state_global_prey(state_global)
 
         dy = state_global[0] - state_target_global[0]
