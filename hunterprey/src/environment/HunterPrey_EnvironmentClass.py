@@ -11,8 +11,8 @@ class Environment:
         self.name = "HunterPrey"
 
         # Read environment info
-        self.Ny_global = env_info["Ny_global"]  # global y-grid size
-        self.Nx_global = env_info["Nx_global"]  # global x-grid size
+        self.Ny_global = env_info["N_global"]  # global y-grid size
+        self.Nx_global = env_info["N_global"]  # global x-grid size
         self.Ny = 2*self.Ny_global - 1 # relative y-grid size
         self.Nx = 2*self.Nx_global - 1 # relative x-grid size
 
