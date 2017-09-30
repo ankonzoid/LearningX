@@ -46,28 +46,30 @@ def main():
     for episode in range(N_episodes):
         memory.reset_episode_counters()  # reset episodic counters
 
-        # state = position of hunter relative to prey
+        # state = position of hunter relative to prey (want to get to [0,0])
         # state_global = global position of hunter
-        # -> global position of prey = state_global - state
+        # state_target_global = global position of prey
         (state, state_global, state_target_global) = env.get_random_state()
+        env.set_state_terminal_global(state_target_global)
 
         if 0:
             print("state (local): {}".format(state))
-            print("state (global): {}".format(state_global))
+            print("state hunter (global): {}".format(state_global))
+            print("state prey (global): {}".format(state_target_global))
             print()
-            print("local hunter grid coord: {} {}".format(env.ygrid[state[0]], env.xgrid[state[1]]))
-            print("global hunter grid coord: {} {}".format(env.ygrid_global[state_global[0]], env.xgrid_global[state_global[1]]))
-            print("global prey grid coord: {} {}".format(env.ygrid_global[state_target_global[0]], env.xgrid_global[state_target_global[1]]))
+            print("hunter grid coord: {} {}".format(env.ygrid[state[0]], env.xgrid[state[1]]))
+            exit()
 
         while not env.is_terminal(state):  # NOTE: terminates when local prey coordinates hit (0,0)
             # Get action from policy
-            action = agent.get_action(state, state_global, brain, env)  # get action from policy
+            action = agent.get_action(state, brain, env)  # get action from policy
             # Collect reward from environment
             reward = env.get_reward(state, action)  # get reward
             # Update episode counters
             memory.update_episode_counters(state, action, reward)  # update our episodic counters
             # Compute and observe next state
-            (state_next, state_global_next) = env.perform_action(state, state_global, action)
+            state_next = env.perform_action(state, action)
+            state_global_next = env.perform_action_global(state_global, action)
             # Update Q after episode (if needed)
             if "update_Q_during_episode" in utils.method_list(Brain):
                 brain.update_Q_during_episode(state, action, state_next, reward)

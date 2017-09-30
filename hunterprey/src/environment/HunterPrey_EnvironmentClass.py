@@ -33,6 +33,7 @@ class Environment:
 
         # Terminal state (local)
         self.state_terminal = np.array([self.Ny_global-1, self.Nx_global-1], dtype=np.int)  # local grid coord [0,0]
+        self.state_terminal_global = None
 
         # Rewards
         self.reward = self.define_rewards()
@@ -41,31 +42,39 @@ class Environment:
         if (len(self.ygrid_global) != self.Ny_global) or (len(self.xgrid_global) != self.Nx_global) or \
             (len(self.ygrid) != self.Ny) or (len(self.ygrid) != self.Ny):
             raise IOError("Error: Inconsistent grid given!")
+
         if self.N_actions != len(self.action_coords):
             raise IOError("Error: Inconsistent actions given!")
+
+        if self.ygrid[self.state_terminal[0]]!=0 or self.xgrid[self.state_terminal[1]]!=0:
+            raise IOError("Error: Unexpected terminal state")
 
 
     # ========================
     # Rewards
     # ========================
-    def _find_sa_to_terminal(self):
-        state_terminal = self.state_terminal
-        sa_candidate_list = []
-        for action in range(self.N_actions):
-            state_candidate = np.array(state_terminal, dtype=np.int) - self.action_coords[action]
-            state_candidate_global = np.array(state_terminal, dtype=np.int) - self.action_coords[action]
-            if self.is_allowed_state(state_candidate, state_candidate_global):
-                sa = tuple(state_candidate) + (action,)
-                sa_candidate_list.append(sa)
-        return sa_candidate_list
 
     def define_rewards(self):
+
+        def find_sa_to_terminal(env):
+            state_terminal = env.state_terminal
+            sa_candidate_list = []
+            #for action in range(env.N_actions):
+            #    state_candidate = np.array(state_terminal, dtype=np.int) - env.action_coords[action]
+            #    if env.is_allowed_state(state_candidate):
+            #        sa = tuple(state_candidate) + (action,)
+            #        sa_candidate_list.append(sa)
+            for action in range(env.N_actions):
+                state_candidate = np.array(state_terminal, dtype=np.int) - env.action_coords[action]
+                sa = tuple(state_candidate) + (action,)
+                sa_candidate_list.append(sa)
+            return sa_candidate_list
+
         R_goal = 100  # reward for arriving at a goal state
         R_nongoal = -0.1  # reward for arriving at a non-goal state
         reward = R_nongoal * np.ones(self.state_action_dim, dtype=np.float)
         # Set R_goal for all (s,a) that lead to terminal state
-        sa_to_goal_list = self._find_sa_to_terminal()
-        for sa in sa_to_goal_list:
+        for sa in find_sa_to_terminal(self):
             reward[sa] = R_goal
         return reward
 
@@ -76,26 +85,32 @@ class Environment:
     # ========================
     # Action restrictions
     # ========================
-    def allowed_actions(self, state, state_global):
+    def allowed_actions(self, state):
         actions = []
         for action in range(self.N_actions):
-            (state_query, state_global_query) = self.perform_action(state, state_global, action)
-            if self.is_allowed_state(state_query, state_global_query):
+            state_query = self.perform_action(state, action)
+            if self.is_allowed_state(state_query):
                 actions.append(action)
         actions = np.array(actions, dtype=np.int)
         if len(actions) == 0:
             raise IOError("Error: agent is in a state where no actions are allowed")
         return actions
 
-    def is_allowed_state(self, state, state_global):  # does not use state (but should include it)
-        Ny_global = self.Ny_global
-        Nx_global = self.Nx_global
-        Ny = self.Ny
-        Nx = self.Nx
-        if (state_global[0] >= 0) and (state_global[0] < Ny_global) and \
-           (state_global[1] >= 0) and (state_global[1] < Nx_global) and \
-           (state[0] >= -Ny) and (state[0] <= Ny) and \
-           (state[1] >= -Nx) and (state[1] <= Nx):
+    def is_allowed_state(self, state):  # does not use state (but should include it)
+
+        state_y_range = np.array(
+            [- self.state_terminal_global[0],
+             - self.state_terminal_global[0] + (self.Ny_global - 1)], dtype=np.int)
+        state_y_range += (self.Ny_global - 1)
+        state_x_range = np.array(
+            [- self.state_terminal_global[1],
+             - self.state_terminal_global[1] + (self.Nx_global - 1)], dtype=np.int)
+        state_x_range += (self.Nx_global - 1)
+
+        #print("{}: yrange={} xrange={}".format(state, state_y_range, state_x_range))
+
+        if (state[0] >= state_y_range[0]) and (state[0] <= state_y_range[1]) and \
+            (state[1] >= state_x_range[0]) and (state[1] <= state_x_range[1]):
             return True
         else:
             return False
@@ -103,6 +118,10 @@ class Environment:
     # ========================
     # Environment Details
     # ========================
+
+    def set_state_terminal_global(self, state_terminal_global):
+        self.state_terminal_global = state_terminal_global
+
     def get_random_state(self):
 
         def random_state_global():
@@ -120,13 +139,8 @@ class Environment:
         state_global = random_state_global()
         state_target_global = random_state_global_prey(state_global)
 
-        y_coord_state_global = self.ygrid_global[state_global[0]]
-        x_coord_state_global = self.xgrid_global[state_global[1]]
-        y_coord_state_target_global = self.ygrid_global[state_target_global[0]]
-        x_coord_state_target_global = self.xgrid_global[state_target_global[1]]
-
-        dy = y_coord_state_global - y_coord_state_target_global  # hunter grid state y-coord relative to prey
-        dx = x_coord_state_global - x_coord_state_target_global  # hunter grid state x-coord relative to prey
+        dy = state_global[0] - state_target_global[0]
+        dx = state_global[1] - state_target_global[1]
 
         # Retrieve state based on this grid state
         state_y = dy + (self.Ny_global-1)
@@ -145,7 +159,10 @@ class Environment:
     # ========================
     # Action utilities
     # ========================
-    def perform_action(self, state, state_global, action):
+    def perform_action(self, state, action):
         state_next = np.add(state, self.action_coords[action])
+        return state_next
+
+    def perform_action_global(self, state_global, action):
         state_next_global = np.add(state_global, self.action_coords[action])
-        return (state_next, state_next_global)
+        return state_next_global
