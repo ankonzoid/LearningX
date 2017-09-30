@@ -30,7 +30,7 @@ def main():
     make_animation = True
     video_file = "results/hunterprey.mp4"
     N_episodes = 100000
-    N_episodes_test = 10
+    N_episodes_test = 30
     agent_info = {"name": "hunter", "epsilon": 0.5}
     env_info = {"N_global": 7}
     brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
@@ -53,7 +53,7 @@ def main():
     state_target_global_history_video = []
     for episode in range(N_episodes + N_episodes_test):
         import numpy as np
-        if episode >= N_episodes:
+        if (episode >= N_episodes):
             agent.epsilon = 0  # set no exploration for test episodes
         memory.reset_episode_counters()  # reset episodic counters
 
@@ -67,6 +67,7 @@ def main():
         env.set_state_terminal_global(state_target_global)
 
         state_global_history = [state_global]
+        n_iter_episode = 0
         while not env.is_terminal(state):  # NOTE: terminates when hunter hits local coordinates of (0,0)
             # Get action from policy
             action = agent.get_action(state, brain, env)  # get action from policy
@@ -85,6 +86,11 @@ def main():
             state_global = state_global_next
             # Track states for video
             state_global_history.append(state_global)
+            # Exit program if testing fails (bad policy)
+            n_iter_episode += 1
+            if (episode >= N_episodes) and (n_iter_episode > 2000):
+                raise IOError("Bad policy found! Non-terminal episode!")
+
         # Append for video output
         if episode >= N_episodes:
             state_global_history_video.append(state_global_history)
@@ -124,7 +130,7 @@ def main():
     # Make animation
     # =====================
     if make_animation:
-        print("Saving file to '{}'...".format(video_file))
+        print("\nSaving file to '{}'...".format(video_file))
         plot_hunter_prey(state_global_history_video,
                          state_target_global_history_video,
                          env, video_file=video_file)
@@ -175,8 +181,8 @@ def plot_hunter_prey(state_global_history_video,
         # Draw
         plt.draw()
 
-    anim = animation.FuncAnimation(fig, updatefig, len(state_global_history_video_flat))
-    anim.save(video_file, fps=1)
+    anim = animation.FuncAnimation(fig, updatefig, len(state_global_history_video_flat), interval=2000)
+    anim.save(video_file, fps=10)
 
 # Driver
 if __name__ == '__main__':
