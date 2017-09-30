@@ -11,8 +11,8 @@ class Environment:
         self.name = "HunterPrey"
 
         # Read environment info
-        self.Ny_global = env_info["Ny"]  # global y-grid size
-        self.Nx_global = env_info["Nx"]  # global x-grid size
+        self.Ny_global = env_info["Ny_global"]  # global y-grid size
+        self.Nx_global = env_info["Nx_global"]  # global x-grid size
         self.Ny = 2*self.Ny_global - 1 # relative y-grid size
         self.Nx = 2*self.Nx_global - 1 # relative x-grid size
 
@@ -59,11 +59,6 @@ class Environment:
         def find_sa_to_terminal(env):
             state_terminal = env.state_terminal
             sa_candidate_list = []
-            #for action in range(env.N_actions):
-            #    state_candidate = np.array(state_terminal, dtype=np.int) - env.action_coords[action]
-            #    if env.is_allowed_state(state_candidate):
-            #        sa = tuple(state_candidate) + (action,)
-            #        sa_candidate_list.append(sa)
             for action in range(env.N_actions):
                 state_candidate = np.array(state_terminal, dtype=np.int) - env.action_coords[action]
                 sa = tuple(state_candidate) + (action,)
@@ -98,16 +93,14 @@ class Environment:
 
     def is_allowed_state(self, state):  # does not use state (but should include it)
 
-        state_y_range = np.array(
+        grid_y_range = np.array(
             [- self.state_terminal_global[0],
              - self.state_terminal_global[0] + (self.Ny_global - 1)], dtype=np.int)
-        state_y_range += (self.Ny_global - 1)
-        state_x_range = np.array(
+        state_y_range = grid_y_range + (self.Ny_global - 1)
+        grid_x_range = np.array(
             [- self.state_terminal_global[1],
              - self.state_terminal_global[1] + (self.Nx_global - 1)], dtype=np.int)
-        state_x_range += (self.Nx_global - 1)
-
-        #print("{}: yrange={} xrange={}".format(state, state_y_range, state_x_range))
+        state_x_range = grid_x_range + (self.Nx_global - 1)
 
         if (state[0] >= state_y_range[0]) and (state[0] <= state_y_range[1]) and \
             (state[1] >= state_x_range[0]) and (state[1] <= state_x_range[1]):
