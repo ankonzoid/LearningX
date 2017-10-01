@@ -21,19 +21,20 @@ from HunterPrey_EnvironmentClass import Environment
 from MemoryClass import Memory
 import utils
 
-
-
 def main():
     # =========================
     # Settings
     # =========================
-    make_animation = True
-    video_file = "results/hunterprey.mp4"
-    N_episodes = 100000
+    N_episodes_train = 100000
     N_episodes_test = 30
     agent_info = {"name": "hunter", "epsilon": 0.5}
     env_info = {"N_global": 7}
     brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
+
+    save_video = True
+    video_file = "results/hunterprey.mp4"
+    convert_mp4_to_gif = True
+    gif_file = "results/hunterprey.gif"
 
     # =========================
     # Set up environment, agent, memory and brain
@@ -46,14 +47,14 @@ def main():
     # =========================
     # Train agent
     # =========================
-    print("\nTraining '{}' agent on '{}' environment for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes, agent.epsilon))
+    print("\nTraining '{}' agent on '{}' environment for {} episodes, testing for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes_train, N_episodes_test, agent.epsilon))
 
     memory.reset_run_counters()  # reset run counters once only
     state_global_history_video = []
     state_target_global_history_video = []
-    for episode in range(N_episodes + N_episodes_test):
+    for episode in range(N_episodes_train + N_episodes_test):
         import numpy as np
-        if (episode >= N_episodes):
+        if (episode >= N_episodes_train):
             agent.epsilon = 0  # set no exploration for test episodes
         memory.reset_episode_counters()  # reset episodic counters
 
@@ -88,11 +89,11 @@ def main():
             state_global_history.append(state_global)
             # Exit program if testing fails (bad policy)
             n_iter_episode += 1
-            if (episode >= N_episodes) and (n_iter_episode > 2000):
+            if (episode >= N_episodes_train) and (n_iter_episode > 2000):
                 raise IOError("Bad policy found! Non-terminal episode!")
 
         # Append for video output
-        if episode >= N_episodes:
+        if episode >= N_episodes_train:
             state_global_history_video.append(state_global_history)
             state_target_global_history_video.append([state_target_global] * len(state_global_history))
 
@@ -104,36 +105,29 @@ def main():
             brain.update_Q_after_episode(memory)
 
         # Give output to user on occasion
-        if (episode + 1) % (N_episodes / 20) == 0 or (episode >= N_episodes):
+        if (episode + 1) % (N_episodes_train / 20) == 0 or (episode >= N_episodes_train):
             n_optimal = np.abs(env.ygrid_global[state_global_history[0][0]] - env.ygrid_global[state_target_global[0]]) + np.abs(env.xgrid_global[state_global_history[0][1]] - env.xgrid_global[state_target_global[1]])
 
             # =====================
             # Print text
             # =====================
-            if (episode < N_episodes):
-
-                print(" [train episode = {}/{}] epsilon = {}, total reward = {:.1F}, n_actions = {}, n_optimal = {}, grid goal: [{},{}] -> [{},{}]".format(episode + 1, N_episodes + N_episodes_test, agent.epsilon, memory.R_total_episode, memory.N_actions_episode, n_optimal, env.ygrid_global[state_global_history[0][0]], env.xgrid_global[state_global_history[0][1]], env.ygrid_global[state_target_global[0]], env.xgrid_global[state_target_global[1]]))
-
-            else:
-
-                print("")
-                print(" [test episode = {}/{}] epsilon = {}, total reward = {:.1F}, n_actions = {}, n_optimal = {}".format(episode + 1, N_episodes + N_episodes_test, agent.epsilon, memory.R_total_episode, memory.N_actions_episode, n_optimal))
-                print("  grid goal: [{},{}] -> [{},{}]".format(env.ygrid_global[state_global_history[0][0]], env.xgrid_global[state_global_history[0][1]], env.ygrid_global[state_target_global[0]], env.xgrid_global[state_target_global[1]]))
-                grid_path_str = "  grid path: "
-                for i, s in enumerate(state_global_history):
-                    grid_path_str += "[{},{}]".format(env.ygrid_global[s[0]], env.xgrid_global[s[1]])
-                    if i < len(state_global_history) - 1:
-                        grid_path_str += " -> "
-                print("{}".format(grid_path_str))
+            mode = "train" if(episode < N_episodes_train) else "test"
+            print(" [{} episode = {}/{}] epsilon = {}, total reward = {:.1F}, n_actions = {}, n_optimal = {}, grid goal: [{},{}] -> [{},{}]".format(mode, episode + 1, N_episodes_train + N_episodes_test, agent.epsilon, memory.R_total_episode, memory.N_actions_episode, n_optimal, env.ygrid_global[state_global_history[0][0]], env.xgrid_global[state_global_history[0][1]], env.ygrid_global[state_target_global[0]], env.xgrid_global[state_target_global[1]]))
 
     # =====================
-    # Make animation
+    # Make video animation
     # =====================
-    if make_animation:
+    if save_video:
         print("\nSaving file to '{}'...".format(video_file))
         plot_hunter_prey(state_global_history_video,
                          state_target_global_history_video,
                          env, video_file=video_file)
+
+        if convert_mp4_to_gif:
+            print("\nConverting '{}' to '{}'...".format(video_file, gif_file))
+            import moviepy.editor as mp
+            clip = mp.VideoFileClip(video_file)
+            clip.write_gif(gif_file)
 
 
 # ===================
@@ -146,12 +140,12 @@ def plot_hunter_prey(state_global_history_video,
     import matplotlib.pyplot as plt
     import numpy as np
 
+    # Flatten
     state_global_history_video_flat = \
         [item for sublist in state_global_history_video for item in sublist]
     state_target_global_history_video_flat = \
         [item for sublist in state_target_global_history_video for item in sublist]
 
-    # fig = plt.figure()
     fig, ax = plt.subplots(1, 1, tight_layout=True)
 
     def updatefig(i):
@@ -181,7 +175,7 @@ def plot_hunter_prey(state_global_history_video,
         # Draw
         plt.draw()
 
-    anim = animation.FuncAnimation(fig, updatefig, len(state_global_history_video_flat), interval=2000)
+    anim = animation.FuncAnimation(fig, updatefig, len(state_global_history_video_flat))
     anim.save(video_file, fps=10)
 
 # Driver
