@@ -1,13 +1,12 @@
 # Grid-based Hunter-Prey agent (`hunterprey.py`)
 
-For a 2D square (N, N) for integer N, we train an agent chase repeatedly spawning prey that spawn  every time it is caught. The agent and learning is similar to what we used in Grid World here: [Training an Agent to beat GridWorld](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/gridworld)
+We train an agent to chase a non-moving prey that spawns repeatedly every time it is caught on a 2D square N x N grid (integer N). 
 
-We use a Monte Carlo on-policy learning algorithm of reward-averaging on an epsilon-greedy agent. *Tabular forms* of the action-value *Q(s,a)*, reward *R(s,a)*, and policy *P(s)* functions are used. The agent is restricted to only actions of displacing itself up/down/left/right by 1 grid square. 
+Our implementation uses an epsilon-greedy agent and a Monte Carlo on-policy reward-averaging learning algorithm, similar to what was done in our previous example of [Training an Agent to beat GridWorld](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/gridworld).
 
 <p align="center">
 <img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/hunterprey/results/hunterprey.gif" width="70%">
 </p>
-
 
 ### Usage:
 
