@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/README.md" afterPath="$PROJECT_DIR$/hunterprey/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -41,21 +42,8 @@
         <entry file="file://$PROJECT_DIR$/hunterprey/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="129">
-                <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="208">
-                <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="142" />
+              <first_editor relative-caret-position="181">
+                <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -114,7 +102,6 @@
       <list>
         <option value="$PROJECT_DIR$/multiarmed_bandit/multiarmed_bandit.py" />
         <option value="$PROJECT_DIR$/gym/gym.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/gym/gym_policygradients.py" />
         <option value="$PROJECT_DIR$/gym/cartpole_keras.py" />
         <option value="$PROJECT_DIR$/gym/pong_keras.py" />
@@ -144,6 +131,7 @@
         <option value="$PROJECT_DIR$/hunterprey/src/agent/EpsilonGreedy_AgentClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/hunterprey/README.md" />
       </list>
     </option>
@@ -1038,13 +1026,6 @@
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
     </task>
-    <task id="LOCAL-00002" summary="update">
-      <created>1505973411282</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1505973411282</updated>
-    </task>
     <task id="LOCAL-00003" summary="update">
       <created>1506241550846</created>
       <option name="number" value="00003" />
@@ -1381,7 +1362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506825391087</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update">
+      <created>1506828806001</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1506828806001</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1645,11 +1633,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="208">
-            <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="142" />
+          <first_editor relative-caret-position="214">
+            <caret line="11" column="111" lean-forward="false" selection-start-line="11" selection-start-column="111" selection-end-line="11" selection-end-column="111" />
             <folding />
           </first_editor>
           <second_editor />
@@ -1659,27 +1655,19 @@
     <entry file="file://$PROJECT_DIR$/gridworld/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="161">
-            <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="4" />
+          <first_editor relative-caret-position="180">
+            <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hunterprey/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="129">
-            <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <first_editor relative-caret-position="181">
+            <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
             <folding />
           </first_editor>
           <second_editor />
