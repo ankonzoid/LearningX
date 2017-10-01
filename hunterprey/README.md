@@ -1,4 +1,4 @@
-# Training a Hunter Agent to capture Prey on 2D grid using relative coordinates (`hunterprey.py`)
+# Solving the Hunter-Prey problem using relative coordinates (`hunterprey.py`)
 
 We train a hunter agent to chase a non-moving prey agent that spawns repeatedly every time it is caught on a 2D square N x N grid (integer N). The hunter has a choice of 4 actions at each time step of moving up / down / left / right by 1 grid square.
 
