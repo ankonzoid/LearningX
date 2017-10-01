@@ -53,7 +53,6 @@ def main():
     state_global_history_video = []
     state_target_global_history_video = []
     for episode in range(N_episodes_train + N_episodes_test):
-        import numpy as np
         if (episode >= N_episodes_train):
             agent.epsilon = 0  # set no exploration for test episodes
         memory.reset_episode_counters()  # reset episodic counters

@@ -8,7 +8,7 @@ Our implementation uses a *single* epsilon-greedy agent and a Monte Carlo on-pol
 <img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/hunterprey/results/hunterprey.gif" width="70%">
 </p>
 
-Although the Hunter-Prey problem seems like we are introducing a second agent or a dynamic environment with time-dependence, it can really can be simplified to a single agent finding its way to the origin (0, 0) in fixed relative grid coordinates of the hunter with respect to the prey. This type of method is used very often in classical 2-body physics problems to make the equations of motion easier to solve by setting the frame of reference to on of the bodies.
+Although the Hunter-Prey problem seems like we are introducing a second agent or creating a dynamic environment, the problem can really be simplified to the case of a single-agent finding its way to the origin (0, 0) in fixed relative grid coordinates of the hunter with respect to the prey. This type of method is used very often in classical 2-body physics problems to make the equations of motion easier to solve by setting the frame of reference to on of the bodies.
 
 As a concrete example of how to set up relative coordinates for a hunter at global coordinates (2,4) and a prey at global coordinates (1,1), all we do in the classical picture is subtract the hunter global coordinates by that of the prey to get (2,4) - (1,1) = (+1,+3) as the single relative positional measure of the hunter with respect to the prey as in relative units. This means that the hunter needs to somehow arrive at (0,0) in relative coordinates to coincide with the prey at the same grid square (also know as the prey capturing the prey!).
 
