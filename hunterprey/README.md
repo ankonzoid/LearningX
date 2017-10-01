@@ -1,8 +1,8 @@
-# Grid-based Hunter-Prey agent (`hunterprey.py`)
+# Training a hunter agent to capture prey using relative coordinates (`hunterprey.py`)
 
 We train a hunter agent to chase a non-moving prey agent that spawns repeatedly every time it is caught on a 2D square N x N grid (integer N). The hunter has a choice of 4 actions at each time step of moving up / down / left / right by 1 grid square.
 
-Our implementation uses an epsilon-greedy agent and a Monte Carlo on-policy reward-averaging learning algorithm, similar to what was done in our previous example of [Training an Agent to beat GridWorld](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/gridworld). 
+Our implementation uses a *single* epsilon-greedy agent and a Monte Carlo on-policy reward-averaging learning algorithm, similar to what was done in our previous example of [Training an Agent to beat GridWorld](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/gridworld). We will explain below why mapping the hunter and prey global coordinates to a single relative coordinate allows us to reduce the problem to one with a *single* agent in a fixed environment of searching for the (0,0) grid square.
 
 <p align="center">
 <img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/hunterprey/results/hunterprey.gif" width="70%">
