@@ -9,7 +9,7 @@ We provide here a set of beginner hands-on Python examples in both Classical & D
 
 * [Training an Agent to beat GridWorld](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld) (`gridworld.py`) 
 
-* [Solving the Hunter-Prey problem using relative coordinates](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/hunterprey) (`hunterprey.py`) 
+* [Solving the Hunter-Prey problem as a single-agent problem using relative coordinates](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/hunterprey) (`hunterprey.py`) 
 
  ## Deep Reinforcement Learning
  
