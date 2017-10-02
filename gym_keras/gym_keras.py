@@ -102,6 +102,8 @@ def main():
 
     plt.imshow(env.grid)
     plt.show()
+    
+    exit()
 
     N_episodes_train = 100
 
