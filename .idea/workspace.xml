@@ -2,36 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym/pong_karpathy.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym_keras/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym_keras/gym_keras.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.episode_batch.0.18865.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.manifest.0.18865.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000027.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000027.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000064.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000064.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000125.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000125.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000216.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000216.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000343.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000343.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000512.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000512.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000729.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000729.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video001000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video001000.mp4" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/CartPole-v0_results.png" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/CartPole-v0_results.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.episode_batch.0.25399.stats.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.episode_batch.0.25399.stats.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.manifest.0.25399.manifest.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.manifest.0.25399.manifest.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000000.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000000.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000000.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000000.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000001.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000001.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000001.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000001.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000008.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000008.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000008.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000008.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000027.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000027.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000027.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000027.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000064.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000064.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000064.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000064.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000125.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000125.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000125.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000125.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000216.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000216.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000216.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000216.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000343.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000343.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.25399.video000343.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000343.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/LunarLander-v2/openaigym.episode_batch.0.25467.stats.json" afterPath="$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.episode_batch.0.25467.stats.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/LunarLander-v2/openaigym.manifest.0.25467.manifest.json" afterPath="$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.manifest.0.25467.manifest.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/LunarLander-v2/openaigym.video.0.25467.video000000.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.video.0.25467.video000000.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/README.md" afterPath="$PROJECT_DIR$/gym_keras/temp/README.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/gym_policygradients.py" afterPath="$PROJECT_DIR$/gym_keras/temp/gym_policygradients.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/pong_karpathy.py" afterPath="$PROJECT_DIR$/gym_keras/temp/pong_karpathy.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/pong_keras.py" afterPath="$PROJECT_DIR$/gym_keras/temp/pong_keras.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/CartPole-v0_results.png" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/CartPole-v0_results.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.episode_batch.0.35170.stats.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.episode_batch.0.35170.stats.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.manifest.0.35170.manifest.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.manifest.0.35170.manifest.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000000.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000000.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000001.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000001.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000008.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000008.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000027.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000027.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000064.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000064.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000125.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000125.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000216.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000216.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000343.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000343.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000512.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000512.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000729.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000729.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video001000.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video001000.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/LunarLander-v2_results.png" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/LunarLander-v2_results.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.episode_batch.0.46265.stats.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.episode_batch.0.46265.stats.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.manifest.0.46265.manifest.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.manifest.0.46265.manifest.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000000.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000000.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000001.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000001.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000008.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000008.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000027.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000027.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000064.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000064.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000125.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000125.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000216.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000216.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000343.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000343.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000512.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000512.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000729.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000729.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.mp4" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video001000.meta.json" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.meta.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video001000.mp4" afterPath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.mp4" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym/gym_policygradients.py" afterPath="$PROJECT_DIR$/gym/gym_policygradients.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym/pong_keras.py" afterPath="$PROJECT_DIR$/gym/pong_keras.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,9 +103,9 @@
         </entry>
       </file>
       <file leaf-file-name="pong_karpathy.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gym/pong_karpathy.py">
+        <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_karpathy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1450">
+            <state relative-caret-position="1412">
               <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
               <folding />
             </state>
@@ -66,10 +113,10 @@
         </entry>
       </file>
       <file leaf-file-name="pong_keras.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gym/pong_keras.py">
+        <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_keras.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-357">
-              <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="23" />
+              <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="23" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -78,10 +125,10 @@
         </entry>
       </file>
       <file leaf-file-name="gym_policygradients.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gym/gym_policygradients.py">
+        <entry file="file://$PROJECT_DIR$/gym_keras/temp/gym_policygradients.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="125">
-              <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="31" />
+              <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -208,11 +255,6 @@
             <path>
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
-              <item name="gym" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
               <item name="gym_keras" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -228,6 +270,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gym_keras/temp" />
       <recent name="$PROJECT_DIR$/gridworld" />
       <recent name="$PROJECT_DIR$/gridworld/src/src_environment" />
       <recent name="$PROJECT_DIR$" />
@@ -282,7 +325,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym/pong_keras.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym_keras/temp/pong_keras.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -308,13 +351,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00017" summary="update">
-      <created>1506417138378</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1506417138379</updated>
     </task>
     <task id="LOCAL-00018" summary="update">
       <created>1506418931413</created>
@@ -652,12 +688,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506901624491</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="update">
+      <created>1506927778407</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1506927778407</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="721" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -665,7 +707,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20678514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20678514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -733,7 +775,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym/README.md">
+    <entry file="file://$PROJECT_DIR$/gym_keras/temp/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="523">
@@ -920,26 +962,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym/gym_policygradients.py">
+    <entry file="file://$PROJECT_DIR$/gym_keras/temp/gym_policygradients.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="31" />
+          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym/pong_karpathy.py">
+    <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_karpathy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1450">
+        <state relative-caret-position="1412">
           <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym/pong_keras.py">
+    <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_keras.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">
-          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="23" />
+          <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="23" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
