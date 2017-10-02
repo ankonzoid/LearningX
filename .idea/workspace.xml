@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Deep-Reinforcement-Learning-Tutorials.iml" afterPath="$PROJECT_DIR$/.idea/Deep-Reinforcement-Learning-Tutorials.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_keras/gym_keras.py" afterPath="$PROJECT_DIR$/gym_keras/gym_keras.py" />
     </list>
@@ -16,22 +14,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="gym_keras.py" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="gym_keras.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gym_keras/gym_keras.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+            <state relative-caret-position="220">
+              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pong_keras.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pong_keras.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_keras.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="94" column="22" lean-forward="false" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+            <state relative-caret-position="276">
+              <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -128,8 +126,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="721" />
+    <option name="width" value="1909" />
+    <option name="height" value="1043" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -147,6 +145,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,7 +168,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -192,284 +190,6 @@
       <recent name="$PROJECT_DIR$/2D_tabular/src/brain" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/Deep-Reinforcement-Learning-Tutorials.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/hunterprey.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/src/agent/EpsilonGreedy_AgentClass.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/src/environment/HunterPrey_EnvironmentClass.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/gym_keras.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/CartPole-v0_results.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.episode_batch.0.25399.stats.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.manifest.0.25399.manifest.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000001.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000001.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000008.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000008.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000027.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000027.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000064.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000064.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000125.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000125.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000216.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000216.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000343.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000343.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.episode_batch.0.25467.stats.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.manifest.0.25467.manifest.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.video.0.25467.video000000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/gym_policygradients.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/pong_karpathy.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/pong_keras.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/CartPole-v0_results.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.episode_batch.0.35170.stats.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.manifest.0.35170.manifest.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/LunarLander-v2_results.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.episode_batch.0.46265.stats.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.manifest.0.46265.manifest.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/images/coverart.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/images/coverart.sketch</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/results/hunterprey.gif</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/hunterprey/results/hunterprey.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/multiarmed_bandit/images/coverart.sketch</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/CartPole-v0_results.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.episode_batch.0.18865.stats.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.manifest.0.18865.manifest.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000001.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000001.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000008.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000008.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000027.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000027.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000064.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000064.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000125.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000125.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000216.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000216.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000343.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000343.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000512.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000512.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000729.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000729.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video001000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video001000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/gym_policygradients.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/pong_keras.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/CartPole-v0_results.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.episode_batch.0.35170.stats.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.manifest.0.35170.manifest.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000001.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000001.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000008.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000008.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000027.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000027.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000064.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000064.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000125.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000125.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000216.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000216.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000343.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000343.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000512.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000512.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000729.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video000729.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video001000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/CartPole-v0/openaigym.video.0.35170.video001000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/LunarLander-v2_results.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.episode_batch.0.46265.stats.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.manifest.0.46265.manifest.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000000.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000001.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000001.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000008.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000008.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000027.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000027.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000064.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000064.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000125.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000125.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000216.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000216.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000343.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000343.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000512.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000512.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000729.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video000729.mp4</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video001000.meta.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gym/results/LunarLander-v2/openaigym.video.0.46265.video001000.mp4</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -482,7 +202,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.pong_keras">
+  <component name="RunManager" selected="Python.gym_keras">
     <configuration name="gym_keras" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -523,8 +243,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.pong_keras" />
-        <item index="1" class="java.lang.String" itemvalue="Python.gym_keras" />
+        <item index="0" class="java.lang.String" itemvalue="Python.gym_keras" />
+        <item index="1" class="java.lang.String" itemvalue="Python.pong_keras" />
       </list>
     </recent_temporary>
   </component>
@@ -538,13 +258,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00018" summary="update">
-      <created>1506418931413</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1506418931413</updated>
     </task>
     <task id="LOCAL-00019" summary="update">
       <created>1506445874452</created>
@@ -882,11 +595,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506927778407</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="update">
+      <created>1506954429404</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1506954429404</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="55" width="1825" height="1046" extended-state="0" />
+    <frame x="0" y="23" width="1909" height="1043" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -894,10 +614,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32606325" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3249453" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20236088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13902308" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -906,28 +626,12 @@
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20678514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -1169,18 +873,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym_keras/gym_keras.py">
+    <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_keras.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+        <state relative-caret-position="276">
+          <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_keras.py">
+    <entry file="file://$PROJECT_DIR$/gym_keras/gym_keras.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="94" column="22" lean-forward="false" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+        <state relative-caret-position="220">
+          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
           <folding />
         </state>
       </provider>
