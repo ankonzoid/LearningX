@@ -23,14 +23,12 @@ class Agent():
         self.rewards = []
         self.probs = []
 
-
         self.Q = self._build_Q(env)
 
     def _build_Q(self, env):
         Q = Sequential()
         Q.add(Reshape((1, env.Ny, env.Nx), input_shape=(self.state_size,)))
-        Q.add(Convolution2D(32, (6, 6), strides=(3, 3), padding="same",
-                                activation="relu", kernel_initializer="he_uniform"))
+        Q.add(Convolution2D(32, (6, 6), strides=(3, 3), padding="same", activation="relu", kernel_initializer="he_uniform"))
         Q.add(Flatten())
         Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
         Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
@@ -56,10 +54,10 @@ class Agent():
     # ===================
 
     def load(self, name):
-        self.model.load_weights(name)
+        self.Q.load_weights(name)
 
     def save(self, name):
-        self.model.save_weights(name)
+        self.Q.save_weights(name)
 
     def update(self, state, state_new, action, reward):
         self.Q = 0
