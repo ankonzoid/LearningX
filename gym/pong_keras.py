@@ -1,8 +1,3 @@
-"""
-
- pong_keras.py  (author: Anson Wong / git: ankonzoid)
-
-"""
 import gym
 import numpy as np
 from keras.models import Sequential
@@ -104,6 +99,13 @@ if __name__ == "__main__":
         cur_x = preprocess(state)
         x = cur_x - prev_x if prev_x is not None else np.zeros(state_size)
         prev_x = cur_x
+
+        print(state.shape)
+        print(state)
+        #print(x.shape)
+        #print(np.sum(x))
+        #print(x)
+        exit()
 
         action, prob = agent.act(x)
         state, reward, done, info = env.step(action)

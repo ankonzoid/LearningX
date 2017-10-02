@@ -1,12 +1,3 @@
-"""
-
- gym.py  (author: Anson Wong / git: ankonzoid)
-
- Solving various OpenGym environments using the standard
- reinforcement learning method of policy gradients and
- an epsilon-greedy agent.
-
-"""
 import numpy as np
 import random
 import tensorflow as tf
@@ -27,11 +18,11 @@ def main():
     #  Set up agent environment
     #
     # ======================================
-    if 1:
+    if 0:
         env_str = 'CartPole-v0'
         n_train_episodes = 1000  # training episodes
         reward_success = 200  # minimum reward to be considered success
-    elif 0:
+    elif 1:
         env_str = 'LunarLander-v2'
         n_train_episodes = 1000  # training episodes
         reward_success = 200  # minimum reward to be considered success

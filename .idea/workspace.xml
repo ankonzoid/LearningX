@@ -2,8 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym/pong_karpathy.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym_keras/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym_keras/gym_keras.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.episode_batch.0.18865.stats.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.manifest.0.18865.manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000000.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000001.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000001.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000008.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000008.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000027.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000027.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000064.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000064.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000125.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000125.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000216.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000216.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000343.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000343.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000512.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000512.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000729.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video000729.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video001000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym/CartPole-v0/openaigym.video.0.18865.video001000.mp4" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/README.md" afterPath="$PROJECT_DIR$/hunterprey/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym/gym_policygradients.py" afterPath="$PROJECT_DIR$/gym/gym_policygradients.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym/pong_keras.py" afterPath="$PROJECT_DIR$/gym/pong_keras.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,15 +43,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hunterprey/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="466">
-                <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="gym_keras.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gym_keras/gym_keras.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+              <folding>
+                <element signature="e#58#68#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pong_karpathy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gym/pong_karpathy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1450">
+              <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pong_keras.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gym/pong_keras.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-357">
+              <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gym_policygradients.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gym/gym_policygradients.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -39,9 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sa_</find>
-      <find>s_</find>
-      <find>s_dim</find>
       <find>N_actions</find>
       <find>Nactions</find>
       <find>action_dim</find>
@@ -69,6 +125,9 @@
       <find>N_epis</find>
       <find>N_episodes_train</find>
       <find>make_ani</find>
+      <find>render</find>
+      <find>env.</find>
+      <find>render(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -79,9 +138,7 @@
       <list>
         <option value="$PROJECT_DIR$/multiarmed_bandit/multiarmed_bandit.py" />
         <option value="$PROJECT_DIR$/gym/gym.py" />
-        <option value="$PROJECT_DIR$/gym/gym_policygradients.py" />
         <option value="$PROJECT_DIR$/gym/cartpole_keras.py" />
-        <option value="$PROJECT_DIR$/gym/pong_keras.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/AgentClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/BrainClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/MemoryClass.py" />
@@ -110,6 +167,12 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
         <option value="$PROJECT_DIR$/hunterprey/README.md" />
+        <option value="$PROJECT_DIR$/pong/README.md" />
+        <option value="$PROJECT_DIR$/gym/gym_policygradients.py" />
+        <option value="$PROJECT_DIR$/pong/pong.py" />
+        <option value="$PROJECT_DIR$/gym_keras/README.md" />
+        <option value="$PROJECT_DIR$/gym/pong_keras.py" />
+        <option value="$PROJECT_DIR$/gym_keras/gym_keras.py" />
       </list>
     </option>
   </component>
@@ -145,7 +208,12 @@
             <path>
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
-              <item name="hunterprey" type="462c0819:PsiDirectoryNode" />
+              <item name="gym" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gym_keras" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -159,17 +227,17 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ansonw/PycharmProjects/Deep-Reinforcement-Learning-Tutorials/gridworld/gridworld.py" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/hunterprey" />
-      <recent name="$PROJECT_DIR$/gridworld" />
-      <recent name="$PROJECT_DIR$/2D_tabular/src/brain" />
-      <recent name="$PROJECT_DIR$/2D_tabular/src/environment" />
-      <recent name="$PROJECT_DIR$/hunterprey/src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gridworld" />
       <recent name="$PROJECT_DIR$/gridworld/src/src_environment" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gym" />
+      <recent name="$PROJECT_DIR$/pong" />
+      <recent name="$PROJECT_DIR$/hunterprey" />
+      <recent name="$PROJECT_DIR$/gridworld" />
+      <recent name="$PROJECT_DIR$/2D_tabular/src/brain" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -184,27 +252,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hunterprey">
-    <configuration name="hunterprey" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.pong_keras">
+    <configuration name="gym_keras" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hunterprey" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gym_keras" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym_keras/gym_keras.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="pong_keras" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gym" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Deep-Reinforcement-Learning-Tutorials" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym/pong_keras.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.gym_keras" />
+      <item index="1" class="java.lang.String" itemvalue="Python.pong_keras" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.hunterprey" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.pong_keras" />
+        <item index="1" class="java.lang.String" itemvalue="Python.gym_keras" />
       </list>
     </recent_temporary>
   </component>
@@ -218,13 +308,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00016" summary="update">
-      <created>1506413355695</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1506413355695</updated>
     </task>
     <task id="LOCAL-00017" summary="update">
       <created>1506417138378</created>
@@ -562,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506891719842</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="update">
+      <created>1506901624491</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1506901624491</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -573,7 +663,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32670158" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20678514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -619,28 +709,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py" />
-    <entry file="file://$PROJECT_DIR$/gym/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="523">
-            <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="158" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multiarmed_bandit/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="304">
-            <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gym/gym.py" />
     <entry file="file://$PROJECT_DIR$/multiarmed_bandit/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -684,20 +752,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gym/cartpole_keras.py" />
-    <entry file="file://$PROJECT_DIR$/gym/gym_policygradients.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-918">
-          <caret line="145" column="18" lean-forward="true" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gym/pong_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="105" column="22" lean-forward="true" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hunterprey/src/AgentClass.py" />
     <entry file="file://$PROJECT_DIR$/hunterprey/src/BrainClass.py" />
     <entry file="file://$PROJECT_DIR$/hunterprey/src/MemoryClass.py" />
@@ -839,11 +893,66 @@
     <entry file="file://$PROJECT_DIR$/hunterprey/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="466">
-            <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <first_editor relative-caret-position="238">
+            <caret line="18" column="149" lean-forward="true" selection-start-line="18" selection-start-column="149" selection-end-line="18" selection-end-column="149" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym_keras/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="56" lean-forward="false" selection-start-line="0" selection-start-column="56" selection-end-line="0" selection-end-column="56" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/gym/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1582">
+          <caret line="80" column="8" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym/gym_policygradients.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym/pong_karpathy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1450">
+          <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym/pong_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym_keras/gym_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding>
+            <element signature="e#58#68#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
