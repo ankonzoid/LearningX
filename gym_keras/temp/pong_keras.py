@@ -100,12 +100,12 @@ if __name__ == "__main__":
         x = cur_x - prev_x if prev_x is not None else np.zeros(state_size)
         prev_x = cur_x
 
-        print(state.shape)
-        print(state)
+        #print(state.shape)
+        #print(state)
         #print(x.shape)
         #print(np.sum(x))
         #print(x)
-        exit()
+        #exit()
 
         action, prob = agent.act(x)
         state, reward, done, info = env.step(action)
