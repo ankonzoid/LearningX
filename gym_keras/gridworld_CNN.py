@@ -19,9 +19,10 @@ class Agent():
         self.learning_rate = 0.001
 
         # Memory
-        self.states_history_episode = []
-        self.rewards_history_episode = []
-        self.prob_actions_history_episode = []
+        self.state_history = []
+        self.gradient_history = []
+        self.reward_history = []
+        self.prob_actions_history = []
 
         # Q function
         self.Q = self._build_Q(env)
@@ -47,16 +48,39 @@ class Agent():
     # Update functions
     # ===================
 
-    def update_Q(self, state, action, reward, state_new):
-        gradients = np.vstack(self.gradients)
-        rewards = np.vstack(self.rewards)
-        #rewards = self.discount_rewards(rewards)
+    def discount_rewards(self, rewards):
+        discounted_rewards = np.zeros(rewards.shape)
+        running_add = 0
+        # Rewards from the past get discounted the most
+        for t in reversed(range(0, rewards.size)):
+            if rewards[t] != 0:
+                running_add = 0
+            running_add = running_add * self.gamma + rewards[t]
+            discounted_rewards[t] = running_add
+        return discounted_rewards
+
+    def update_Q(self):
+        gradients = self.gradient_history
+        rewards = self.reward_history
+        states = self.state_history
+        prob_actions = self.prob_actions_history
+
+        gradients = np.vstack(gradients)  # stack as row vector
+        rewards = np.vstack(rewards)  # stack as row vector
+        rewards = self.discount_rewards(rewards)
         rewards = rewards / np.std(rewards - np.mean(rewards))
         gradients *= rewards
-        X = np.squeeze(np.vstack([self.states]))
-        Y = self.probs + self.learning_rate * np.squeeze(np.vstack([gradients]))
+        X = np.squeeze(np.vstack([states]))
+        Y = prob_actions + self.learning_rate * np.squeeze(np.vstack([gradients]))
         self.Q.train_on_batch(X, Y)
         # Reset episodic memory
+
+    def add_to_memory(self, state, action, reward, prob_actions,  env):
+        y = np.zeros([env.action_size])
+        y[action] = 1
+        self.gradients.append(np.array(y).astype('float32') - prob_actions)
+        self.states.append(state)
+        self.rewards.append(reward)
 
     def clear_memory(self):
         self.states = []
@@ -164,11 +188,13 @@ def main():
             reward = env.get_reward(state, action)  # collect reward
             state_new = env.perform_action(state, action)  # observe next state
 
-            agent.update_Q(state, action, reward, state_new)  # update Q
+            # Add to memory
+            agent.add_to_memory(state, action, reward, prob_actions, env)
+
+            # Update
+            agent.update_Q()  # update Q
 
             #
-            agent.rewards_history_episode.append(reward)
-            agent.prob_actions_history_episode.append(prob_actions)
 
             state = state_new  # transition to next state
 
