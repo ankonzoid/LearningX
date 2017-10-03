@@ -13,39 +13,72 @@ from keras.layers.convolutional import Convolution2D
 
 class Agent():
 
-    def __init__(self, env):
+    def __init__(self, env, agent_info):
         # Training Parameters
-        self.gamma = 0.99
-        self.learning_rate = 0.001
+        self.gamma = agent_info["gamma"]
+        self.learning_rate = agent_info["learning_rate"]
 
         # Memory
-        self.state_history = []
-        self.gradient_history = []
-        self.reward_history = []
-        self.prob_actions_history = []
+        self.clear_memory()
 
         # Q function
         self.Q = self._build_Q(env)
-        self.Q.summary()
+
+
+    # ==================
+    # Policy
+    # ==================
+
+    def get_action(self, state, env):
+        # Reshape 2D state to 3D slice for NN input
+        state = state.reshape([1, env.Ny, env.Nx])
+        Q_state = self.Q.predict(state, batch_size=1).flatten()  # forward pass -> Q(s) = [Q(a_1), ..., Q(a_n)]
+        prob = Q_state / np.sum(Q_state)  # action probabilities
+        action = np.random.choice(env.action_size, 1, p=prob)[0]  # sample action based on action probabilities
+        return action, prob
+
+    # ===================
+    # Q functions
+    # ===================
 
     def _build_Q(self, env):
         # Build Q(s) function that outputs [Q(a_1), Q(a_2), ..., Q(a_n)]
         Q = Sequential()
         # Reshape 2D to 3D slice
-        Q.add(Reshape((1, env.Ny, env.Nx),
-                      input_shape=(env.Ny, env.Nx)))
-        Q.add(Convolution2D(32, (6, 6), strides=(3, 3), padding="same",
-                            activation="relu", kernel_initializer="he_uniform"))
+        Q.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))
+        Q.add(Convolution2D(32, (6, 6), strides=(3, 3), padding="same", activation="relu", kernel_initializer="he_uniform"))
         Q.add(Flatten())
         Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
         Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
         Q.add(Dense(env.action_size, activation="softmax"))
+        # Select optimizer and loss function
         opt = Adam(lr=self.learning_rate)
         Q.compile(loss="categorical_crossentropy", optimizer=opt)
+        # Print architecture of Q network
+        Q.summary()
         return Q
 
+    def update_Q(self):
+        gradients = self.gradient_memory
+        rewards = self.reward_memory
+        states = self.state_memory
+        probs= self.prob_memory
+
+        gradients = np.vstack(gradients)  # stack as row vector
+        rewards = np.vstack(rewards)  # stack as row vector
+        rewards = self.discount_rewards(rewards)
+        rewards = rewards / np.std(rewards - np.mean(rewards))
+        gradients *= rewards
+
+        # Construct training data
+        X = np.squeeze(np.vstack([states]))
+        # Construct labels
+        Y = probs + self.learning_rate * np.squeeze(np.vstack([gradients]))
+        # Train Q network
+        self.Q.train_on_batch(X, Y)
+
     # ===================
-    # Update functions
+    # Rewards
     # ===================
 
     def discount_rewards(self, rewards):
@@ -59,42 +92,26 @@ class Agent():
             discounted_rewards[t] = running_add
         return discounted_rewards
 
-    def update_Q(self):
-        gradients = self.gradient_history
-        rewards = self.reward_history
-        states = self.state_history
-        prob_actions = self.prob_actions_history
+    # ===================
+    # Memory I/O
+    # ===================
 
-        gradients = np.vstack(gradients)  # stack as row vector
-        rewards = np.vstack(rewards)  # stack as row vector
-        rewards = self.discount_rewards(rewards)
-        rewards = rewards / np.std(rewards - np.mean(rewards))
-        gradients *= rewards
-        X = np.squeeze(np.vstack([states]))
-        Y = prob_actions + self.learning_rate * np.squeeze(np.vstack([gradients]))
-        self.Q.train_on_batch(X, Y)
-        # Reset episodic memory
-
-    def add_to_memory(self, state, action, reward, prob_actions,  env):
+    def append_to_memory(self, state, action, prob, reward, env):
+        self.state_memory.append(state)
+        self.action_memory.append(action)
+        self.prob_memory.append(prob)
+        self.reward_memory.append(reward)
         y = np.zeros([env.action_size])
         y[action] = 1
-        self.gradients.append(np.array(y).astype('float32') - prob_actions)
-        self.states.append(state)
-        self.rewards.append(reward)
+        self.gradient_memory.append(np.array(y).astype('float32') - prob)
 
     def clear_memory(self):
-        self.states = []
-        self.probs = []
-        self.gradients = []
-        self.rewards = []
+        self.state_memory = []
+        self.action_memory = []
+        self.prob_memory = []
+        self.reward_memory = []
+        self.gradient_memory = []
 
-    def get_action(self, state, env):
-        # Reshape 2D state to 3D slice for NN input
-        state = state.reshape([1, env.Ny, env.Nx])
-        Q_actions = self.Q.predict(state, batch_size=1).flatten()  # forward pass
-        prob_actions = Q_actions / np.sum(Q_actions)  # normalize to show probabilities
-        action = np.random.choice(env.action_size, 1, p=prob_actions)[0]  # softmax (boltzmann) selection
-        return action, prob_actions, Q_actions
 
     # ===================
     # I/O functions
@@ -110,9 +127,11 @@ class Agent():
         self.Q = 0
 
 class Environment():
-    def __init__(self):
-        self.Ny = 100
-        self.Nx = 100
+
+    def __init__(self, env_info):
+        # Environment settings
+        self.Ny = env_info["Ny"]
+        self.Nx = env_info["Nx"]
 
         self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}
         self.action_coords = np.array([[-1,0], [0,1], [1,0], [0,-1]], dtype=np.int)
@@ -128,6 +147,10 @@ class Environment():
         if len(self.action_dict.keys()) != self.N_actions:
             raise IOError("Error: Inconsistent action dimensions!")
 
+    # ===================
+    # Starting and terminal state
+    # ===================
+
     def starting_state(self):
         # 2D zero grid with a 1 at top-left corner
         state = np.zeros((self.Ny, self.Nx), dtype=np.int)
@@ -141,6 +164,10 @@ class Environment():
         else:
             return False
 
+    # ======================
+    # Rewards
+    # ======================
+
     def get_reward(self, state, action):
         reward = -1
         idx = np.argwhere(state == 1)[0]
@@ -149,6 +176,10 @@ class Environment():
         if ((idx[0],idx[1]) == (self.Ny-1, self.Nx-2)) and (action == self.action_dict["down"]):
             reward = 100
         return reward
+
+    # ======================
+    # Apply action
+    # ======================
 
     def perform_action(self, state, action):
         # Find index of agent location in 2D image
@@ -168,13 +199,22 @@ class Environment():
 
 
 def main():
+    # ==============================
+    # Settings
+    # ==============================
+    env_info = {"Ny": 100, "Nx": 100}
+    agent_info = {"gamma": 0.99, "learning_rate": 0.001}
 
+    # ==============================
+    # Setup environment and agent
+    # ==============================
+    env = Environment(env_info)
+    agent = Agent(env, agent_info)
 
-    env = Environment()
-    agent = Agent(env)
-
+    # ==============================
+    # Train agent
+    # ==============================
     N_episodes_train = 100
-
     for episode in range(N_episodes_train):
         print("episode {}".format(episode))
 
@@ -183,20 +223,21 @@ def main():
         while env.is_terminal_state(state) == False:
             print("iter {}".format(iter))
 
-            action, prob_actions, Q_actions = agent.get_action(state, env)  # pick action using Q
+            # Pick an action by sampling Q(state) probabilities
+            action, prob = agent.get_action(state, env)
 
-            reward = env.get_reward(state, action)  # collect reward
-            state_new = env.perform_action(state, action)  # observe next state
+            # Collect reward and observe nex state
+            reward = env.get_reward(state, action)
+            state_new = env.perform_action(state, action)
 
-            # Add to memory
-            agent.add_to_memory(state, action, reward, prob_actions, env)
+            # Append to memory (states, actions, probs, rewards, gradients)
+            agent.append_to_memory(state, action, prob, reward, env)
 
-            # Update
-            agent.update_Q()  # update Q
+            # Update Q using appended memory
+            agent.update_Q()
 
-            #
-
-            state = state_new  # transition to next state
+            # Transition to next state
+            state = state_new
 
         # Clear memory for next episode
         agent.clear_memory()

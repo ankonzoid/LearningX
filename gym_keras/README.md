@@ -1,2 +1,2 @@
-# Training an agent to play gym environments (`gym_keras.py`)
+# Training an agent to play gym environments (`gridworld_CNN.py`)
 
