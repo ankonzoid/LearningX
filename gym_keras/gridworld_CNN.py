@@ -95,10 +95,14 @@ class Agent():
     # ===================
 
     def apply_discount(self, rewards, gamma):
+        # If rewards = [r(0), r(1), r(2), ..., r(n-2), r(n-1), r(n)]
+        # Then discounted rewards = [, ..., gamma^2*r(n) + gamma*r(n-1) + r(n-2), gamma*r(n) + r(n-1), r(n)]
         discounted_rewards = np.zeros(rewards.shape)
         running_add = 0
-        # Traverse rewards right -> left (most recent -> least recent)
         for t in reversed(range(0, rewards.size)):
+            # Traverse rewards right -> left (most recent -> least recent)
+            # If rewards[t] is non-zero, then discounted_rewards[t] = rewards[t]
+            # If rewards[t] is zero, then discounted
             if rewards[t] != 0:
                 running_add = 0
             running_add = running_add * gamma + rewards[t]
@@ -109,18 +113,18 @@ class Agent():
     # Memory
     # ===================
 
-    def _compute_gradient(self, action, prob):
+    def compute_gradient(self, action, prob):
         y = np.zeros([prob.shape[0]])
         y[action] = 1
         gradient = np.array(y).astype('float32') - prob
         return gradient
 
-    def append_to_memory(self, state, action, prob, reward):
+    def append_to_memory(self, state, action, prob, reward, gradient):
         self.state_memory.append(state)
         self.action_memory.append(action)
         self.prob_memory.append(prob)
         self.reward_memory.append(reward)
-        self.gradient_memory.append(self._compute_gradient(action, prob))
+        self.gradient_memory.append(gradient)
 
     def clear_memory(self):
         self.state_memory = []
@@ -216,12 +220,6 @@ def main():
     env_info = {"Ny": 100, "Nx": 100}
     agent_info = {"gamma": 0.99, "learning_rate": 0.001}
 
-    A = np.zeros([5])
-    print(A)
-    print(A.shape)
-
-    exit()
-
     # ==============================
     # Setup environment and agent
     # ==============================
@@ -232,24 +230,27 @@ def main():
     # Train agent
     # ==============================
     for episode in range(N_episodes_train):
-        print("episode {}".format(episode))
 
         iter = 0
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
-            print("iter {}".format(iter))
             # Pick an action by sampling Q(state) probabilities
             action, prob = agent.get_action(state, env)
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_new = env.perform_action(state, action)
-            # Append to memory (states, actions, probs, rewards, gradients)
-            agent.append_to_memory(state, action, prob, reward, env)
-            # Update Q using appended memory
+            # Compute loss function
+            gradient = agent.compute_gradient(action, prob)
+            # Append quantities to memory
+            agent.append_to_memory(state, action, prob, reward, gradient)
+            # Update Q using memory
             agent.update_Q()
             # Transition to next state
             state = state_new
             iter += 1
+
+        # Print
+        print("[episode {}] iter = {}".format(episode, iter))
 
         # Clear memory for next episode
         agent.clear_memory()
