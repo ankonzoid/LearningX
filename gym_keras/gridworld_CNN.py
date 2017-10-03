@@ -1,6 +1,6 @@
 """
 
- pong.py  (author: Anson Wong / git: ankonzoid)
+ gridworld_CNN.py  (author: Anson Wong / git: ankonzoid)
 
 """
 import numpy as np
@@ -11,6 +11,11 @@ from keras.layers import Dense, Reshape, Flatten
 from keras.optimizers import Adam
 from keras.layers.convolutional import Convolution2D
 
+# ==============================
+#
+# Agent Class
+#
+# ==============================
 class Agent():
 
     def __init__(self, env, agent_info):
@@ -23,7 +28,6 @@ class Agent():
 
         # Q function
         self.Q = self._build_Q(env)
-
 
     # ==================
     # Policy
@@ -59,51 +63,64 @@ class Agent():
         return Q
 
     def update_Q(self):
-        gradients = self.gradient_memory
-        rewards = self.reward_memory
         states = self.state_memory
-        probs= self.prob_memory
+        actions = self.action_memory
+        rewards = self.reward_memory
+        probs = self.prob_memory
+        gradients = self.gradient_memory
 
-        gradients = np.vstack(gradients)  # stack as row vector
-        rewards = np.vstack(rewards)  # stack as row vector
-        rewards = self.discount_rewards(rewards)
+        gradients = np.vstack(gradients)  # stack as row vector matrix
+        rewards = np.vstack(rewards)  # stack as row vector matrix
+        rewards = self.apply_discount(rewards, self.gamma)  # apply discount factors to reward history
         rewards = rewards / np.std(rewards - np.mean(rewards))
         gradients *= rewards
 
         # Construct training data
         X = np.squeeze(np.vstack([states]))
-        # Construct labels
-        Y = probs + self.learning_rate * np.squeeze(np.vstack([gradients]))
+        # Construct labels by adding err
+        error = self.learning_rate * np.squeeze(np.vstack([gradients]))
+        Y = probs + error
+
         # Train Q network
         self.Q.train_on_batch(X, Y)
+
+    def load_Q(self, filename):
+        self.Q.load_weights(filename)
+
+    def save_Q(self, filename):
+        self.Q.save_weights(filename)
 
     # ===================
     # Rewards
     # ===================
 
-    def discount_rewards(self, rewards):
+    def apply_discount(self, rewards, gamma):
         discounted_rewards = np.zeros(rewards.shape)
         running_add = 0
-        # Rewards from the past get discounted the most
+        # Traverse rewards right -> left (most recent -> least recent)
         for t in reversed(range(0, rewards.size)):
             if rewards[t] != 0:
                 running_add = 0
-            running_add = running_add * self.gamma + rewards[t]
+            running_add = running_add * gamma + rewards[t]
             discounted_rewards[t] = running_add
         return discounted_rewards
 
     # ===================
-    # Memory I/O
+    # Memory
     # ===================
 
-    def append_to_memory(self, state, action, prob, reward, env):
+    def _compute_gradient(self, action, prob):
+        y = np.zeros([prob.shape[0]])
+        y[action] = 1
+        gradient = np.array(y).astype('float32') - prob
+        return gradient
+
+    def append_to_memory(self, state, action, prob, reward):
         self.state_memory.append(state)
         self.action_memory.append(action)
         self.prob_memory.append(prob)
         self.reward_memory.append(reward)
-        y = np.zeros([env.action_size])
-        y[action] = 1
-        self.gradient_memory.append(np.array(y).astype('float32') - prob)
+        self.gradient_memory.append(self._compute_gradient(action, prob))
 
     def clear_memory(self):
         self.state_memory = []
@@ -112,20 +129,11 @@ class Agent():
         self.reward_memory = []
         self.gradient_memory = []
 
-
-    # ===================
-    # I/O functions
-    # ===================
-
-    def load(self, filename):
-        self.Q.load_weights(filename)
-
-    def save(self, filename):
-        self.Q.save_weights(filename)
-
-    def update(self, state, state_new, action, reward):
-        self.Q = 0
-
+# ==============================
+#
+# Environment Class
+#
+# ==============================
 class Environment():
 
     def __init__(self, env_info):
@@ -133,6 +141,7 @@ class Environment():
         self.Ny = env_info["Ny"]
         self.Nx = env_info["Nx"]
 
+        # State and action space
         self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}
         self.action_coords = np.array([[-1,0], [0,1], [1,0], [0,-1]], dtype=np.int)
         self.N_actions = len(self.action_coords)
@@ -202,8 +211,16 @@ def main():
     # ==============================
     # Settings
     # ==============================
+    N_episodes_train = 100
+
     env_info = {"Ny": 100, "Nx": 100}
     agent_info = {"gamma": 0.99, "learning_rate": 0.001}
+
+    A = np.zeros([5])
+    print(A)
+    print(A.shape)
+
+    exit()
 
     # ==============================
     # Setup environment and agent
@@ -214,7 +231,6 @@ def main():
     # ==============================
     # Train agent
     # ==============================
-    N_episodes_train = 100
     for episode in range(N_episodes_train):
         print("episode {}".format(episode))
 
@@ -222,22 +238,18 @@ def main():
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
             print("iter {}".format(iter))
-
             # Pick an action by sampling Q(state) probabilities
             action, prob = agent.get_action(state, env)
-
-            # Collect reward and observe nex state
+            # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_new = env.perform_action(state, action)
-
             # Append to memory (states, actions, probs, rewards, gradients)
             agent.append_to_memory(state, action, prob, reward, env)
-
             # Update Q using appended memory
             agent.update_Q()
-
             # Transition to next state
             state = state_new
+            iter += 1
 
         # Clear memory for next episode
         agent.clear_memory()
