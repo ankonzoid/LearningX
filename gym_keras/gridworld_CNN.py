@@ -4,6 +4,7 @@
 
 """
 import numpy as np
+import random
 import matplotlib.pyplot as plt
 
 from keras.models import Sequential
@@ -20,6 +21,7 @@ class Agent():
 
     def __init__(self, env, agent_info):
         # Training Parameters
+        self.epsilon = agent_info["epsilon"]
         self.gamma = agent_info["gamma"]
         self.learning_rate = agent_info["learning_rate"]
 
@@ -40,16 +42,33 @@ class Agent():
         # Q(s) = [Q(a_1), ..., Q(a_n)]
         Q_state = self.Q.predict(state_Q_input, batch_size=1).flatten()
         # Set zero to the states that are not physically allowed
-        for action in range(len(Q_state)):
+        N_actions = len(Q_state)
+        Q_allowed = []
+        actions_allowed = []
+        for action in range(N_actions):
             if not env.is_allowed_action(state, action):
-                Q_state[action] = 0
+                Q_allowed.append(action)
+                actions_allowed.append(action)
         # Check that there exists non-zero action value
-        if np.sum(Q_state) < 1E-6:
+        if np.sum(actions_allowed) == 0:
             raise IOError("Error: at state with no possible actions!")
         # Compute probabilities for each state
         prob = Q_state / np.sum(Q_state)  # action probabilities
+
         # Sample action based on action probabilities
-        action = np.random.choice(env.action_size, 1, p=prob)[0]
+        #action = np.random.choice(env.action_size, 1, p=prob)[0]
+        # Epsilon-greedy selection
+        rand = random.uniform(0, 1)
+        if rand < self.epsilon:
+            action = np.random.choice(actions_allowed)
+        else:
+            Q_max = max(Q_allowed)
+            actions_Qmax_allowed = []
+            for (action, Q) in zip(actions_allowed, Q_allowed):
+                if Q == Q_max:
+                    actions_Qmax_allowed.append(action)
+            action = np.random.choice(actions_Qmax_allowed)
+
         return action, prob
 
     # ===================
@@ -70,8 +89,9 @@ class Agent():
         #Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
         Q.add(Dense(env.action_size, activation="softmax"))
         # Select optimizer and loss function
-        opt = Adam(lr=self.learning_rate)
-        Q.compile(loss="categorical_crossentropy", optimizer=opt)
+        #opt = Adam(lr=self.learning_rate)
+        Q.compile(loss="mean_squared_error", optimizer="Adam")
+        #Q.compile(loss="mean_squared_error", optimizer=opt)
         # Print architecture of Q network
         Q.summary()
         return Q
@@ -244,7 +264,7 @@ def main():
     N_episodes_train = 1000
 
     env_info = {"Ny": 4, "Nx": 4}
-    agent_info = {"gamma": 1.0, "learning_rate": 0.01}
+    agent_info = {"gamma": 1.0, "learning_rate": 0.01, "epsilon": 0.5}
 
     # ==============================
     # Setup environment and agent
@@ -278,6 +298,9 @@ def main():
 
         # Print
         print("[episode {}] iter = {}, reward = {}".format(episode, iter, sum(agent.reward_memory)))
+        print("{}".format(agent.state_memory))
+        print("{}".format(agent.action_memory))
+        exit()
 
         # Clear memory for next episode
         agent.clear_memory()
