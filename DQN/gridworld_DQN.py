@@ -61,27 +61,29 @@ class Agent():
         prob = Q_state / np.sum(Q_state)  # action probabilities
 
         # Sample action based on action probabilities
-        #action = np.random.choice(env.action_size, 1, p=prob)[0]
-        # Epsilon-greedy selection
-        rand = random.uniform(0, 1)
-        self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
-        choice = ""
-        if rand < self.epsilon_effective:
-            action = np.random.choice(actions_allowed)
-            choice = "explore"
-        else:
-            Q_max = max(Q_allowed)
-            actions_Qmax_allowed = []
-            for (action, Q) in zip(actions_allowed, Q_allowed):
-                if Q == Q_max:
-                    actions_Qmax_allowed.append(action)
-            action = np.random.choice(actions_Qmax_allowed)
-            choice = "greedy"
+        action = np.random.choice(env.action_size, 1, p=prob)[0]
 
-        print()
-        print(choice)
-        print(prob)
-        print(action)
+        if 0:
+            # Epsilon-greedy selection
+            rand = random.uniform(0, 1)
+            self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
+            if rand < self.epsilon_effective:
+                action = np.random.choice(actions_allowed)
+                choice = "explore"
+            else:
+                Q_max = max(Q_allowed)
+                actions_Qmax_allowed = []
+                for (action, Q) in zip(actions_allowed, Q_allowed):
+                    if Q == Q_max:
+                        actions_Qmax_allowed.append(action)
+                action = np.random.choice(actions_Qmax_allowed)
+                choice = "greedy"
+
+        if 0:
+            print()
+            print(choice)
+            print(prob)
+            print(action)
 
         return action, prob
 
@@ -93,18 +95,23 @@ class Agent():
         # Build Q(s) function that outputs [Q(a_1), Q(a_2), ..., Q(a_n)]
         Q = Sequential()
         # Reshape 2D to 3D slice
-        Q.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))
-        Q.add(Flatten())
-        Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        #Q.add(Dense(128, activation="relu", kernel_initializer="he_uniform"))
-        #Q.add(Convolution2D(32, (6, 6), strides=(3, 3), padding="same", activation="relu", kernel_initializer="he_uniform"))
+
+        if 1:
+            Q.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))
+            Q.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
+            Q.add(Flatten())
+            Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
+            Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
+            Q.add(Dense(env.action_size, activation="softmax"))
+
+        if 1:
+            Q.compile(loss="binary_crossentropy", optimizer="Adam")
+
         #Q.add(Flatten())
         #Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        #Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
-        Q.add(Dense(env.action_size, activation="softmax"))
+        #Q.add(Dense(128, activation="relu", kernel_initializer="he_uniform"))
         # Select optimizer and loss function
         #opt = Adam(lr=self.learning_rate)
-        Q.compile(loss="mean_squared_error", optimizer="Adam")
         #Q.compile(loss="mean_squared_error", optimizer=opt)
         # Print architecture of Q network
         Q.summary()
@@ -275,10 +282,10 @@ def main():
     # ==============================
     # Settings
     # ==============================
-    N_episodes_train = 10000
+    N_episodes = 1000
 
-    env_info = {"Ny": 3, "Nx": 3}
-    agent_info = {"gamma": 0.95, "learning_rate": 0.001, "epsilon": 1.0, "epsilon_decay": 3/N_episodes_train}
+    env_info = {"Ny": 5, "Nx": 5}
+    agent_info = {"gamma": 1.0, "learning_rate": 1.0, "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
 
     # ==============================
     # Setup environment and agent
@@ -289,7 +296,7 @@ def main():
     # ==============================
     # Train agent
     # ==============================
-    for episode in range(N_episodes_train):
+    for episode in range(N_episodes):
 
         iter = 0
         state = env.starting_state()
@@ -312,7 +319,7 @@ def main():
         agent.episode += 1
 
         # Print
-        print("[episode {}] iter = {}, epsilon_effective = {} reward = {}".format(episode, iter, round(agent.epsilon_effective, 4), sum(agent.reward_memory)))
+        print("[episode {}] iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, iter, agent.epsilon_effective, sum(agent.reward_memory)))
 
         if 0:
             print("{}".format(agent.state_memory))
