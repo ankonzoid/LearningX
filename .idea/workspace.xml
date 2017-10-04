@@ -2,86 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/gridworld_CNN.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/gridworld_DQN.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/CartPole-v0_results.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.episode_batch.0.25399.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.manifest.0.25399.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000027.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000027.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000064.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000064.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000125.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000125.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000216.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000216.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000343.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/CartPole-v0/openaigym.video.0.25399.video000343.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.episode_batch.0.25467.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.manifest.0.25467.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/LunarLander-v2/openaigym.video.0.25467.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/gym_policygradients.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/pong_karpathy.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/pong_keras.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/CartPole-v0_results.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.episode_batch.0.35170.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.manifest.0.35170.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/LunarLander-v2_results.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.episode_batch.0.46265.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.manifest.0.46265.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_keras/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.mp4" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld/src/brain/QLearning_BrainClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld/gridworld.py" afterPath="$PROJECT_DIR$/gridworld/gridworld.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,7 +15,60 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="gridworld_DQN.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DQN/gridworld_DQN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-322">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gridworld.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+              <folding>
+                <element signature="e#1012#1030#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gridworld/src/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QLearning_BrainClass.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gridworld/src/brain/QLearning_BrainClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SampleAveraging_BrainClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gridworld/src/brain/SampleAveraging_BrainClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="10" column="58" lean-forward="false" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -180,8 +156,8 @@
         <option value="$PROJECT_DIR$/gym_keras/gridworld_CNN.py" />
         <option value="$PROJECT_DIR$/gym_keras/temp/gridworld_DQN.py" />
         <option value="$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py" />
-        <option value="$PROJECT_DIR$/gridworld/gridworld.py" />
         <option value="$PROJECT_DIR$/gridworld/README.md" />
+        <option value="$PROJECT_DIR$/gridworld/gridworld.py" />
       </list>
     </option>
   </component>
@@ -214,6 +190,36 @@
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="DQN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="brain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="environment" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -228,11 +234,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gridworld/src/brain" />
       <recent name="$PROJECT_DIR$/gym_keras/temp" />
       <recent name="$PROJECT_DIR$/gym" />
       <recent name="$PROJECT_DIR$/pong" />
       <recent name="$PROJECT_DIR$/hunterprey" />
-      <recent name="$PROJECT_DIR$/gridworld" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gym_keras" />
@@ -424,13 +430,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00029" summary="update">
-      <created>1506546447015</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1506546447015</updated>
     </task>
     <task id="LOCAL-00030" summary="update">
       <created>1506546871193</created>
@@ -768,11 +767,19 @@
       <option name="project" value="LOCAL" />
       <updated>1507140057638</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="update">
+      <created>1507140154368</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1507140154368</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="26" width="1859" height="1032" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -782,7 +789,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31118494" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.101489246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.101489246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -840,8 +847,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/multiarmed_bandit/MAB_PG.py" />
-    <entry file="file://$PROJECT_DIR$/multiarmed_bandit_PG/MAB_PG.py" />
     <entry file="file://$PROJECT_DIR$/opengym/README.md" />
     <entry file="file://$PROJECT_DIR$/opengym/gym_env_descrip.py" />
     <entry file="file://$PROJECT_DIR$/opengym/Qtabular_gym.py" />
@@ -888,20 +893,6 @@
             <caret line="5" column="122" lean-forward="false" selection-start-line="5" selection-start-column="122" selection-end-line="5" selection-end-column="122" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld/src/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld/src/brain/SampleAveraging_BrainClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="10" column="58" lean-forward="false" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1040,16 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="54" column="92" lean-forward="false" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="92" />
-          <folding>
-            <element signature="e#1012#1030#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_DQN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="989">
@@ -1070,6 +1051,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DQN/gridworld_DQN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-322">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld/src/brain/SampleAveraging_BrainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="58" lean-forward="false" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld/src/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+          <folding>
+            <element signature="e#1012#1030#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld/src/brain/QLearning_BrainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>

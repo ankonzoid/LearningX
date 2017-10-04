@@ -41,7 +41,8 @@ sys.path.append("./src/brain")
 sys.path.append("./src/environment")
 sys.path.append("./src/memory")
 from EpsilonGreedy_AgentClass import Agent
-from SampleAveraging_BrainClass import Brain
+#from SampleAveraging_BrainClass import Brain
+from QLearning_BrainClass import Brain
 from GridWorld_EnvironmentClass import Environment
 from MemoryClass import Memory
 import utils
@@ -53,7 +54,7 @@ def main():
     N_episodes = 100000  # specify number of training episodes
     env_info = {"Ny": 7, "Nx": 7}
     agent_info = {"name": "epsilon-greedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
-    brain_info = {}
+    brain_info = {"Q_learning_rate": 0.4, "Q_discount": 0.95}  # only relevant for Q-learning
 
     # =========================
     # Set up environment, agent, memory and brain
