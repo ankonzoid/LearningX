@@ -35,10 +35,21 @@ class Agent():
 
     def get_action(self, state, env):
         # Reshape 2D state to 3D slice for NN input
-        state = state.reshape([1, env.Ny, env.Nx])
-        Q_state = self.Q.predict(state, batch_size=1).flatten()  # forward pass -> Q(s) = [Q(a_1), ..., Q(a_n)]
+        state_Q_input = state.reshape([1, env.Ny, env.Nx])
+        # Forward-pass state into Q network
+        # Q(s) = [Q(a_1), ..., Q(a_n)]
+        Q_state = self.Q.predict(state_Q_input, batch_size=1).flatten()
+        # Set zero to the states that are not physically allowed
+        for action in range(len(Q_state)):
+            if not env.is_allowed_action(state, action):
+                Q_state[action] = 0
+        # Check that there exists non-zero action value
+        if np.sum(Q_state) < 1E-6:
+            raise IOError("Error: at state with no possible actions!")
+        # Compute probabilities for each state
         prob = Q_state / np.sum(Q_state)  # action probabilities
-        action = np.random.choice(env.action_size, 1, p=prob)[0]  # sample action based on action probabilities
+        # Sample action based on action probabilities
+        action = np.random.choice(env.action_size, 1, p=prob)[0]
         return action, prob
 
     # ===================
@@ -50,10 +61,13 @@ class Agent():
         Q = Sequential()
         # Reshape 2D to 3D slice
         Q.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))
-        Q.add(Convolution2D(32, (6, 6), strides=(3, 3), padding="same", activation="relu", kernel_initializer="he_uniform"))
         Q.add(Flatten())
         Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
+        #Q.add(Dense(128, activation="relu", kernel_initializer="he_uniform"))
+        #Q.add(Convolution2D(32, (6, 6), strides=(3, 3), padding="same", activation="relu", kernel_initializer="he_uniform"))
+        #Q.add(Flatten())
+        #Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
+        #Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
         Q.add(Dense(env.action_size, activation="softmax"))
         # Select optimizer and loss function
         opt = Adam(lr=self.learning_rate)
@@ -98,15 +112,15 @@ class Agent():
         # If rewards = [r(0), r(1), r(2), ..., r(n-2), r(n-1), r(n)]
         # Then discounted rewards = [, ..., gamma^2*r(n) + gamma*r(n-1) + r(n-2), gamma*r(n) + r(n-1), r(n)]
         discounted_rewards = np.zeros(rewards.shape)
-        running_add = 0
+        rsum = 0
         for t in reversed(range(0, rewards.size)):
             # Traverse rewards right -> left (most recent -> least recent)
             # If rewards[t] is non-zero, then discounted_rewards[t] = rewards[t]
-            # If rewards[t] is zero, then discounted
+            # If rewards[t] is zero, then discounted_rewards[t] = gamma * rsum
             if rewards[t] != 0:
-                running_add = 0
-            running_add = running_add * gamma + rewards[t]
-            discounted_rewards[t] = running_add
+                rsum = 0
+            rsum = rsum * gamma + rewards[t]
+            discounted_rewards[t] = rsum
         return discounted_rewards
 
     # ===================
@@ -167,11 +181,11 @@ class Environment():
     def starting_state(self):
         # 2D zero grid with a 1 at top-left corner
         state = np.zeros((self.Ny, self.Nx), dtype=np.int)
-        state[50, 50] = 1
+        state[0, 0] = 1
         return state
 
     def is_terminal_state(self, state):
-        idx = np.argwhere(state == 1)[0]
+        idx = np.argwhere(np.array(state) == 1)[0]
         if (idx[0], idx[1]) == (self.Ny-1, self.Nx-1):
             return True
         else:
@@ -182,11 +196,11 @@ class Environment():
     # ======================
 
     def get_reward(self, state, action):
-        reward = -1
-        idx = np.argwhere(state == 1)[0]
-        if ((idx[0],idx[1]) == (self.Ny-2, self.Nx-1)) and (action == self.action_dict["right"]):
+        reward = -0.01
+        idx = np.argwhere(np.array(state) == 1)[0]
+        if (idx[0] == self.Ny-2) and (idx[1] == self.Nx-1) and (action == self.action_dict["down"]):
             reward = 100
-        if ((idx[0],idx[1]) == (self.Ny-1, self.Nx-2)) and (action == self.action_dict["down"]):
+        if (idx[0] == self.Ny-1) and (idx[1] == self.Nx-2) and (action == self.action_dict["right"]):
             reward = 100
         return reward
 
@@ -194,17 +208,29 @@ class Environment():
     # Apply action
     # ======================
 
+    def is_allowed_action(self, state, action):
+        # Find index of agent location in 2D image
+        idx_list = np.argwhere(np.array(state) == 1)
+        if len(idx_list) != 1:
+            raise IOError("Error: Invalid state!")
+        idx_new = idx_list[0] + self.action_coords[action]
+        # Check
+        if (idx_new[0] < 0) or (idx_new[0] >= self.Ny):
+            return False
+        if (idx_new[1] < 0) or (idx_new[1] >= self.Nx):
+            return False
+        # If it makes it here, then it is allowed
+        return True
+
     def perform_action(self, state, action):
         # Find index of agent location in 2D image
-        idx = np.argwhere(state == 1)
+        idx = np.argwhere(np.array(state) == 1)
         if len(idx) != 1:
             raise IOError("Error: Invalid state!")
         idx_new = idx[0] + self.action_coords[action]
         # Check
-        if (idx_new[0] < 0) or (idx_new[0] >= self.Ny):
-            raise IOError("Error: Performed invalid action!")
-        if (idx_new[1] < 0) or (idx_new[1] >= self.Nx):
-            raise IOError("Error: Performed invalid action!")
+        if not self.is_allowed_action(state, action):
+            raise IOError("Trying to perform unallowed action")
         # Create new state
         state_new = np.zeros(state.shape, dtype=np.int)
         state_new[tuple(idx_new)] = 1
@@ -215,10 +241,10 @@ def main():
     # ==============================
     # Settings
     # ==============================
-    N_episodes_train = 100
+    N_episodes_train = 1000
 
-    env_info = {"Ny": 100, "Nx": 100}
-    agent_info = {"gamma": 0.99, "learning_rate": 0.001}
+    env_info = {"Ny": 4, "Nx": 4}
+    agent_info = {"gamma": 1.0, "learning_rate": 0.01}
 
     # ==============================
     # Setup environment and agent
@@ -243,14 +269,15 @@ def main():
             gradient = agent.compute_gradient(action, prob)
             # Append quantities to memory
             agent.append_to_memory(state, action, prob, reward, gradient)
-            # Update Q using memory
-            agent.update_Q()
             # Transition to next state
             state = state_new
             iter += 1
 
+        # Update Q using memory
+        agent.update_Q()
+
         # Print
-        print("[episode {}] iter = {}".format(episode, iter))
+        print("[episode {}] iter = {}, reward = {}".format(episode, iter, sum(agent.reward_memory)))
 
         # Clear memory for next episode
         agent.clear_memory()
