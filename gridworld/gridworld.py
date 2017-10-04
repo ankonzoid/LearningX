@@ -50,7 +50,7 @@ def main():
     # =========================
     # Settings
     # =========================
-    learning_mode = "QLearning"
+    learning_mode = "SampleAveraging"
 
     if learning_mode == "SampleAveraging":
 
@@ -82,7 +82,7 @@ def main():
     # =========================
     # Train agent
     # =========================
-    print("\nTraining '{}' agent on '{}' environment for {} episodes using '{}' learning mode (epsilon = {})...\n".format(agent.name, env.name, N_episodes, learning_mode, agent.epsilon))
+    print("\nTraining '{}' agent on '{}' environment for {} episodes using '{}' learning mode...\n".format(agent.name, env.name, N_episodes, learning_mode, agent.epsilon))
 
     memory.reset_run_counters()  # reset run counters once only
     for episode in range(N_episodes):
@@ -113,7 +113,7 @@ def main():
 
         # Print
         if (episode+1) % (N_episodes/20) == 0:
-            print(" episode = {}/{}, epsilon_eff = {}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, round(agent.epsilon_effective,4), memory.R_total_episode, memory.N_actions_episode))
+            print(" episode = {}/{}, epsilon = {:.3F}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, agent.epsilon_effective, memory.R_total_episode, memory.N_actions_episode))
 
     # =======================
     # Print final policy
