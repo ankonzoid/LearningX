@@ -41,8 +41,7 @@ sys.path.append("./src/brain")
 sys.path.append("./src/environment")
 sys.path.append("./src/memory")
 from EpsilonGreedy_AgentClass import Agent
-#from SampleAveraging_BrainClass import Brain
-from QLearning_BrainClass import Brain
+
 from GridWorld_EnvironmentClass import Environment
 from MemoryClass import Memory
 import utils
@@ -51,10 +50,26 @@ def main():
     # =========================
     # Settings
     # =========================
-    N_episodes = 100000  # specify number of training episodes
-    env_info = {"Ny": 7, "Nx": 7}
-    agent_info = {"name": "epsilon-greedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
-    brain_info = {"Q_learning_rate": 0.4, "Q_discount": 0.95}  # only relevant for Q-learning
+    learning_mode = "QLearning"
+
+    if learning_mode == "SampleAveraging":
+
+        from SampleAveraging_BrainClass import Brain
+        N_episodes = 100000
+        env_info = {"Ny": 7, "Nx": 7}
+        brain_info = {}
+        agent_info = {"name": "epsilon-greedy", "epsilon": 1.0, "epsilon_decay": 2.0 * np.log(10.0) / N_episodes}
+
+    elif learning_mode == "QLearning":
+
+        from QLearning_BrainClass import Brain
+        N_episodes = 10000
+        env_info = {"Ny": 7, "Nx": 7}
+        brain_info = {"Q_learning_rate": 1.0, "Q_discount": 1.0}  # only relevant for Q-learning
+        agent_info = {"name": "epsilon-greedy", "epsilon": 1.0, "epsilon_decay": 2.0 * np.log(10.0) / N_episodes}
+
+    else:
+        raise IOError("Error: Invalid learning mode!")
 
     # =========================
     # Set up environment, agent, memory and brain

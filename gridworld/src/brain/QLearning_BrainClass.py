@@ -12,8 +12,8 @@ class Brain:
         self.state_action_dim = env.state_action_dim
         self.state_dim = env.state_dim
 
-        self.learning_rate = brain_info["learning_rate"]  # beta
-        self.discount = brain_info["discount"]  # gamma
+        self.learning_rate = brain_info["Q_learning_rate"]  # beta
+        self.discount = brain_info["Q_discount"]  # gamma
 
     # ========================
     # Q(s,a) state-action values
@@ -23,10 +23,8 @@ class Brain:
         gamma = self.discount
         sa = tuple(list(state) + [action])
         Qmax_next = np.max(self.Q[state_next])
-
         dQ = beta * (reward + gamma*Qmax_next - self.Q[sa])   # assumes k counter already updated
         self.Q[sa] += dQ
-
         dQabs = np.abs(dQ)
         return dQabs
 
