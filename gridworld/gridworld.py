@@ -82,7 +82,7 @@ def main():
     # =========================
     # Train agent
     # =========================
-    print("\nTraining '{}' agent on '{}' environment for {} episodes (epsilon = {})...\n".format(agent.name, env.name, N_episodes, agent.epsilon))
+    print("\nTraining '{}' agent on '{}' environment for {} episodes using '{}' learning mode (epsilon = {})...\n".format(agent.name, env.name, N_episodes, learning_mode, agent.epsilon))
 
     memory.reset_run_counters()  # reset run counters once only
     for episode in range(N_episodes):
