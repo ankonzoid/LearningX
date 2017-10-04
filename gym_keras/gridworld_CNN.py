@@ -22,11 +22,16 @@ class Agent():
     def __init__(self, env, agent_info):
         # Training Parameters
         self.epsilon = agent_info["epsilon"]
+        self.epsilon_decay = agent_info["epsilon_decay"]
         self.gamma = agent_info["gamma"]
         self.learning_rate = agent_info["learning_rate"]
 
         # Memory
         self.clear_memory()
+
+        # Extra parameters
+        self.episode = 0
+        self.epsilon_effective = self.epsilon
 
         # Q function
         self.Q = self._build_Q(env)
@@ -46,7 +51,7 @@ class Agent():
         Q_allowed = []
         actions_allowed = []
         for action in range(N_actions):
-            if not env.is_allowed_action(state, action):
+            if env.is_allowed_action(state, action):
                 Q_allowed.append(action)
                 actions_allowed.append(action)
         # Check that there exists non-zero action value
@@ -59,7 +64,8 @@ class Agent():
         #action = np.random.choice(env.action_size, 1, p=prob)[0]
         # Epsilon-greedy selection
         rand = random.uniform(0, 1)
-        if rand < self.epsilon:
+        self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
+        if rand < self.epsilon_effective:
             action = np.random.choice(actions_allowed)
         else:
             Q_max = max(Q_allowed)
@@ -261,10 +267,10 @@ def main():
     # ==============================
     # Settings
     # ==============================
-    N_episodes_train = 1000
+    N_episodes_train = 10000
 
-    env_info = {"Ny": 4, "Nx": 4}
-    agent_info = {"gamma": 1.0, "learning_rate": 0.01, "epsilon": 0.5}
+    env_info = {"Ny": 3, "Nx": 3}
+    agent_info = {"gamma": 0.95, "learning_rate": 0.001, "epsilon": 0.9, "epsilon_decay": 1E-4}
 
     # ==============================
     # Setup environment and agent
@@ -295,12 +301,15 @@ def main():
 
         # Update Q using memory
         agent.update_Q()
+        agent.episode += 1
 
         # Print
-        print("[episode {}] iter = {}, reward = {}".format(episode, iter, sum(agent.reward_memory)))
-        print("{}".format(agent.state_memory))
-        print("{}".format(agent.action_memory))
-        exit()
+        print("[episode {}] iter = {}, epsilon_effective = {} reward = {}".format(episode, iter, round(agent.epsilon_effective, 4), sum(agent.reward_memory)))
+
+        if 0:
+            print("{}".format(agent.state_memory))
+            print("{}".format(agent.action_memory))
+            exit()
 
         # Clear memory for next episode
         agent.clear_memory()
