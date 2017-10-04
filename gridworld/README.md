@@ -2,7 +2,7 @@
 
 Given a 2D rectangular grid with opposing corners at (0, 0) and (Ny-1, Nx-1) for Ny, Nx integers, we train an agent standing at (0,0) to find an optimized path to (Ny-1, Nx-1) in the least number of grid steps possible. 
 
-In this code, we implement a *Monte Carlo on-policy* learning algorithm of reward-averaging on an epsilon-greedy agent. *Tabular forms* of the action-value *Q(s,a)*, reward *R(s,a)*, and policy *P(s)* functions are used. The agent is restricted to only actions of displacing itself up/down/left/right by 1 grid square. 
+In this code, we implement a *Monte Carlo on-policy* learning algorithm of reward-averaging on an epsilon-greedy agent. *Tabular forms* of the action-value *Q(s,a)*, reward *R(s,a)*, and policy *P(s)* functions are used. The agent is restricted to only actions of displacing itself up/down/left/right by 1 grid square. The effective epsilon parameter starts at 1.0 (100%) and decays to 0.01 (0.1%) by the time it gets to the final episode N_episodes.
 
 <p align="center">
 <img src="https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/gridworld/images/coverart.png" width="40%">
@@ -19,8 +19,9 @@ Our provided example has been hard-coded with parameters
 ```swift
 Ny = 7
 Nx = 7
-epsilon = 0.5
-n_episodes = 50000
+epsilon = 1.0
+N_episodes = 50000
+epsilon_decay = 2*np.log(10)/N_episodes
 R_goal = 100
 R_nongoal = -0.1
 ```

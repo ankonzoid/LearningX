@@ -12,6 +12,7 @@ class Agent:
         self.epsilon = agent_info["epsilon"]  # exploration probability
         self.epsilon_decay = agent_info["epsilon_decay"]
         self.episode = 0
+        self.epsilon_effective = self.epsilon
 
     def get_action(self, state, brain, env):
 
@@ -27,8 +28,8 @@ class Agent:
             return actions_Qmax_allowed
 
         # Perform epsilone-greedy selection
-        epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
-        if random.uniform(0, 1) < epsilon_effective:
+        self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
+        if random.uniform(0, 1) < self.epsilon_effective:
             actions_explore_allowed = explore_actions_allowed(state, env)
             return np.random.choice(actions_explore_allowed)
         else:

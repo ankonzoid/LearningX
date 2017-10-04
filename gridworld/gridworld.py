@@ -52,7 +52,7 @@ def main():
     # =========================
     N_episodes = 100000  # specify number of training episodes
     env_info = {"Ny": 7, "Nx": 7}
-    agent_info = {"name": "epsilon-greedy", "epsilon": 0.5, "epsilon_decay": 3*np.log(10)/N_episodes}
+    agent_info = {"name": "epsilon-greedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
     brain_info = {}
 
     # =========================
@@ -97,7 +97,7 @@ def main():
 
         # Print
         if (episode+1) % (N_episodes/20) == 0:
-            print(" episode = {}/{}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, memory.R_total_episode, memory.N_actions_episode))
+            print(" episode = {}/{}, epsilon_eff = {}, reward = {:.1F}, n_actions = {}".format(episode + 1, N_episodes, round(agent.epsilon_effective,4), memory.R_total_episode, memory.N_actions_episode))
 
     # =======================
     # Print final policy
