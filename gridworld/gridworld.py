@@ -32,6 +32,7 @@
   action['left'] = 3
 
 """
+import numpy as np
 import operator, sys
 
 sys.path.append("./src")
@@ -51,7 +52,7 @@ def main():
     # =========================
     N_episodes = 100000  # specify number of training episodes
     env_info = {"Ny": 7, "Nx": 7}
-    agent_info = {"name": "epsilon-greedy", "epsilon": 0.5}
+    agent_info = {"name": "epsilon-greedy", "epsilon": 0.5, "epsilon_decay": 3*np.log(10)/N_episodes}
     brain_info = {}
 
     # =========================
@@ -88,6 +89,7 @@ def main():
 
         # Update run counters first (before updating Q)
         memory.update_run_counters()  # use episode counters to update run counters
+        agent.episode += 1
 
         # Update Q after episode (if needed)
         if "update_Q_after_episode" in utils.method_list(Brain):

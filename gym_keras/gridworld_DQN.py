@@ -1,6 +1,6 @@
 """
 
- gridworld_CNN.py  (author: Anson Wong / git: ankonzoid)
+ gridworld_DQN.py  (author: Anson Wong / git: ankonzoid)
 
 """
 import numpy as np

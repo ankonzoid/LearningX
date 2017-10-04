@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym_keras/gridworld_DQN.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld/gridworld.py" afterPath="$PROJECT_DIR$/gridworld/gridworld.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py" afterPath="$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_keras/gridworld_CNN.py" afterPath="$PROJECT_DIR$/gym_keras/gridworld_CNN.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -15,14 +18,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gridworld_CNN.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_CNN.py">
+      <file leaf-file-name="gridworld_DQN.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_DQN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="271" column="32" lean-forward="false" selection-start-line="271" selection-start-column="32" selection-end-line="271" selection-end-column="32" />
+            <state relative-caret-position="138">
+              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gridworld.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
               <folding>
-                <element signature="e#67#85#0" expanded="true" />
+                <element signature="e#1012#1030#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EpsilonGreedy_AgentClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="30" column="51" lean-forward="false" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,7 +119,6 @@
         <option value="$PROJECT_DIR$/grid2D_playground/README.md" />
         <option value="$PROJECT_DIR$/grid2D_playground/hunterprey.py" />
         <option value="$PROJECT_DIR$/grid2D_playground/gridworld.py" />
-        <option value="$PROJECT_DIR$/gridworld/gridworld.py" />
         <option value="$PROJECT_DIR$/gridworld/README.md" />
         <option value="$PROJECT_DIR$/gridworld/src/memory/MemoryClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/memory/MemoryClass.py" />
@@ -115,6 +137,9 @@
         <option value="$PROJECT_DIR$/gym_keras/temp/pong_keras.py" />
         <option value="$PROJECT_DIR$/hunterprey/README.md" />
         <option value="$PROJECT_DIR$/gym_keras/gridworld_CNN.py" />
+        <option value="$PROJECT_DIR$/gym_keras/temp/gridworld_DQN.py" />
+        <option value="$PROJECT_DIR$/gridworld/gridworld.py" />
+        <option value="$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py" />
       </list>
     </option>
   </component>
@@ -168,13 +193,9 @@
             <path>
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
-              <item name="gym_keras" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
-              <item name="gym_keras" type="462c0819:PsiDirectoryNode" />
-              <item name="temp" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="brain" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -189,18 +210,19 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ansonw/PycharmProjects/Deep-Reinforcement-Learning-Tutorials/gridworld/gridworld.py" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/gym_keras/temp" />
-      <recent name="$PROJECT_DIR$/gridworld" />
-      <recent name="$PROJECT_DIR$/gridworld/src/src_environment" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gym_keras/temp" />
       <recent name="$PROJECT_DIR$/gym" />
       <recent name="$PROJECT_DIR$/pong" />
       <recent name="$PROJECT_DIR$/hunterprey" />
       <recent name="$PROJECT_DIR$/gridworld" />
-      <recent name="$PROJECT_DIR$/2D_tabular/src/brain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gym_keras" />
+      <recent name="$PROJECT_DIR$/gym_keras/temp" />
+      <recent name="$PROJECT_DIR$/gridworld" />
+      <recent name="$PROJECT_DIR$/gridworld/src/src_environment" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
@@ -363,13 +385,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00026" summary="update">
-      <created>1506544514601</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1506544514601</updated>
     </task>
     <task id="LOCAL-00027" summary="update">
       <created>1506544719638</created>
@@ -707,11 +722,19 @@
       <option name="project" value="LOCAL" />
       <updated>1507131871784</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="update">
+      <created>1507133248261</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1507133248261</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="26" width="1859" height="1032" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -779,16 +802,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/multiarmed_bandit/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multiarmed_bandit/MAB_PG.py" />
     <entry file="file://$PROJECT_DIR$/multiarmed_bandit_PG/MAB_PG.py" />
     <entry file="file://$PROJECT_DIR$/opengym/README.md" />
@@ -952,13 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1767">
-          <caret line="92" column="64" lean-forward="false" selection-start-line="92" selection-start-column="64" selection-end-line="92" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gridworld/src/environment/GridWorld_EnvironmentClass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -993,20 +999,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4651">
+          <caret line="80" column="14" lean-forward="false" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+          <folding>
+            <element signature="e#67#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="524">
+          <caret line="30" column="51" lean-forward="false" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_CNN.py">
+    <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_DQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="271" column="32" lean-forward="false" selection-start-line="271" selection-start-column="32" selection-end-line="271" selection-end-column="32" />
+        <state relative-caret-position="138">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld/gridworld.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
           <folding>
-            <element signature="e#67#85#0" expanded="true" />
+            <element signature="e#1012#1030#0" expanded="true" />
           </folding>
         </state>
       </provider>
