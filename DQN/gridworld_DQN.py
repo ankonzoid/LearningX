@@ -66,11 +66,10 @@ class Agent():
         prob = Qprob / np.sum(Qprob)  # action probabilities
 
         # Follow a policy method and select an action stochastically
-        if 0:
+        if 1:
             # Epsilon-greedy selection
-            rand = random.uniform(0, 1)
             self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
-            if rand < self.epsilon_effective:
+            if random.uniform(0, 1) < self.epsilon_effective:
                 action = np.random.choice(actions_allowed)
             else:
                 Q_max = max(Q_allowed)
@@ -292,7 +291,7 @@ def main():
     # Settings
     # ==============================
     N_episodes = 1000
-    env_info = {"Ny": 5, "Nx": 5}
+    env_info = {"Ny": 20, "Nx": 20}
     agent_info = {"discount": 0.9, "learning_rate": 0.4, "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
 
     # ==============================
