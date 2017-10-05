@@ -3,7 +3,7 @@
  gridworld_DQN.py  (author: Anson Wong / git: ankonzoid)
 
  Teach an agent to move optimally in GridWorld where we approximate
- the action-value Q function with a Convolutional NN.
+ the action-value Q function with a CNN.
 
 """
 import numpy as np
@@ -104,11 +104,6 @@ class Agent():
             Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
             Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
             Q.add(Dense(env.action_size, activation="softmax"))
-        else:
-            Q = Sequential()
-            Q.add(Flatten())
-            Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-            Q.add(Dense(128, activation="relu", kernel_initializer="he_uniform"))
 
         # Select optimizer and loss function
         if 1:
