@@ -35,6 +35,7 @@ For grid size of (20, 20) set by `env_info = {"Ny": 20, "Nx": 20}`, we train the
 and the final output was:
 
 ```
+...
 [episode 994] iter = 38, epsilon = 0.0103, reward = 99.63
 [episode 995] iter = 38, epsilon = 0.0102, reward = 99.63
 [episode 996] iter = 38, epsilon = 0.0102, reward = 99.63
