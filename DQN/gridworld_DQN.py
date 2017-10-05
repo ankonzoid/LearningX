@@ -24,7 +24,7 @@ class Agent():
         # Training Parameters
         self.epsilon = agent_info["epsilon"]
         self.epsilon_decay = agent_info["epsilon_decay"]
-        self.gamma = agent_info["gamma"]
+        self.gamma = agent_info["discount"]
         self.learning_rate = agent_info["learning_rate"]
 
         # Memory
@@ -143,33 +143,26 @@ class Agent():
                 gradients.append(gradient(action, prob))
             return gradients
 
-        def compute_rewards_total(rewards, gamma):
+        def compute_discounted_rewards_total(rewards, gamma):
             # If rewards = [r(0), r(1), r(2), ..., r(n-2), r(n-1), r(n)]
-            # Then discounted rewards = [, ..., gamma^2*r(n) + gamma*r(n-1) + r(n-2), gamma*r(n) + r(n-1), r(n)]
+            # Then discounted rewards = [..., r(n-2) + gamma*r(n-1) + gamma^2*r(n), r(n-1) + gamma*r(n), r(n)]
+            # We compute this by going through the list in reverse order
             rewards_total = [0.0] * len(rewards)
             rsum = 0.0
             for t in reversed(range(len(rewards))):
-                # Traverse rewards right -> left (most recent -> least recent)
-                # If rewards[t] is non-zero, then discounted_rewards[t] = rewards[t]
-                # If rewards[t] is zero, then discounted_rewards[t] = gamma * rsum
                 rsum = rewards[t] + gamma * rsum
                 rewards_total[t] = rsum
             return rewards_total
 
-        # Compute loss error
-        gradients = compute_gradients(actions, probs)
-        rewards_total = compute_rewards_total(rewards, gamma)
+        # Compute intermediate quantities, and vertically stack as row vector matrix (2D)
+        gradients = np.vstack(compute_gradients(actions, probs))
+        discounted_rewards_total = np.vstack(compute_discounted_rewards_total(rewards, gamma))
+        discounted_rewards_total = discounted_rewards_total / np.std(discounted_rewards_total)
 
-        # Compute target
-        gradients = np.vstack(gradients)  # stack as row vector matrix
-        rewards_total = np.vstack(rewards_total)
+        # Compute loss scaled by discounted rewards
+        loss =  discounted_rewards_total * gradients
 
-        #rewards = np.vstack(rewards)  # stack as row vector matrix
-        #rewards = apply_discount(rewards, self.gamma)  # apply discount factors to reward history
-        #rewards = rewards / np.std(rewards - np.mean(rewards))
-        loss =  rewards_total * gradients
-
-        # Construct training data
+        # Construct training data of states
         X = np.squeeze(np.vstack([states]))
 
         # Construct labels by adding loss
@@ -300,7 +293,7 @@ def main():
     # ==============================
     N_episodes = 1000
     env_info = {"Ny": 5, "Nx": 5}
-    agent_info = {"gamma": 1.0, "learning_rate": 1.0, "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
+    agent_info = {"discount": 0.9, "learning_rate": 0.4, "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
 
     # ==============================
     # Setup environment and agent
@@ -327,17 +320,12 @@ def main():
             state = state_new
             iter += 1
 
-        # Update Q using memory
+        # Update Q when episode finishes
         agent.update_Q()
         agent.episode += 1
 
         # Print
         print("[episode {}] iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, iter, agent.epsilon_effective, sum(agent.reward_memory)))
-
-        if 0:
-            print("{}".format(agent.state_memory))
-            print("{}".format(agent.action_memory))
-            exit()
 
         # Clear memory for next episode
         agent.clear_memory()
