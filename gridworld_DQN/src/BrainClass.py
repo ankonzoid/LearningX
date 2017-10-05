@@ -8,7 +8,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Reshape, Flatten
 from keras.layers.convolutional import Convolution2D
 
-class Brain():
+class Brain:
 
     def __init__(self, env, brain_info):
 

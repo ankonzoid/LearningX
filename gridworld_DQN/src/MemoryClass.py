@@ -3,7 +3,7 @@
  MemoryClass.py  (author: Anson Wong / git: ankonzoid)
 
 """
-class Memory():
+class Memory:
 
     def __init__(self, memory_info):
         self.clear_memory()

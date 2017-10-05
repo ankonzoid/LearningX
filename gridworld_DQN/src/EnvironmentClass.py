@@ -5,7 +5,7 @@
 """
 import numpy as np
 
-class Environment():
+class Environment:
 
     def __init__(self, env_info):
 

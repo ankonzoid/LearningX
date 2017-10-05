@@ -6,7 +6,7 @@
 import numpy as np
 import random
 
-class Agent():
+class Agent:
 
     def __init__(self, env, agent_info):
 
