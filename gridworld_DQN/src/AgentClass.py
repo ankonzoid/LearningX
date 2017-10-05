@@ -24,13 +24,13 @@ class Agent:
     # Policy
     # ==================
 
-    def get_action(self, state, env):
+    def get_action(self, state, brain, env):
         # Reshape 2D state to 3D slice for NN input
         state_Q_input = state.reshape([1, env.Ny, env.Nx])
 
         # Forward-pass state into Q network
         # Q(s) = [Q(a_1), ..., Q(a_n)]
-        Qprob = self.Q.predict(state_Q_input, batch_size=1).flatten()
+        Qprob = brain.Q.predict(state_Q_input, batch_size=1).flatten()
 
         # Set zero to the states that are not physically allowed
         N_actions = len(Qprob)

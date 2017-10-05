@@ -7,9 +7,9 @@
 
 """
 import numpy as np
-import sys
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
-sys.path.append("./src")
 from EnvironmentClass import Environment
 from AgentClass import Agent
 from BrainClass import Brain
@@ -42,7 +42,7 @@ def main():
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
             # Pick an action by sampling Q(state) probabilities
-            action, Qprob, prob = agent.get_action(state, env)
+            action, Qprob, prob = agent.get_action(state, brain, env)
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_new = env.perform_action(state, action)
@@ -53,16 +53,14 @@ def main():
             iter += 1
 
         # Update Q when episode finishes
-        brain.update_Q()
+        brain.update_Q(memory)
         agent.episode += 1
 
         # Print
-        print("[episode {}] iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, iter, agent.epsilon_effective, sum(agent.reward_memory)))
+        print("[episode {}] iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, iter, agent.epsilon_effective, sum(memory.reward_memory)))
 
         # Clear memory for next episode
-        agent.clear_memory()
-
-
+        memory.clear_memory()
 
 # Driver
 if __name__ == "__main__":
