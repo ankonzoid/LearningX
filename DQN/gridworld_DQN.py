@@ -69,7 +69,6 @@ class Agent():
             self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
             if rand < self.epsilon_effective:
                 action = np.random.choice(actions_allowed)
-                choice = "explore"
             else:
                 Q_max = max(Q_allowed)
                 actions_Qmax_allowed = []
@@ -77,7 +76,6 @@ class Agent():
                     if Q == Q_max:
                         actions_Qmax_allowed.append(action)
                 action = np.random.choice(actions_Qmax_allowed)
-                choice = "greedy"
 
         if 0:
             print()
@@ -122,13 +120,45 @@ class Agent():
         actions = self.action_memory
         rewards = self.reward_memory
         probs = self.prob_memory
-        gradients = self.gradient_memory
 
+        def compute_gradients(actions, probs):
+            # The gradient is the correction in the action probabilities
+            # gradient = onehotvec(a) - prob
+            def gradient(action, prob):
+                y = np.zeros([prob.shape[0]])
+                y[action] = 1
+                gradient = np.array(y).astype('float32') - prob
+                return gradient
+            gradients = []
+            for (action, prob) in zip(actions, probs):
+                gradients.append(gradient(action, prob))
+            return gradients
+
+        def apply_discount(rewards, gamma):
+            # If rewards = [r(0), r(1), r(2), ..., r(n-2), r(n-1), r(n)]
+            # Then discounted rewards = [, ..., gamma^2*r(n) + gamma*r(n-1) + r(n-2), gamma*r(n) + r(n-1), r(n)]
+            discounted_rewards = np.zeros(rewards.shape)
+            rsum = 0
+            for t in reversed(range(0, rewards.size)):
+                # Traverse rewards right -> left (most recent -> least recent)
+                # If rewards[t] is non-zero, then discounted_rewards[t] = rewards[t]
+                # If rewards[t] is zero, then discounted_rewards[t] = gamma * rsum
+                if rewards[t] != 0:
+                    rsum = 0
+                rsum = rsum * gamma + rewards[t]
+                discounted_rewards[t] = rsum
+            return discounted_rewards
+
+        # Compute loss error
+        gradients = compute_gradients(actions, probs)
+
+        # Compute target
         gradients = np.vstack(gradients)  # stack as row vector matrix
         rewards = np.vstack(rewards)  # stack as row vector matrix
-        rewards = self.apply_discount(rewards, self.gamma)  # apply discount factors to reward history
+        rewards = apply_discount(rewards, self.gamma)  # apply discount factors to reward history
         rewards = rewards / np.std(rewards - np.mean(rewards))
         gradients *= rewards
+
 
         # Construct training data
         X = np.squeeze(np.vstack([states]))
@@ -146,33 +176,8 @@ class Agent():
         self.Q.save_weights(filename)
 
     # ===================
-    # Rewards
-    # ===================
-
-    def apply_discount(self, rewards, gamma):
-        # If rewards = [r(0), r(1), r(2), ..., r(n-2), r(n-1), r(n)]
-        # Then discounted rewards = [, ..., gamma^2*r(n) + gamma*r(n-1) + r(n-2), gamma*r(n) + r(n-1), r(n)]
-        discounted_rewards = np.zeros(rewards.shape)
-        rsum = 0
-        for t in reversed(range(0, rewards.size)):
-            # Traverse rewards right -> left (most recent -> least recent)
-            # If rewards[t] is non-zero, then discounted_rewards[t] = rewards[t]
-            # If rewards[t] is zero, then discounted_rewards[t] = gamma * rsum
-            if rewards[t] != 0:
-                rsum = 0
-            rsum = rsum * gamma + rewards[t]
-            discounted_rewards[t] = rsum
-        return discounted_rewards
-
-    # ===================
     # Memory
     # ===================
-
-    def compute_gradient(self, action, prob):
-        y = np.zeros([prob.shape[0]])
-        y[action] = 1
-        gradient = np.array(y).astype('float32') - prob
-        return gradient
 
     def append_to_memory(self, state, action, prob, reward, gradient):
         self.state_memory.append(state)
@@ -306,10 +311,8 @@ def main():
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_new = env.perform_action(state, action)
-            # Compute loss function
-            gradient = agent.compute_gradient(action, prob)
             # Append quantities to memory
-            agent.append_to_memory(state, action, prob, reward, gradient)
+            agent.append_to_memory(state, action, prob, reward)
             # Transition to next state
             state = state_new
             iter += 1
