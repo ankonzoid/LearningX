@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Deep-Reinforcement-Learning-Tutorials.iml" afterPath="$PROJECT_DIR$/.idea/Deep-Reinforcement-Learning-Tutorials.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld/gridworld.py" afterPath="$PROJECT_DIR$/gridworld/gridworld.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunterprey/hunterprey.py" afterPath="$PROJECT_DIR$/hunterprey/hunterprey.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DQN/gridworld_DQN.py" afterPath="$PROJECT_DIR$/DQN/gridworld_DQN.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +14,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="gridworld_DQN.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DQN/gridworld_DQN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="199" column="21" lean-forward="true" selection-start-line="199" selection-start-column="21" selection-end-line="199" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pong_keras.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DQN/temp/pong_keras.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="44" column="32" lean-forward="true" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -66,7 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/multiarmed_bandit/multiarmed_bandit.py" />
         <option value="$PROJECT_DIR$/gym/gym.py" />
         <option value="$PROJECT_DIR$/gym/cartpole_keras.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/AgentClass.py" />
@@ -106,9 +123,10 @@
         <option value="$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py" />
         <option value="$PROJECT_DIR$/gridworld/src/brain/QLearning_BrainClass.py" />
         <option value="$PROJECT_DIR$/gridworld/README.md" />
-        <option value="$PROJECT_DIR$/DQN/gridworld_DQN.py" />
         <option value="$PROJECT_DIR$/gridworld/gridworld.py" />
         <option value="$PROJECT_DIR$/hunterprey/hunterprey.py" />
+        <option value="$PROJECT_DIR$/multiarmed_bandit/multiarmed_bandit.py" />
+        <option value="$PROJECT_DIR$/DQN/gridworld_DQN.py" />
       </list>
     </option>
   </component>
@@ -154,12 +172,7 @@
             <path>
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
-              <item name="gridworld" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
-              <item name="hunterprey" type="462c0819:PsiDirectoryNode" />
+              <item name="multiarmed_bandit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -5028,13 +5041,6 @@
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
     </task>
-    <task id="LOCAL-00036" summary="update">
-      <created>1506563817242</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1506563817242</updated>
-    </task>
     <task id="LOCAL-00037" summary="update">
       <created>1506613542956</created>
       <option name="number" value="00037" />
@@ -5371,11 +5377,19 @@
       <option name="project" value="LOCAL" />
       <updated>1507150624923</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="update">
+      <created>1507211159120</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1507211159121</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="26" width="1859" height="1032" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5385,7 +5399,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30990416" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18532819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18532819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -5558,13 +5572,6 @@
     <entry file="file://$PROJECT_DIR$/gym_keras/temp/pong_keras.py" />
     <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_CNN.py" />
     <entry file="file://$PROJECT_DIR$/gym_keras/gridworld_DQN.py" />
-    <entry file="file://$PROJECT_DIR$/multiarmed_bandit/multiarmed_bandit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gridworld/src/agent/EpsilonGreedy_AgentClass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -5610,20 +5617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DQN/temp/pong_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DQN/gridworld_DQN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3588">
-          <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hunterprey/hunterprey.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1955">
@@ -5636,6 +5629,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multiarmed_bandit/multiarmed_bandit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DQN/temp/pong_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="44" column="32" lean-forward="true" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DQN/gridworld_DQN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="199" column="21" lean-forward="true" selection-start-line="199" selection-start-column="21" selection-end-line="199" selection-end-column="21" />
           <folding />
         </state>
       </provider>

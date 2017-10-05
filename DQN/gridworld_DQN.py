@@ -79,7 +79,6 @@ class Agent():
 
         if 0:
             print()
-            print(choice)
             print(prob)
             print(action)
 
@@ -91,35 +90,44 @@ class Agent():
 
     def _build_Q(self, env):
         # Build Q(s) function that outputs [Q(a_1), Q(a_2), ..., Q(a_n)]
-        Q = Sequential()
-        # Reshape 2D to 3D slice
 
+        # Build NN architecture
         if 1:
+            # Reshape 2D to 3D slice
+            Q = Sequential()
             Q.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))
             Q.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
             Q.add(Flatten())
             Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
             Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
             Q.add(Dense(env.action_size, activation="softmax"))
+        else:
+            Q = Sequential()
+            Q.add(Flatten())
+            Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
+            Q.add(Dense(128, activation="relu", kernel_initializer="he_uniform"))
 
+        # Select optimizer and loss function
         if 1:
             Q.compile(loss="binary_crossentropy", optimizer="Adam")
+        else:
+            opt = Adam(lr=self.learning_rate)
+            Q.compile(loss="mean_squared_error", optimizer=opt)
 
-        #Q.add(Flatten())
-        #Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        #Q.add(Dense(128, activation="relu", kernel_initializer="he_uniform"))
-        # Select optimizer and loss function
-        #opt = Adam(lr=self.learning_rate)
-        #Q.compile(loss="mean_squared_error", optimizer=opt)
-        # Print architecture of Q network
+        # Print QNN architecture summary
         Q.summary()
+
         return Q
 
     def update_Q(self):
         states = self.state_memory
         actions = self.action_memory
         rewards = self.reward_memory
+        Qstates = self.Qstates_memory
         probs = self.prob_memory
+
+        gamma = self.gamma
+        learning_rate = self.learning_rate
 
         def compute_gradients(actions, probs):
             # The gradient is the correction in the action probabilities
@@ -134,36 +142,37 @@ class Agent():
                 gradients.append(gradient(action, prob))
             return gradients
 
-        def apply_discount(rewards, gamma):
+        def compute_rewards_total(rewards, gamma):
             # If rewards = [r(0), r(1), r(2), ..., r(n-2), r(n-1), r(n)]
             # Then discounted rewards = [, ..., gamma^2*r(n) + gamma*r(n-1) + r(n-2), gamma*r(n) + r(n-1), r(n)]
-            discounted_rewards = np.zeros(rewards.shape)
-            rsum = 0
-            for t in reversed(range(0, rewards.size)):
+            rewards_total = [0.0] * len(rewards)
+            rsum = 0.0
+            for t in reversed(range(len(rewards))):
                 # Traverse rewards right -> left (most recent -> least recent)
                 # If rewards[t] is non-zero, then discounted_rewards[t] = rewards[t]
                 # If rewards[t] is zero, then discounted_rewards[t] = gamma * rsum
-                if rewards[t] != 0:
-                    rsum = 0
-                rsum = rsum * gamma + rewards[t]
-                discounted_rewards[t] = rsum
-            return discounted_rewards
+                rsum = rewards[t] + gamma * rsum
+                rewards_total[t] = rsum
+            return rewards_total
 
         # Compute loss error
         gradients = compute_gradients(actions, probs)
+        rewards_total = compute_rewards_total(rewards, gamma)
 
         # Compute target
         gradients = np.vstack(gradients)  # stack as row vector matrix
-        rewards = np.vstack(rewards)  # stack as row vector matrix
-        rewards = apply_discount(rewards, self.gamma)  # apply discount factors to reward history
-        rewards = rewards / np.std(rewards - np.mean(rewards))
-        gradients *= rewards
+        rewards_total = np.vstack(rewards_total)
 
+
+        #rewards = np.vstack(rewards)  # stack as row vector matrix
+        #rewards = apply_discount(rewards, self.gamma)  # apply discount factors to reward history
+        #rewards = rewards / np.std(rewards - np.mean(rewards))
+        loss =  rewards_total * gradients
 
         # Construct training data
         X = np.squeeze(np.vstack([states]))
-        # Construct labels by adding err
-        error = self.learning_rate * np.squeeze(np.vstack([gradients]))
+        # Construct labels by adding loss
+        error = learning_rate * np.squeeze(np.vstack([loss]))
         Y = probs + error
 
         # Train Q network
@@ -189,6 +198,7 @@ class Agent():
     def clear_memory(self):
         self.state_memory = []
         self.action_memory = []
+        self.Qprob_memory = []
         self.prob_memory = []
         self.reward_memory = []
         self.gradient_memory = []
