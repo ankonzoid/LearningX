@@ -15,8 +15,6 @@ sys.path.append("./src/brain")
 sys.path.append("./src/environment")
 sys.path.append("./src/memory")
 from EpsilonGreedy_AgentClass import Agent
-from SampleAveraging_BrainClass import Brain
-#from QLearning_BrainClass import Brain
 from HunterPrey_EnvironmentClass import Environment
 from MemoryClass import Memory
 import utils
@@ -25,11 +23,28 @@ def main():
     # =========================
     # Settings
     # =========================
-    N_episodes_train = 100000
-    N_episodes_test = 30
-    agent_info = {"name": "hunter", "epsilon": 0.5}
-    env_info = {"N_global": 7}
-    brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
+    learning_mode = "SampleAveraging"
+
+    if learning_mode == "SampleAveraging":
+
+        from SampleAveraging_BrainClass import Brain
+        N_episodes_train = 100000
+        N_episodes_test = 30
+        agent_info = {"name": "hunter", "epsilon": 0.5}
+        env_info = {"N_global": 7}
+        brain_info = {}
+
+    elif learning_mode == "QLearning":
+
+        from QLearning_BrainClass import Brain
+        N_episodes_train = 10000
+        N_episodes_test = 30
+        agent_info = {"name": "hunter", "epsilon": 0.5}
+        env_info = {"N_global": 7}
+        brain_info = {"learning_rate": 0.8, "discount": 0.9}  # only relevant for Q-learning
+
+    else:
+        raise IOError("Error: Invalid learning mode!")
 
     save_video = True
     video_file = "results/hunterprey.mp4"

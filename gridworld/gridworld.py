@@ -41,7 +41,6 @@ sys.path.append("./src/brain")
 sys.path.append("./src/environment")
 sys.path.append("./src/memory")
 from EpsilonGreedy_AgentClass import Agent
-
 from GridWorld_EnvironmentClass import Environment
 from MemoryClass import Memory
 import utils
