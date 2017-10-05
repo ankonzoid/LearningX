@@ -2,6 +2,9 @@
 
  gridworld_DQN.py  (author: Anson Wong / git: ankonzoid)
 
+ Teach an agent to move optimally in GridWorld where we approximate
+ the action-value Q function with a Convolutional NN.
+
 """
 import numpy as np
 import random
@@ -156,7 +159,7 @@ class Agent():
         # Compute intermediate quantities, and vertically stack as row vector matrix (2D)
         gradients = np.vstack(compute_gradients(actions, probs))
         discounted_rewards_total = np.vstack(compute_discounted_rewards_total(rewards, gamma))
-        discounted_rewards_total = discounted_rewards_total / np.std(discounted_rewards_total)
+        discounted_rewards_total /= np.std(discounted_rewards_total)
 
         # Compute loss scaled by discounted rewards
         loss =  discounted_rewards_total * gradients
