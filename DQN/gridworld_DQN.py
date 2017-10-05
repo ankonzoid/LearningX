@@ -20,6 +20,7 @@ from keras.layers.convolutional import Convolution2D
 class Agent():
 
     def __init__(self, env, agent_info):
+
         # Training Parameters
         self.epsilon = agent_info["epsilon"]
         self.epsilon_decay = agent_info["epsilon_decay"]
@@ -43,26 +44,28 @@ class Agent():
     def get_action(self, state, env):
         # Reshape 2D state to 3D slice for NN input
         state_Q_input = state.reshape([1, env.Ny, env.Nx])
+
         # Forward-pass state into Q network
         # Q(s) = [Q(a_1), ..., Q(a_n)]
-        Q_state = self.Q.predict(state_Q_input, batch_size=1).flatten()
+        Qprob = self.Q.predict(state_Q_input, batch_size=1).flatten()
+
         # Set zero to the states that are not physically allowed
-        N_actions = len(Q_state)
+        N_actions = len(Qprob)
         Q_allowed = []
         actions_allowed = []
         for action in range(N_actions):
             if env.is_allowed_action(state, action):
-                Q_allowed.append(action)
+                Q_allowed.append(Qprob[action])
                 actions_allowed.append(action)
-        # Check that there exists non-zero action value
+
+        # Check that there exists at least 1 allowed action
         if np.sum(actions_allowed) == 0:
             raise IOError("Error: at state with no possible actions!")
+
         # Compute probabilities for each state
-        prob = Q_state / np.sum(Q_state)  # action probabilities
+        prob = Qprob / np.sum(Qprob)  # action probabilities
 
-        # Sample action based on action probabilities
-        action = np.random.choice(env.action_size, 1, p=prob)[0]
-
+        # Follow a policy method and select an action stochastically
         if 0:
             # Epsilon-greedy selection
             rand = random.uniform(0, 1)
@@ -76,13 +79,11 @@ class Agent():
                     if Q == Q_max:
                         actions_Qmax_allowed.append(action)
                 action = np.random.choice(actions_Qmax_allowed)
+        else:
+            # Sample action based on action probabilities
+            action = np.random.choice(env.action_size, 1, p=prob)[0]
 
-        if 0:
-            print()
-            print(prob)
-            print(action)
-
-        return action, prob
+        return action, Qprob, prob
 
     # ===================
     # Q functions
@@ -123,7 +124,7 @@ class Agent():
         states = self.state_memory
         actions = self.action_memory
         rewards = self.reward_memory
-        Qstates = self.Qstates_memory
+        Qprobs = self.Qprob_memory
         probs = self.prob_memory
 
         gamma = self.gamma
@@ -163,7 +164,6 @@ class Agent():
         gradients = np.vstack(gradients)  # stack as row vector matrix
         rewards_total = np.vstack(rewards_total)
 
-
         #rewards = np.vstack(rewards)  # stack as row vector matrix
         #rewards = apply_discount(rewards, self.gamma)  # apply discount factors to reward history
         #rewards = rewards / np.std(rewards - np.mean(rewards))
@@ -171,9 +171,10 @@ class Agent():
 
         # Construct training data
         X = np.squeeze(np.vstack([states]))
+
         # Construct labels by adding loss
-        error = learning_rate * np.squeeze(np.vstack([loss]))
-        Y = probs + error
+        dQprobs = learning_rate * np.squeeze(np.vstack([loss]))
+        Y = Qprobs + dQprobs
 
         # Train Q network
         self.Q.train_on_batch(X, Y)
@@ -188,12 +189,12 @@ class Agent():
     # Memory
     # ===================
 
-    def append_to_memory(self, state, action, prob, reward, gradient):
+    def append_to_memory(self, state, action, Qprob, prob, reward):
         self.state_memory.append(state)
         self.action_memory.append(action)
+        self.Qprob_memory.append(Qprob)
         self.prob_memory.append(prob)
         self.reward_memory.append(reward)
-        self.gradient_memory.append(gradient)
 
     def clear_memory(self):
         self.state_memory = []
@@ -201,7 +202,6 @@ class Agent():
         self.Qprob_memory = []
         self.prob_memory = []
         self.reward_memory = []
-        self.gradient_memory = []
 
 # ==============================
 #
@@ -211,6 +211,7 @@ class Agent():
 class Environment():
 
     def __init__(self, env_info):
+
         # Environment settings
         self.Ny = env_info["Ny"]
         self.Nx = env_info["Nx"]
@@ -298,7 +299,6 @@ def main():
     # Settings
     # ==============================
     N_episodes = 1000
-
     env_info = {"Ny": 5, "Nx": 5}
     agent_info = {"gamma": 1.0, "learning_rate": 1.0, "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
 
@@ -317,12 +317,12 @@ def main():
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
             # Pick an action by sampling Q(state) probabilities
-            action, prob = agent.get_action(state, env)
+            action, Qprob, prob = agent.get_action(state, env)
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_new = env.perform_action(state, action)
             # Append quantities to memory
-            agent.append_to_memory(state, action, prob, reward)
+            agent.append_to_memory(state, action, Qprob, prob, reward)
             # Transition to next state
             state = state_new
             iter += 1

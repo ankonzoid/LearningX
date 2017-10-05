@@ -18,18 +18,8 @@
       <file leaf-file-name="gridworld_DQN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DQN/gridworld_DQN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="199" column="21" lean-forward="true" selection-start-line="199" selection-start-column="21" selection-end-line="199" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pong_keras.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DQN/temp/pong_keras.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="44" column="32" lean-forward="true" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+            <state relative-caret-position="92">
+              <caret line="304" column="36" lean-forward="false" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -5041,13 +5031,6 @@
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
     </task>
-    <task id="LOCAL-00037" summary="update">
-      <created>1506613542956</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1506613542956</updated>
-    </task>
     <task id="LOCAL-00038" summary="update">
       <created>1506624367470</created>
       <option name="number" value="00038" />
@@ -5384,7 +5367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507211159121</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="update">
+      <created>1507214858716</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1507214858716</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -5651,8 +5641,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DQN/gridworld_DQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="199" column="21" lean-forward="true" selection-start-line="199" selection-start-column="21" selection-end-line="199" selection-end-column="21" />
+        <state relative-caret-position="92">
+          <caret line="304" column="36" lean-forward="false" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
           <folding />
         </state>
       </provider>
