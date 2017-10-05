@@ -49,7 +49,7 @@ class Agent:
         prob = Qprob / np.sum(Qprob)  # action probabilities
 
         # Follow a policy method and select an action stochastically
-        if (self.policy_mode == "epsgreedy"):
+        if (self.policy_mode == "epsilongreedy"):
 
             # Epsilon-greedy selection
             self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
@@ -64,7 +64,7 @@ class Agent:
                         actions_Qmax_allowed.append(action)
                 action = np.random.choice(actions_Qmax_allowed)
 
-        elif (self.policy_mode == "Qprobsampling"):
+        elif (self.policy_mode == "softmax"):
 
             # Sample action based on action probabilities
             action = np.random.choice(env.action_size, 1, p=prob)[0]

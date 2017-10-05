@@ -21,7 +21,8 @@ def main():
     # ==============================
     N_episodes = 1000
     env_info = {"Ny": 20, "Nx": 20}
-    agent_info = {"policy_mode": "epsgreedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
+    #agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
+    agent_info = {"policy_mode": "softmax", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
     brain_info = {"discount": 0.9, "learning_rate": 0.4}
     memory_info = {}
 
@@ -61,6 +62,11 @@ def main():
 
         # Clear memory for next episode
         memory.clear_memory()
+
+    # ==============================
+    # Results
+    # ==============================
+
 
 # Driver
 if __name__ == "__main__":
