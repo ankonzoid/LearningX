@@ -1,92 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="update">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.episode_batch.0.23752.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.manifest.0.23752.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/CartPole-v0_results.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.episode_batch.0.25399.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.manifest.0.25399.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000027.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000027.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000064.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000064.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000125.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000125.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000216.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000216.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000343.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000343.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/LunarLander-v2/openaigym.episode_batch.0.25467.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/LunarLander-v2/openaigym.manifest.0.25467.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/LunarLander-v2/openaigym.video.0.25467.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/CartPole-v0_results.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.episode_batch.0.35170.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.manifest.0.35170.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/LunarLander-v2_results.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.episode_batch.0.46265.stats.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.manifest.0.46265.manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.meta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.mp4" afterPath="" />
+    <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_DPG/model/PN_model.h5" afterPath="$PROJECT_DIR$/gym_DPG/model/PN_model.h5" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" afterPath="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" afterPath="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_DPG/gym_DPG_2D.py" afterPath="$PROJECT_DIR$/gym_DPG/gym_DPG_2D.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" afterPath="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -344,13 +261,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00057" summary="update">
-      <created>1506855165043</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1506855165043</updated>
     </task>
     <task id="LOCAL-00058" summary="update">
       <created>1506855239669</created>
@@ -688,12 +598,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507327216578</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="update">
+      <created>1507327791035</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1507327791035</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="18" width="1859" height="1032" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -703,7 +619,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3089701" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18532819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18532819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
