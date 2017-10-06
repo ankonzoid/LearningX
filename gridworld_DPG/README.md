@@ -1,4 +1,4 @@
-# Training an Agent to beat GridWorld using a deep policy gradients (`gridworld_DQN.py`)
+# Training an Agent to beat GridWorld using a Deep Policy Gradients (`gridworld_DPG.py`)
 
 We train an agent to beat Grid World using deep policy gradients with the keras library. This is scalable neural network upgrade to classical tabular methods as used in our previous Grid World examples:
 
