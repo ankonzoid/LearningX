@@ -8,10 +8,14 @@ import random
 
 class Agent:
 
-    def __init__(self, env, agent_info):
+    def __init__(self, info):
 
-        # Agent info
-        self.agent_info = agent_info
+        # Info
+        self.env_info = info["env"]
+        self.agent_info = info["agent"]
+
+        self.state_dim = self.env_info["state_dim"]
+        self.policy_mode = self.agent_info["policy_mode"]
 
         # Keep track of agent episodes
         self.episode = 0
@@ -20,10 +24,11 @@ class Agent:
     # Policy
     # ==================
 
-    def get_action(self, state, brain, env):
+    def get_action(self, state, brain):
 
         # Reshape 2D state to 3D slice for NN input
-        state_PN_input = state.reshape([1, env.Ny, env.Nx])
+        slice_dim_3D = (1,) + self.state_dim
+        state_PN_input = state.reshape(list(slice_dim_3D))
 
         # Forward-pass state into PN network
         # PN(s) = [PN(a_1), ..., PN(a_n)]
@@ -34,9 +39,8 @@ class Agent:
         PNprob_allowed = []
         actions_allowed = []
         for action in range(N_actions):
-            if env.is_allowed_action(state, action):
-                PNprob_allowed.append(PNprob[action])
-                actions_allowed.append(action)
+            PNprob_allowed.append(PNprob[action])
+            actions_allowed.append(action)
         PNprob_allowed = np.array(PNprob_allowed, dtype=np.float32)
         actions_allowed = np.array(actions_allowed, dtype=np.int)
 
@@ -48,8 +52,7 @@ class Agent:
         prob = PNprob / np.sum(PNprob)  # action probabilities
 
         # Follow a policy method and select an action stochastically
-        policy_mode = self.agent_info["policy_mode"]
-        if (policy_mode == "epsilongreedy"):
+        if (self.policy_mode == "epsilongreedy"):
 
             # Epsilon-greedy parameters
             self.epsilon = self.agent_info["epsilon"]
@@ -68,7 +71,7 @@ class Agent:
                         actions_PNmax_allowed.append(action)
                 action = np.random.choice(actions_PNmax_allowed)
 
-        elif (policy_mode == "softmax"):
+        elif (self.policy_mode == "softmax"):
 
             # Sample action based on action probabilities
             prob_actions_allowed = PNprob_allowed / np.sum(PNprob_allowed)

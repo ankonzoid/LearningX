@@ -10,28 +10,33 @@ from keras.layers.convolutional import Convolution2D
 
 class Brain:
 
-    def __init__(self, env, brain_info):
+    def __init__(self, info):
 
-        # Training Parameters
-        self.brain_info = brain_info
+        # Info
+        self.env_info = info["env"]
+        self.brain_info = info["brain"]
 
         # Learning parameters
-        self.gamma = brain_info["discount"]
-        self.learning_rate = brain_info["learning_rate"]
+        self.gamma = self.brain_info["discount"]
+        self.learning_rate = self.brain_info["learning_rate"]
 
         # Policy network function
-        self.PN = self._build_PN(env)
+        self.PN = self._build_PN()
 
-    def _build_PN(self, env):
+    def _build_PN(self):
+
+        input_dim_2D = self.env_info["state_dim"]
+        input_dim_3D = (1,) + self.env_info["state_dim"]
+        output_size = self.env_info["action_size"]
 
         # Build DQN architecture (outputs [Q(a_1), Q(a_2), ..., Q(a_n)])
         PN = Sequential()
-        PN.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))  # Reshape 2D to 3D slice
+        PN.add(Reshape(input_dim_3D, input_shape=input_dim_2D))  # Reshape 2D to 3D slice
         PN.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
         PN.add(Flatten())
         PN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
         PN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
-        PN.add(Dense(env.action_size, activation="softmax"))
+        PN.add(Dense(output_size, activation="softmax"))
 
         # Select optimizer and loss function
         PN.compile(loss="binary_crossentropy", optimizer="Adam")

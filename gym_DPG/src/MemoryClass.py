@@ -16,10 +16,10 @@ class Memory:
     # Memory
     # ===================
 
-    def append_to_memory(self, state, action, Qprob, prob, reward):
+    def append_to_memory(self, state, action, PNprob, prob, reward):
         self.state_memory.append(state)
         self.action_memory.append(action)
-        self.PNprob_memory.append(Qprob)
+        self.PNprob_memory.append(PNprob)
         self.prob_memory.append(prob)
         self.reward_memory.append(reward)
 
