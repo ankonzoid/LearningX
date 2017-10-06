@@ -1,13 +1,12 @@
 """
 
- gridworld_DPG.py  (author: Anson Wong / git: ankonzoid)
+ gym_DPG.py  (author: Anson Wong / git: ankonzoid)
 
- Teach an agent to move optimally in GridWorld using deep policy gradients.
+ Teach an agent to play in gym environments using deep policy gradients.
 
 """
 import numpy as np
 import sys, os
-from PIL import Image
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
 from AgentClass import Agent
@@ -37,27 +36,13 @@ def main():
     action_size = np.prod(np.array(list(action_dim), dtype=np.int))
     action_names = env.unwrapped.get_action_meanings()
 
-    if 0:
-        print(action_names)
-        print(action_dim)
-        print(state_dim)
-        print(action_size)
-        print(state_size)
-
-        #import matplotlib.pyplot as plt
-        #plt.imshow(state)
-        #plt.show()
-
-        #plt.imshow(state_grey, cmap="gray")
-        #plt.show()
-
     # ==============================
     # Setup environment and agent
     # ==============================
     env_info = {"state_dim": state_dim, "action_dim": action_dim, "state_size": state_size, "action_size": action_size,
                 "action_names": action_names}
     agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0 * np.log(10.0) / N_episodes}
-    # agent_info = {"policy_mode": "softmax"}
+    #agent_info = {"policy_mode": "softmax"}
     brain_info = {"discount": 0.9, "learning_rate": 0.4}
     memory_info = {}
 
@@ -75,26 +60,21 @@ def main():
         # Reset agent state
         observation = env.reset()
 
+        # Run episode
         iter = 0
         done = False
         while not done:
-
             # Render
             env.render()
-
             # Current state
             state = observation
             state_grey = convert_rgb2grey(state)
-
             # Let agent pick an action
             action, PNprob, prob = agent.get_action(state_grey, brain)
-
             # Transition to next state and collect reward
             state_new, reward, done, info = env.step(action)
-
             # Append quantities to memory
             memory.append_to_memory(state_grey, action, PNprob, prob, reward)
-
             # Update iteration parameter
             iter += 1
 

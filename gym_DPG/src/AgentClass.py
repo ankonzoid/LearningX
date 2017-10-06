@@ -57,8 +57,6 @@ class Agent:
             # Epsilon-greedy parameters
             self.epsilon = self.agent_info["epsilon"]
             self.epsilon_decay = self.agent_info["epsilon_decay"]
-
-            # Epsilon-greedy selection
             self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
 
             if random.uniform(0, 1) < self.epsilon_effective:
