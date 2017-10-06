@@ -104,8 +104,7 @@ class Brain:
     # ==================================
 
     def load_PN(self, filename):
-        PN = load_model(filename)
-        return PN
+        self.PN = load_model(filename)
 
     def save_PN(self, filename):
         self.PN.save(filename)

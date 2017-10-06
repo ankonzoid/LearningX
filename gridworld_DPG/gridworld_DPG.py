@@ -19,7 +19,9 @@ def main():
     # Settings
     # ==============================
     N_episodes = 1000
-    save_PN_filename = "PN_model.h5"
+    load_PN = False
+    save_PN = True
+    save_PN_filename = os.path.join("model", "PN_model.h5")
 
     env_info = {"Ny": 20, "Nx": 20}
     agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
@@ -34,6 +36,9 @@ def main():
     agent = Agent(env, agent_info)
     brain = Brain(env, brain_info)
     memory = Memory(memory_info)
+
+    if load_PN:
+        brain.load_PN(save_PN_filename)
 
     # ==============================
     # Train agent
@@ -69,7 +74,8 @@ def main():
         agent.episode += 1
 
         # Save PN
-        brain.save_PN(save_PN_filename)
+        if save_PN:
+            brain.save_PN(save_PN_filename)
 
         # Clear memory for next episode
         memory.clear_memory()

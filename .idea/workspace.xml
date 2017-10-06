@@ -1,8 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym_DPG/src/utils.py" />
+    <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="update">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.episode_batch.0.23752.stats.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.manifest.0.23752.manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000000.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000001.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000001.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000008.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/results/Pong-v0/openaigym.video.0.23752.video000008.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/CartPole-v0_results.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.episode_batch.0.25399.stats.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.manifest.0.25399.manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000000.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000001.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000001.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000008.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000008.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000027.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000027.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000064.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000064.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000125.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000125.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000216.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000216.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000343.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/CartPole-v0/openaigym.video.0.25399.video000343.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/LunarLander-v2/openaigym.episode_batch.0.25467.stats.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/LunarLander-v2/openaigym.manifest.0.25467.manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/LunarLander-v2/openaigym.video.0.25467.video000000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/CartPole-v0_results.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.episode_batch.0.35170.stats.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.manifest.0.35170.manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000000.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000001.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000008.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000027.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000064.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000125.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000216.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000343.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000512.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video000729.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/CartPole-v0/openaigym.video.0.35170.video001000.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/LunarLander-v2_results.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.episode_batch.0.46265.stats.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.manifest.0.46265.manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000000.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000001.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000008.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000027.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000064.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000125.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000216.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000343.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000512.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video000729.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gym_DPG/temp/results/LunarLander-v2/openaigym.video.0.46265.video001000.mp4" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" afterPath="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" afterPath="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" />
@@ -19,46 +98,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gym_DPG_2D.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gym_DPG_2D.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gym_DPG/gym_DPG_2D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1492">
-              <caret line="136" column="29" lean-forward="true" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
+            <state relative-caret-position="-670">
+              <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding>
                 <element signature="e#214#232#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BrainClass.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gym_DPG/src/BrainClass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="95" column="20" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
-              <folding>
-                <element signature="e#64#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gridworld_DPG.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AgentClass.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gym_DPG/src/AgentClass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -159,8 +206,8 @@
         <option value="$PROJECT_DIR$/gym_DPG/gym_DPG_input=img.py" />
         <option value="$PROJECT_DIR$/gym_DPG/src/utils.py" />
         <option value="$PROJECT_DIR$/gym_DPG/temp/pong_keras.py" />
-        <option value="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" />
         <option value="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" />
+        <option value="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" />
         <option value="$PROJECT_DIR$/gym_DPG/gym_DPG_2D.py" />
         <option value="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
       </list>
@@ -203,6 +250,12 @@
             <path>
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld_DPG" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
               <item name="gym_DPG" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -210,6 +263,12 @@
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
               <item name="gym_DPG" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gym_DPG" type="462c0819:PsiDirectoryNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -251,8 +310,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gym_DPG_input=img">
-    <configuration name="gym_DPG_input=img" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.gym_DPG_2D">
+    <configuration name="gym_DPG_2D" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -271,7 +330,7 @@
     </configuration>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.gym_DPG_input=img" />
+        <item index="0" class="java.lang.String" itemvalue="Python.gym_DPG_2D" />
       </list>
     </recent_temporary>
   </component>
@@ -285,13 +344,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00056" summary="update">
-      <created>1506850622347</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1506850622348</updated>
     </task>
     <task id="LOCAL-00057" summary="update">
       <created>1506855165043</created>
@@ -629,7 +681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507319328975</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="update">
+      <created>1507327216578</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1507327216578</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -991,44 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="105" column="8" lean-forward="false" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="15" />
-          <folding>
-            <element signature="e#64#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gym_DPG/src/BrainClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="95" column="20" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
-          <folding>
-            <element signature="e#64#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gym_DPG/gym_DPG_2D.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1492">
-          <caret line="136" column="29" lean-forward="true" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
-          <folding>
-            <element signature="e#214#232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gym_DPG/src/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-325">
@@ -1039,9 +1060,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gym_DPG/src/AgentClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="296">
+          <caret line="75" column="66" lean-forward="false" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym_DPG/src/BrainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="106" column="32" lean-forward="true" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+          <folding>
+            <element signature="e#64#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="106" column="38" lean-forward="false" selection-start-line="106" selection-start-column="38" selection-end-line="106" selection-end-column="38" />
+          <folding>
+            <element signature="e#64#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym_DPG/gym_DPG_2D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-670">
+          <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding>
+            <element signature="e#214#232#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
