@@ -7,6 +7,7 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Reshape, Flatten
 from keras.layers.convolutional import Convolution2D
+from keras.models import load_model
 
 class Brain:
 
@@ -103,7 +104,8 @@ class Brain:
     # ==================================
 
     def load_PN(self, filename):
-        self.PN.load_weights(filename)
+        PN = load_model(filename)
+        return PN
 
     def save_PN(self, filename):
-        self.PN.save_weights(filename)
+        self.PN.save(filename)

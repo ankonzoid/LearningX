@@ -19,6 +19,8 @@ def main():
     # Settings
     # ==============================
     N_episodes = 1000
+    save_PN_filename = "PN_model.h5"
+
     env_info = {"Ny": 20, "Nx": 20}
     agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
     #agent_info = {"policy_mode": "softmax"}
@@ -65,6 +67,9 @@ def main():
         # Update PN when episode finishes
         brain.update(memory)
         agent.episode += 1
+
+        # Save PN
+        brain.save_PN(save_PN_filename)
 
         # Clear memory for next episode
         memory.clear_memory()

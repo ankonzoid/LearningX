@@ -1,8 +1,9 @@
 """
 
- gym_DPG.py  (author: Anson Wong / git: ankonzoid)
+ gym_DPG_2D.py  (author: Anson Wong / git: ankonzoid)
 
- Teach an agent to play in gym environments using deep policy gradients.
+ Teach an agent to play in gym environments where the state space is a 2D grid of pixels.
+ We search for optimal policy using deep policy gradients.
 
 """
 import numpy as np
@@ -12,12 +13,14 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 from AgentClass import Agent
 from BrainClass import Brain
 from MemoryClass import Memory
+import utils
 
 def main():
     # ==============================
     # Settings
     # ==============================
     N_episodes = 1000
+    save_PN_filename = "PN_model.h5"
 
     # ==============================
     # Import gym environment
@@ -28,9 +31,42 @@ def main():
     save_folder = os.path.join("results", env_str)
     env = gym.make(env_str)
     env = gym.wrappers.Monitor(env, save_folder, force=True)
-    check_env(env)
 
-    state_dim = env.observation_space.shape[:2]  # omit color channels (we will greyscale)
+    utils.check_env(env)  # check environment has Discrete() action and Box() observation space
+
+    # ==============================
+    # Define our pre-processing for our environment
+    # ==============================
+
+    # Design pre-processing for Pong-v0
+    def process_img(img_raw):
+        img = img_raw
+        # Extract sub image
+        img = img[32:196, :, :]  # for Pong-v0
+        # Reduce 3D rgb image to 2D image by taking only r channel
+        img = img[::2, ::2, 0]
+        # Convert 2D image to 0's and 1's
+        img[img == 144] = 0  # convert enemy to zero
+        img[img == 109] = 0  # convert background to zero
+        img[img != 0] = 1  # ball and our agent
+        return img
+    
+    # Our second layer of pre-processing to include velocity
+    def subtract_img(img_now, img_previous):
+        img_subtract = img_now - img_previous
+        return img_subtract
+
+    # Turn this on if you want to adjust our process_img function
+    if 0:
+        state_1 = env.reset()
+        state_2 = process_img(state_1)
+        utils.compare_imgs(state_1, state_2)
+        exit()
+
+    # =====================================
+    # Collect state and action dimensions (in the processed state space)
+    # =====================================
+    state_dim = process_img(env.reset()).shape  # find shape of our processed image
     action_dim = (env.action_space.n,)
     state_size = np.prod(np.array(list(state_dim), dtype=np.int))
     action_size = np.prod(np.array(list(action_dim), dtype=np.int))
@@ -41,8 +77,8 @@ def main():
     # ==============================
     env_info = {"state_dim": state_dim, "action_dim": action_dim, "state_size": state_size, "action_size": action_size,
                 "action_names": action_names}
-    agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0 * np.log(10.0) / N_episodes}
-    #agent_info = {"policy_mode": "softmax"}
+    #agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0 * np.log(10.0) / N_episodes}
+    agent_info = {"policy_mode": "softmax"}
     brain_info = {"discount": 0.9, "learning_rate": 0.4}
     memory_info = {}
 
@@ -59,6 +95,7 @@ def main():
 
         # Reset agent state
         observation = env.reset()
+        state_processed_previous = np.zeros_like(process_img(observation))
 
         # Run episode
         iter = 0
@@ -67,14 +104,15 @@ def main():
             # Render
             env.render()
             # Current state
-            state = observation
-            state_grey = convert_rgb2grey(state)
+            state_processed = process_img(observation)  # extract subimage and 3D->2D
+            state_processed = subtract_img(state_processed, state_processed_previous)  # include velocity
+            state_processed_previous = state_processed  # keep a copy of previous state for next velocity calculation
             # Let agent pick an action
-            action, PNprob, prob = agent.get_action(state_grey, brain)
+            action, PNprob, prob = agent.get_action(state_processed, brain)
             # Transition to next state and collect reward
             state_new, reward, done, info = env.step(action)
             # Append quantities to memory
-            memory.append_to_memory(state_grey, action, PNprob, prob, reward)
+            memory.append_to_memory(state_processed, action, PNprob, prob, reward)
             # Update iteration parameter
             iter += 1
 
@@ -92,38 +130,15 @@ def main():
         brain.update(memory)
         agent.episode += 1
 
+        # Save PN
+        brain.save_PN(save_PN_filename)
+
         # Clear memory for next episode
         memory.clear_memory()
 
     # ==============================
     # Results
     # ==============================
-
-
-# ================================
-# Side functions
-# ================================
-
-def check_env(env):
-    # Make sure action space is discrete (Discrete)
-    if 'n' in env.action_space.__dict__:
-        pass
-    elif 'low' in env.action_space.__dict__ and 'high' in env.action_space.__dict__:
-        raise IOError("env.action_space is Box. Stop.")
-    else:
-        raise IOError("Invalid action space")
-
-    # Make sure observation is continuous (Box)
-    if 'n' in env.observation_space.__dict__:
-        raise IOError("env.observation_space is Discrete. Stop.")
-    elif 'low' in env.observation_space.__dict__ and 'high' in env.observation_space.__dict__:
-        pass
-    else:
-        raise IOError("Invalid observation space")
-
-def convert_rgb2grey(img_rgb):
-    img_grey = np.dot(img_rgb[...,:3], [0.299, 0.587, 0.114])
-    return img_grey
 
 
 # Driver
