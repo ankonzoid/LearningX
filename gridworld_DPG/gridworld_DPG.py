@@ -2,7 +2,7 @@
 
  gridworld_DPG.py  (author: Anson Wong / git: ankonzoid)
 
- Teach an agent to move optimally in GridWorld using a policy network.
+ Teach an agent to move optimally in GridWorld using deep policy gradients.
 
 """
 import numpy as np

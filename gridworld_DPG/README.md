@@ -1,4 +1,4 @@
-# Training an Agent to beat GridWorld using a Deep Policy Gradients (`gridworld_DPG.py`)
+# Training an Agent to beat GridWorld using Deep Policy Gradients (`gridworld_DPG.py`)
 
 We train an agent to beat Grid World using deep policy gradients with the keras library. This is scalable neural network upgrade to classical tabular methods as used in our previous Grid World examples:
 
@@ -10,7 +10,7 @@ In Q-tabular methods, the estimated Q values are stored in a 2D matrix of size (
 
 In deep policy network methods, the estimated action probabilities values come out as output from a neural network (NN) via the feed-forwarding of a state. The weights of the NN hold information of how to convert the input state into a list of softmax values corresponding to how likely an agent should take an action. Why policy gradients to tabular methods makes for a scalable option is because of the interpolational and pattern learning aspects of computing policies for "nearby" but unseen state-spaces. However the downsides of deep policy networks are the ones that come with training a neural network *i.e. you have to choose appropriate architectures, losses, optimizers, etc.*
 
-We provide two alternative agent policies of *epsilon-greedy selection* (`"policy_mode": "epsilongreedy"`) and *softmax selection* (`"policy_mode": "softmax"`). For a given state *s*, the:
+We provide two alternative agent policy selection modes of *epsilon-greedy selection* (`"policy_mode": "epsilongreedy"`) and *softmax selection* (`"policy_mode": "softmax"`). For a given state *s*, the:
 
 * Epsilon-greedy agent chooses a random action at epsilon probability, otherwise it acts greedily by choosing action argmax{a} Q(s,a).
 

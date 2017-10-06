@@ -13,6 +13,6 @@ We provide here a set of beginner hands-on Python examples in both Classical & D
 
  ## Deep Reinforcement Learning
  
-* [Training an Agent to beat GridWorld using Deep Policy Networks](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld_DPG) (`gridworld_DPG.py`)
+* [Training an Agent to beat GridWorld using Deep Policy Gradients](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld_DPG) (`gridworld_DPG.py`)
  
 * [Q-learning on OpenGym environments](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gym) (`gym.py`)
