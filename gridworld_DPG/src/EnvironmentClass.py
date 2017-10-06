@@ -9,7 +9,9 @@ class Environment:
 
     def __init__(self, env_info):
 
-        # Environment settings
+        # Environment info
+        self.env_info = env_info
+
         self.Ny = env_info["Ny"]
         self.Nx = env_info["Nx"]
 

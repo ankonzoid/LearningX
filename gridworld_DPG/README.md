@@ -18,32 +18,42 @@ We provide two alternative agent policies of *epsilon-greedy selection* (`"polic
 
 ### Example output:
 
-For grid size of (20, 20) set by `env_info = {"Ny": 20, "Nx": 20}`, we train the agent to find move from the top-left corner to the bottom-right corner in 1000 training episodes with a exponentially-decaying epsilon exploration parameter. The initial training was:
+For grid size of (20, 20) set by `env_info = {"Ny": 20, "Nx": 20}`, we train the agent to find move from the top-left corner to the bottom-right corner in 1000 training episodes with a exponentially-decaying epsilon exploration parameter. 
+
+For epsilon-greedy selection:
 
 ```
-[episode 0] iter = 6710, epsilon = 1.0000, reward = 32.91
-[episode 1] iter = 2812, epsilon = 0.9954, reward = 71.89
-[episode 2] iter = 2178, epsilon = 0.9908, reward = 78.23
-[episode 3] iter = 932, epsilon = 0.9863, reward = 90.69
-[episode 4] iter = 572, epsilon = 0.9817, reward = 94.29
-[episode 5] iter = 1300, epsilon = 0.9772, reward = 87.01
-[episode 6] iter = 772, epsilon = 0.9727, reward = 92.29
+[episode 0] mode = epsilongreedy, iter = 6710, epsilon = 1.0000, reward = 32.91
+[episode 1] mode = epsilongreedy, iter = 2812, epsilon = 0.9954, reward = 71.89
+[episode 2] mode = epsilongreedy, iter = 2178, epsilon = 0.9908, reward = 78.23
+[episode 3] mode = epsilongreedy, iter = 932, epsilon = 0.9863, reward = 90.69
+...
+...
+...
+[episode 997] mode = epsilongreedy, iter = 38, epsilon = 0.0101, reward = 99.63
+[episode 998] mode = epsilongreedy, iter = 38, epsilon = 0.0101, reward = 99.61
+[episode 999] mode = epsilongreedy, iter = 38, epsilon = 0.0100, reward = 99.61
+```
+
+For softmax selection (it converges to optimal early because it is adaptively greedy):
+
+```
+[episode 0] mode = softmax, iter = 9868, reward = 1.33
+[episode 1] mode = softmax, iter = 4208, reward = 57.93
+[episode 2] mode = softmax, iter = 2488, reward = 75.13
+[episode 3] mode = softmax, iter = 572, reward = 94.29
+...
+...
+...
+[episode 129] mode = softmax, iter = 38, reward = 99.63
+[episode 130] mode = softmax, iter = 38, reward = 99.63
+[episode 131] mode = softmax, iter = 38, reward = 99.63
+...
+...
 ...
 ```
 
-and the final output was:
-
-```
-...
-[episode 994] iter = 38, epsilon = 0.0103, reward = 99.63
-[episode 995] iter = 38, epsilon = 0.0102, reward = 99.63
-[episode 996] iter = 38, epsilon = 0.0102, reward = 99.63
-[episode 997] iter = 38, epsilon = 0.0101, reward = 99.63
-[episode 998] iter = 38, epsilon = 0.0101, reward = 99.61
-[episode 999] iter = 38, epsilon = 0.0100, reward = 99.61
-```
-
-Here you can see a optimal policy found as the optimal number of actions (`iter`) in an episode is expected to be Ny + Nx - 1 = 38 for our (20, 20) grid square.
+Both policy modes end up giving the pptimal number of actions (`iter`) in an episode of Ny + Nx - 1 = 38 for our (20, 20) grid square.
 
 ### Usage:
 

@@ -13,10 +13,13 @@ class Brain:
     def __init__(self, env, brain_info):
 
         # Training Parameters
+        self.brain_info = brain_info
+
+        # Learning parameters
         self.gamma = brain_info["discount"]
         self.learning_rate = brain_info["learning_rate"]
 
-        # Q function
+        # Policy network function
         self.PN = self._build_PN(env)
 
     def _build_PN(self, env):
@@ -38,12 +41,11 @@ class Brain:
 
         return PN
 
-
     def update(self, memory):
         states = memory.state_memory
         actions = memory.action_memory
         rewards = memory.reward_memory
-        Qprobs = memory.Qprob_memory
+        PNprobs = memory.PNprob_memory
         probs = memory.prob_memory
 
         gamma = self.gamma
@@ -86,8 +88,8 @@ class Brain:
         X = np.squeeze(np.vstack([states]))
 
         # Construct labels by adding loss
-        dQprobs = learning_rate * np.squeeze(np.vstack([loss]))
-        Y = Qprobs + dQprobs
+        dPNprobs = learning_rate * np.squeeze(np.vstack([loss]))
+        Y = PNprobs + dPNprobs
 
         # Train Q network
         self.PN.train_on_batch(X, Y)

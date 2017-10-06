@@ -10,14 +10,10 @@ class Agent:
 
     def __init__(self, env, agent_info):
 
-        # Agent policy parameters
-        self.policy_mode = agent_info["policy_mode"]
+        # Agent info
+        self.agent_info = agent_info
 
-        # Epsilon-greedy parameters
-        self.epsilon = agent_info["epsilon"]
-        self.epsilon_decay = agent_info["epsilon_decay"]
-        self.epsilon_effective = self.epsilon
-
+        # Keep track of agent episodes
         self.episode = 0
 
     # ==================
@@ -25,21 +21,24 @@ class Agent:
     # ==================
 
     def get_action(self, state, brain, env):
+
         # Reshape 2D state to 3D slice for NN input
         state_PN_input = state.reshape([1, env.Ny, env.Nx])
 
-        # Forward-pass state into Q network
-        # Q(s) = [Q(a_1), ..., Q(a_n)]
+        # Forward-pass state into PN network
+        # PN(s) = [PN(a_1), ..., PN(a_n)]
         PNprob = brain.PN.predict(state_PN_input, batch_size=1).flatten()
 
         # Set zero to the states that are not physically allowed
         N_actions = len(PNprob)
-        PN_allowed = []
+        PNprob_allowed = []
         actions_allowed = []
         for action in range(N_actions):
             if env.is_allowed_action(state, action):
-                PN_allowed.append(PNprob[action])
+                PNprob_allowed.append(PNprob[action])
                 actions_allowed.append(action)
+        PNprob_allowed = np.array(PNprob_allowed, dtype=np.float32)
+        actions_allowed = np.array(actions_allowed, dtype=np.int)
 
         # Check that there exists at least 1 allowed action
         if np.sum(actions_allowed) == 0:
@@ -49,7 +48,12 @@ class Agent:
         prob = PNprob / np.sum(PNprob)  # action probabilities
 
         # Follow a policy method and select an action stochastically
-        if (self.policy_mode == "epsilongreedy"):
+        policy_mode = self.agent_info["policy_mode"]
+        if (policy_mode == "epsilongreedy"):
+
+            # Epsilon-greedy parameters
+            self.epsilon = self.agent_info["epsilon"]
+            self.epsilon_decay = self.agent_info["epsilon_decay"]
 
             # Epsilon-greedy selection
             self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
@@ -57,17 +61,19 @@ class Agent:
             if random.uniform(0, 1) < self.epsilon_effective:
                 action = np.random.choice(actions_allowed)
             else:
-                PN_max = max(PN_allowed)
+                PN_max = max(PNprob_allowed)
                 actions_PNmax_allowed = []
-                for (action, Q) in zip(actions_allowed, PN_allowed):
+                for (action, PN) in zip(actions_allowed, PNprob_allowed):
                     if PN == PN_max:
                         actions_PNmax_allowed.append(action)
                 action = np.random.choice(actions_PNmax_allowed)
 
-        elif (self.policy_mode == "softmax"):
+        elif (policy_mode == "softmax"):
 
             # Sample action based on action probabilities
-            action = np.random.choice(env.action_size, 1, p=prob)[0]
+            prob_actions_allowed = PNprob_allowed / np.sum(PNprob_allowed)
+            idx = np.random.choice(len(actions_allowed), 1, p=prob_actions_allowed)[0]
+            action = actions_allowed[idx]
 
         else:
             raise IOError("Error: invalid policy mode!")

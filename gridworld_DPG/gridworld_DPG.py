@@ -20,8 +20,8 @@ def main():
     # ==============================
     N_episodes = 1000
     env_info = {"Ny": 20, "Nx": 20}
-    #agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
-    agent_info = {"policy_mode": "softmax", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
+    agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
+    #agent_info = {"policy_mode": "softmax"}
     brain_info = {"discount": 0.9, "learning_rate": 0.4}
     memory_info = {}
 
@@ -53,7 +53,14 @@ def main():
             iter += 1
 
         # Print
-        print("[episode {}] iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, iter, agent.epsilon_effective, sum(memory.reward_memory)))
+        policy_mode = agent.agent_info["policy_mode"]
+        if (policy_mode == "epsilongreedy"):
+
+            print("[episode {}] mode = {}, iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, policy_mode, iter, agent.epsilon_effective, sum(memory.reward_memory)))
+
+        elif (policy_mode == "softmax"):
+
+            print("[episode {}] mode = {}, iter = {}, reward = {:.2F}".format(episode, policy_mode, iter, sum(memory.reward_memory)))
 
         # Update PN when episode finishes
         brain.update(memory)

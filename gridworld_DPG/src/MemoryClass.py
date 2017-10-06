@@ -6,6 +6,10 @@
 class Memory:
 
     def __init__(self, memory_info):
+
+        # Memory info
+        self.memory_info = memory_info
+
         self.clear_memory()
 
     # ===================
