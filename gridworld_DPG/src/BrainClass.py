@@ -17,29 +17,29 @@ class Brain:
         self.learning_rate = brain_info["learning_rate"]
 
         # Q function
-        self.Q = self._build_Q(env)
+        self.PN = self._build_PN(env)
 
-    def _build_Q(self, env):
+    def _build_PN(self, env):
 
         # Build DQN architecture (outputs [Q(a_1), Q(a_2), ..., Q(a_n)])
-        Q = Sequential()
-        Q.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))  # Reshape 2D to 3D slice
-        Q.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
-        Q.add(Flatten())
-        Q.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        Q.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
-        Q.add(Dense(env.action_size, activation="softmax"))
+        PN = Sequential()
+        PN.add(Reshape((1, env.Ny, env.Nx), input_shape=(env.Ny, env.Nx)))  # Reshape 2D to 3D slice
+        PN.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
+        PN.add(Flatten())
+        PN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
+        PN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
+        PN.add(Dense(env.action_size, activation="softmax"))
 
         # Select optimizer and loss function
-        Q.compile(loss="binary_crossentropy", optimizer="Adam")
+        PN.compile(loss="binary_crossentropy", optimizer="Adam")
 
         # Print QNN architecture summary
-        Q.summary()
+        PN.summary()
 
-        return Q
+        return PN
 
 
-    def update_Q(self, memory):
+    def update(self, memory):
         states = memory.state_memory
         actions = memory.action_memory
         rewards = memory.reward_memory
@@ -90,14 +90,14 @@ class Brain:
         Y = Qprobs + dQprobs
 
         # Train Q network
-        self.Q.train_on_batch(X, Y)
+        self.PN.train_on_batch(X, Y)
 
     # ==================================
     # IO functions
     # ==================================
 
-    def load_Q(self, filename):
-        self.Q.load_weights(filename)
+    def load_PN(self, filename):
+        self.PN.load_weights(filename)
 
-    def save_Q(self, filename):
-        self.Q.save_weights(filename)
+    def save_PN(self, filename):
+        self.PN.save_weights(filename)

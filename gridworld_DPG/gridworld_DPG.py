@@ -1,9 +1,8 @@
 """
 
- gridworld_DQN.py  (author: Anson Wong / git: ankonzoid)
+ gridworld_DPG.py  (author: Anson Wong / git: ankonzoid)
 
- Teach an agent to move optimally in GridWorld where we approximate
- the action-value Q function using a DQN (in particular Conv NN).
+ Teach an agent to move optimally in GridWorld using a policy network.
 
 """
 import numpy as np
@@ -43,22 +42,22 @@ def main():
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
             # Pick an action by sampling Q(state) probabilities
-            action, Qprob, prob = agent.get_action(state, brain, env)
+            action, PNprob, prob = agent.get_action(state, brain, env)
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_new = env.perform_action(state, action)
             # Append quantities to memory
-            memory.append_to_memory(state, action, Qprob, prob, reward)
+            memory.append_to_memory(state, action, PNprob, prob, reward)
             # Transition to next state
             state = state_new
             iter += 1
 
-        # Update Q when episode finishes
-        brain.update_Q(memory)
-        agent.episode += 1
-
         # Print
         print("[episode {}] iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, iter, agent.epsilon_effective, sum(memory.reward_memory)))
+
+        # Update PN when episode finishes
+        brain.update(memory)
+        agent.episode += 1
 
         # Clear memory for next episode
         memory.clear_memory()
