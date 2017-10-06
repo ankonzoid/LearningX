@@ -1,4 +1,4 @@
-# Training an Agent to play gym environments using Deep Policy Gradients (`gym_DPG.py`)
+# Training an Agent to play Gym environments using Deep Policy Gradients (`gym_DPG.py`)
 
 
 

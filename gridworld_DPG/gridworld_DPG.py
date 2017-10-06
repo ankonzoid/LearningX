@@ -41,7 +41,7 @@ def main():
         iter = 0
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
-            # Pick an action by sampling Q(state) probabilities
+            # Pick an action by sampling PN(state) probabilities
             action, PNprob, prob = agent.get_action(state, brain, env)
             # Collect reward and observe next state
             reward = env.get_reward(state, action)

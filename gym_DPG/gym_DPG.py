@@ -28,19 +28,7 @@ def main():
     # ==============================
     import gym
 
-    if 0:
-        env_str = 'CartPole-v0'
-        reward_success = 200  # minimum reward to be considered success
-    elif 0:
-        env_str = "LunarLander-v2"
-        reward_success = 200  # minimum reward to be considered success
-    elif 1:
-        env_str = "Pong-v0"
-        reward_success = 200  # minimum reward to be considered success
-    else:
-        print("Invalid environment given!")
-        exit()
-
+    env_str = "Pong-v0"  # CartPole-v0, LunarLander-v2, Pong-v0
     save_folder = os.path.join("results", env_str)
     env = gym.make(env_str)
     env = gym.wrappers.Monitor(env, save_folder, force=True)
@@ -55,13 +43,6 @@ def main():
     print(action_space)
     print(observation_space)
     print(action_names)
-
-
-    #env.action_space
-    #env.observation_space
-
-    #action, prob = agent.act(x)
-    #state, reward, done, info = env.step(action)
 
 
     if 1:
@@ -81,10 +62,7 @@ def main():
         else:
             raise IOError("Invalid observation space")
 
-
     exit()
-
-
 
 
     agent = Agent(env, agent_info)
@@ -97,13 +75,24 @@ def main():
     for episode in range(N_episodes):
 
         iter = 0
-        state = env.starting_state()
-        while env.is_terminal_state(state) == False:
-            # Pick an action by sampling Q(state) probabilities
+        state = env.reset()  # reset state
+        state = state  # convert to greyscale
+        done = 0  # variable for when we have reached terminal state
+
+        while done:
+            # Render current state
+            env.render()
+
+            # Let agent pick an action
             action, PNprob, prob = agent.get_action(state, brain, env)
+
+            # Perform action on current state
+            state, reward, done, info = env.step(action)
+
+
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
-            state_new = env.perform_action(state, action)
+            state_new = env.get_action(state, action)
             # Append quantities to memory
             memory.append_to_memory(state, action, PNprob, prob, reward)
             # Transition to next state
