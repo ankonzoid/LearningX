@@ -19,10 +19,11 @@ def main():
     # ==============================
     # Settings
     # ==============================
-    N_episodes = 1000
+    N_episodes = 10000
     load_PN = False
     save_PN = True
     save_PN_filename = os.path.join("model", "PN_model.h5")
+    render = False
 
     # ==============================
     # Import gym environment
@@ -107,7 +108,8 @@ def main():
         done = False
         while not done:
             # Render
-            env.render()
+            if render:
+                env.render()
             # Current state
             state_processed = process_img(observation)  # extract subimage and 3D->2D
             state_processed = subtract_img(state_processed, state_processed_previous)  # include velocity
