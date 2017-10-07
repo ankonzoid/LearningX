@@ -18,11 +18,11 @@ def main():
     #  Set up agent environment
     #
     # ======================================
-    if 0:
+    if 1:
         env_str = 'CartPole-v0'
         n_train_episodes = 1000  # training episodes
         reward_success = 200  # minimum reward to be considered success
-    elif 1:
+    elif 0:
         env_str = 'LunarLander-v2'
         n_train_episodes = 1000  # training episodes
         reward_success = 200  # minimum reward to be considered success

@@ -55,11 +55,11 @@ class Brain:
         # Build DQN architecture (outputs [Q(a_1), Q(a_2), ..., Q(a_n)])
         PN = Sequential()
         PN.add(Dense(32, input_shape=input_dim))
-        PN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        PN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
+        PN.add(Dense(64, activation="elu"))
+        PN.add(Dense(32, activation="elu"))
         PN.add(Dense(output_size, activation="softmax"))
         # Select optimizer and loss function
-        PN.compile(loss="binary_crossentropy", optimizer="Adam")
+        PN.compile(loss="mean_squared_error", optimizer="Adam")
         # Print QNN architecture summary
         PN.summary()
         return PN
