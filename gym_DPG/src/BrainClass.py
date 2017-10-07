@@ -22,14 +22,18 @@ class Brain:
         self.learning_rate = self.brain_info["learning_rate"]
 
         # Policy network function
-        self.PN = self._build_PN()
+        if self.brain_info["arch"] == "2D":
+            self.PN = self._build_PN_2D()  # 2D input
+        elif self.brain_info["arch"] == "1D":
+            self.PN = self._build_PN_1D()  # 1D input
+        else:
+            raise IOError("Invalid architecture selected!")
 
-    def _build_PN(self):
-
+    def _build_PN_2D(self):
+        # Input/output sizes
         input_dim_2D = self.env_info["state_dim"]
         input_dim_3D = (1,) + self.env_info["state_dim"]
         output_size = self.env_info["action_size"]
-
         # Build DQN architecture (outputs [Q(a_1), Q(a_2), ..., Q(a_n)])
         PN = Sequential()
         PN.add(Reshape(input_dim_3D, input_shape=input_dim_2D))  # Reshape 2D to 3D slice
@@ -38,13 +42,26 @@ class Brain:
         PN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
         PN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
         PN.add(Dense(output_size, activation="softmax"))
-
         # Select optimizer and loss function
         PN.compile(loss="binary_crossentropy", optimizer="Adam")
-
         # Print QNN architecture summary
         PN.summary()
+        return PN
 
+    def _build_PN_1D(self):
+        # Input/output sizes
+        input_dim = self.env_info["state_dim"]
+        output_size = self.env_info["action_size"]
+        # Build DQN architecture (outputs [Q(a_1), Q(a_2), ..., Q(a_n)])
+        PN = Sequential()
+        PN.add(Dense(32, input_shape=input_dim))
+        PN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
+        PN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
+        PN.add(Dense(output_size, activation="softmax"))
+        # Select optimizer and loss function
+        PN.compile(loss="binary_crossentropy", optimizer="Adam")
+        # Print QNN architecture summary
+        PN.summary()
         return PN
 
     def update(self, memory):
@@ -82,7 +99,7 @@ class Brain:
                 rewards_total[t] = rsum
             return rewards_total
 
-        # Compute intermediate quantities, and vertically stack as row vector matrix (2D)
+        # Compute discounted total rewards, and vertically stack as row vector matrix (2D)
         gradients = np.vstack(compute_gradients(actions, probs))
         discounted_rewards_total = np.vstack(compute_discounted_rewards_total(rewards, gamma))
         discounted_rewards_total /= np.std(discounted_rewards_total)
@@ -106,6 +123,8 @@ class Brain:
 
     def load_PN(self, filename):
         self.PN = load_model(filename)
+        self.PN.compile(loss="binary_crossentropy", optimizer="Adam")
+        self.PN.summary()
 
     def save_PN(self, filename):
         self.PN.save(filename)

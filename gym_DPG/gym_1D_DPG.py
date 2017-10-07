@@ -1,6 +1,6 @@
 """
 
- gym_DPG_2D.py  (author: Anson Wong / git: ankonzoid)
+ gym_DPG_1D.py  (author: Anson Wong / git: ankonzoid)
 
  Teach an agent to play in gym environments where the state space is a 2D grid of pixels.
  We search for optimal policy using deep policy gradients.
@@ -30,7 +30,7 @@ def main():
     # ==============================
     import gym
 
-    env_str = "Pong-v0"  # Pong-v0
+    env_str = "CartPole-v0"  # CartPole-v0, LunarLander-v2
     save_folder = os.path.join("results", env_str)
     env = gym.make(env_str)
     env = gym.wrappers.Monitor(env, save_folder, force=True)

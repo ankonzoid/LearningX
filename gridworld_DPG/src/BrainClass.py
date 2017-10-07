@@ -81,7 +81,7 @@ class Brain:
                 rewards_total[t] = rsum
             return rewards_total
 
-        # Compute intermediate quantities, and vertically stack as row vector matrix (2D)
+        # Compute discounted total rewards, and vertically stack as row vector matrix (2D)
         gradients = np.vstack(compute_gradients(actions, probs))
         discounted_rewards_total = np.vstack(compute_discounted_rewards_total(rewards, gamma))
         discounted_rewards_total /= np.std(discounted_rewards_total)
@@ -105,6 +105,8 @@ class Brain:
 
     def load_PN(self, filename):
         self.PN = load_model(filename)
+        self.PN.compile(loss="binary_crossentropy", optimizer="Adam")
+        self.PN.summary()
 
     def save_PN(self, filename):
         self.PN.save(filename)

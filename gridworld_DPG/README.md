@@ -31,8 +31,8 @@ For epsilon-greedy selection:
 ...
 ...
 [episode 997] mode = epsilongreedy, iter = 38, epsilon = 0.0101, reward = 99.63
-[episode 998] mode = epsilongreedy, iter = 38, epsilon = 0.0101, reward = 99.61
-[episode 999] mode = epsilongreedy, iter = 38, epsilon = 0.0100, reward = 99.61
+[episode 998] mode = epsilongreedy, iter = 38, epsilon = 0.0101, reward = 99.63
+[episode 999] mode = epsilongreedy, iter = 38, epsilon = 0.0100, reward = 99.63
 ```
 
 For softmax selection (it converges to optimal early because it is adaptively greedy):
@@ -53,7 +53,7 @@ For softmax selection (it converges to optimal early because it is adaptively gr
 ...
 ```
 
-Both policy modes end up giving the pptimal number of actions (`iter`) in an episode of Ny + Nx - 1 = 38 for our (20, 20) grid square.
+Both policy modes end up giving the optimal number of actions (`iter`) in an episode of Ny + Nx - 1 = 38 for our (20, 20) grid square.
 
 ### Usage:
 
