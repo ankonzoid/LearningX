@@ -19,7 +19,7 @@ def main():
     # ==============================
     # Settings
     # ==============================
-    N_episodes = 10000
+    N_episodes = 1000
     load_PN = False
     save_PN = False
     save_PN_filename = os.path.join("model", "PN_model.h5")

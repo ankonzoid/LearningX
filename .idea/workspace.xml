@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/model/PN_model.h5" afterPath="$PROJECT_DIR$/gridworld_DPG/model/PN_model.h5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gym_DPG/temp/cartpole_keras.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_DPG/gym_1D_DPG.py" afterPath="$PROJECT_DIR$/gym_DPG/gym_1D_DPG.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" afterPath="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gym_DPG/temp/gym_policygradients.py" afterPath="$PROJECT_DIR$/gym_DPG/temp/gym_policygradients.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,31 +17,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BrainClass.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gym_DPG/src/BrainClass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-35">
-              <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="gym_1D_DPG.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gym_DPG/gym_1D_DPG.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1733">
-              <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+            <state relative-caret-position="722">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gym_policygradients.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gym_DPG/temp/gym_policygradients.py">
+      <file leaf-file-name="BrainClass.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gym_DPG/src/BrainClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="81">
+              <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -97,7 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gridworld/src/memory/MemoryClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/memory/MemoryClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/brain/QLearning_BrainClass.py" />
         <option value="$PROJECT_DIR$/hunterprey/src/agent/EpsilonGreedy_AgentClass.py" />
@@ -145,9 +133,10 @@
         <option value="$PROJECT_DIR$/gridworld_DPG/README.md" />
         <option value="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" />
         <option value="$PROJECT_DIR$/gym_DPG/gym_2D_DPG.py" />
-        <option value="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" />
         <option value="$PROJECT_DIR$/gym_DPG/temp/gym_policygradients.py" />
         <option value="$PROJECT_DIR$/gym_DPG/gym_1D_DPG.py" />
+        <option value="$PROJECT_DIR$/gym_DPG/src/BrainClass.py" />
+        <option value="$PROJECT_DIR$/gym_DPG/temp/cartpole_keras.py" />
       </list>
     </option>
   </component>
@@ -183,7 +172,7 @@
             <path>
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
-              <item name="gridworld_DPG" type="462c0819:PsiDirectoryNode" />
+              <item name="gym_DPG" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -454,59 +443,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gridworld_DPG">
-    <configuration name="gridworld_DPG" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gridworld_DPG" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="gym_1D_DPG" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gym_DPG" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym_DPG/gym_1D_DPG.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="gym_2D_DPG" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gym_DPG" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym_DPG/gym_2D_DPG.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="gym_policygradients" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.cartpole_keras">
+    <configuration name="cartpole_keras" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -518,23 +456,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym_DPG/temp/gym_policygradients.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym_DPG/temp/cartpole_keras.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.gym_2D_DPG" />
-      <item index="1" class="java.lang.String" itemvalue="Python.gym_1D_DPG" />
-      <item index="2" class="java.lang.String" itemvalue="Python.gym_policygradients" />
-      <item index="3" class="java.lang.String" itemvalue="Python.gridworld_DPG" />
-    </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.gridworld_DPG" />
-        <item index="1" class="java.lang.String" itemvalue="Python.gym_1D_DPG" />
-        <item index="2" class="java.lang.String" itemvalue="Python.gym_policygradients" />
-        <item index="3" class="java.lang.String" itemvalue="Python.gym_2D_DPG" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.cartpole_keras" />
       </list>
     </recent_temporary>
   </component>
@@ -548,13 +477,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00061" summary="update">
-      <created>1506881110137</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1506881110137</updated>
     </task>
     <task id="LOCAL-00062" summary="update">
       <created>1506883788184</created>
@@ -892,7 +814,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507405162355</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="update">
+      <created>1507408941764</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1507408941764</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -962,13 +891,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hunterprey/src/brain/SampleAveraging_BrainClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="44" column="67" lean-forward="true" selection-start-line="44" selection-start-column="67" selection-end-line="44" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hunterprey/src/memory/MemoryClass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
@@ -1129,6 +1051,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="99" column="54" lean-forward="true" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1185,14 +1108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym_DPG/temp/gym_policygradients.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -1201,18 +1116,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gym_DPG/temp/gym_policygradients.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gym_DPG/gym_1D_DPG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1733">
-          <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+        <state relative-caret-position="722">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym_DPG/temp/cartpole_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gym_DPG/src/BrainClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-35">
-          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        <state relative-caret-position="81">
+          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
           <folding />
         </state>
       </provider>
