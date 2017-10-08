@@ -19,16 +19,16 @@ def main():
     # Settings
     # ==============================
     N_episodes = 1000
-    load_PN = False
-    save_PN = True
+    load_PN = False  # load PN
+    save_PN = True  # save PN for last episode
     save_PN_filename = os.path.join("model", "PN_model.h5")
 
     info = {
         "env": {"Ny": 20,
                 "Nx": 20},
-        "agent": {"policy_mode": "epsilongreedy", # "epsilongreedy", "softmax"
-                  "epsilon": 1.0,
-                  "epsilon_decay": 2.0*np.log(10.0)/N_episodes},
+        "agent": {"policy_mode": "epsgreedy", # "epsgreedy", "softmax"
+                  "eps": 1.0,
+                  "eps_decay": 2.0*np.log(10.0)/N_episodes},
         "brain": {"discount": 0.9,
                   "learning_rate": 0.4},
         "memory": {}
@@ -66,9 +66,9 @@ def main():
 
         # Print
         policy_mode = agent.agent_info["policy_mode"]
-        if (policy_mode == "epsilongreedy"):
+        if (policy_mode == "epsgreedy"):
 
-            print("[episode {}] mode = {}, iter = {}, epsilon = {:.4F}, reward = {:.2F}".format(episode, policy_mode, iter, agent.epsilon_effective, sum(memory.reward_memory)))
+            print("[episode {}] mode = {}, iter = {}, eps = {:.4F}, reward = {:.2F}".format(episode, policy_mode, iter, agent.eps_effective, sum(memory.reward_memory)))
 
         elif (policy_mode == "softmax"):
 
@@ -79,7 +79,7 @@ def main():
         agent.episode += 1
 
         # Save PN
-        if save_PN:
+        if save_PN and (episode == N_episodes-1):
             brain.save_PN(save_PN_filename)
 
         # Clear memory for next episode

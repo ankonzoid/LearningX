@@ -49,14 +49,14 @@ class Agent:
 
         # Follow a policy method and select an action stochastically
         policy_mode = self.agent_info["policy_mode"]
-        if (policy_mode == "epsilongreedy"):
+        if (policy_mode == "epsgreedy"):
 
             # Epsilon-greedy parameters
-            self.epsilon = self.agent_info["epsilon"]
-            self.epsilon_decay = self.agent_info["epsilon_decay"]
-            self.epsilon_effective = self.epsilon * np.exp(-self.epsilon_decay*self.episode)
+            self.eps = self.agent_info["eps"]
+            self.eps_decay = self.agent_info["eps_decay"]
+            self.eps_effective = self.eps * np.exp(-self.eps_decay*self.episode)
 
-            if random.uniform(0, 1) < self.epsilon_effective:
+            if random.uniform(0, 1) < self.eps_effective:
                 action = np.random.choice(actions_allowed)
             else:
                 PN_max = max(PNprob_allowed)
