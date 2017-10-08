@@ -19,9 +19,9 @@ def main():
     # Settings
     # ==============================
     N_episodes = 1000
-    load_PN = False  # load PN
-    save_PN = True  # save PN for last episode
-    save_PN_filename = os.path.join("model", "PN_model.h5")
+    load_MN = False  # load model
+    save_MN = True  # save model on last episode
+    save_MN_filename = os.path.join("model", "model.h5")
 
     info = {
         "env": {"Ny": 20,
@@ -42,8 +42,8 @@ def main():
     brain = Brain(env, info)
     memory = Memory(info)
 
-    if load_PN:
-        brain.load_PN(save_PN_filename)
+    if load_MN:
+        brain.load_MN(save_MN_filename)
 
     # ==============================
     # Train agent
@@ -53,13 +53,13 @@ def main():
         iter = 0
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
-            # Pick an action by sampling PN(state) probabilities
-            action, PNprob, prob = agent.get_action(state, brain, env)
+            # Pick an action by sampling action probabilities
+            action, MN_output, prob = agent.get_action(state, brain, env)
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_new = env.perform_action(state, action)
             # Append quantities to memory
-            memory.append_to_memory(state, action, PNprob, prob, reward)
+            memory.append_to_memory(state, action, MN_output, prob, reward)
             # Transition to next state
             state = state_new
             iter += 1
@@ -74,13 +74,13 @@ def main():
 
             print("[episode {}] mode = {}, iter = {}, reward = {:.2F}".format(episode, policy_mode, iter, sum(memory.reward_memory)))
 
-        # Update PN when episode finishes
+        # Update MN when episode finishes
         brain.update(memory)
         agent.episode += 1
 
-        # Save PN
-        if save_PN and (episode == N_episodes-1):
-            brain.save_PN(save_PN_filename)
+        # Save MN
+        if save_MN and (episode == N_episodes-1):
+            brain.save_MN(save_MN_filename)
 
         # Clear memory for next episode
         memory.clear_memory()

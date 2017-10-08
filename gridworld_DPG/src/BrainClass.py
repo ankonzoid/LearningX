@@ -20,37 +20,32 @@ class Brain:
         self.gamma = self.brain_info["discount"]
         self.learning_rate = self.brain_info["learning_rate"]
 
-        # Policy network function
-        self.PN = self._build_PN(env)
+        # Model network function
+        self.MN = self._build_MN(env)
 
-    def _build_PN(self, env):
-
+    def _build_MN(self, env):
         input_dim_2D = env.state_dim
         input_dim_3D = (1,) + env.state_dim
         output_size = env.action_size
-
-        # Build DQN architecture (outputs [Q(a_1), Q(a_2), ..., Q(a_n)])
-        PN = Sequential()
-        PN.add(Reshape(input_dim_3D, input_shape=input_dim_2D))  # Reshape 2D to 3D slice
-        PN.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
-        PN.add(Flatten())
-        PN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        PN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
-        PN.add(Dense(output_size, activation="softmax"))
-
+        # Build model architecture (outputs [M(a_1), M(a_2), ..., M(a_n)])
+        MN = Sequential()
+        MN.add(Reshape(input_dim_3D, input_shape=input_dim_2D))  # Reshape 2D to 3D slice
+        MN.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
+        MN.add(Flatten())
+        MN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
+        MN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
+        MN.add(Dense(output_size, activation="softmax"))
         # Select optimizer and loss function
-        PN.compile(loss="binary_crossentropy", optimizer="Adam")
-
-        # Print QNN architecture summary
-        PN.summary()
-
-        return PN
+        MN.compile(loss="binary_crossentropy", optimizer="Adam")
+        # Print model network architecture summary
+        MN.summary()
+        return MN
 
     def update(self, memory):
         states = memory.state_memory
         actions = memory.action_memory
         rewards = memory.reward_memory
-        PNprobs = memory.PNprob_memory
+        MN_outputs = memory.MN_output_memory
         probs = memory.prob_memory
 
         gamma = self.gamma
@@ -89,24 +84,26 @@ class Brain:
         # Compute loss scaled by discounted rewards
         loss = discounted_rewards_total * gradients
 
-        # Construct training data of states
+        # Construct training data (states)
         X = np.squeeze(np.vstack([states]))
 
-        # Construct labels by adding loss
-        dPNprobs = learning_rate * np.squeeze(np.vstack([loss]))
-        Y = PNprobs + dPNprobs
+        # Construct training labels (loss)
+        dMN_outputs = learning_rate * np.squeeze(np.vstack([loss]))
+        #MN_outputs = np.array(MN_outputs, dtype=np.float32)
+
+        Y = MN_outputs + dMN_outputs
 
         # Train Q network
-        self.PN.train_on_batch(X, Y)
+        self.MN.train_on_batch(X, Y)
 
     # ==================================
     # IO functions
     # ==================================
 
-    def load_PN(self, filename):
-        self.PN = load_model(filename)
-        self.PN.compile(loss="binary_crossentropy", optimizer="Adam")
-        self.PN.summary()
+    def load_MN(self, filename):
+        self.MN = load_model(filename)
+        self.MN.compile(loss="binary_crossentropy", optimizer="Adam")
+        self.MN.summary()
 
-    def save_PN(self, filename):
-        self.PN.save(filename)
+    def save_MN(self, filename):
+        self.MN.save(filename)

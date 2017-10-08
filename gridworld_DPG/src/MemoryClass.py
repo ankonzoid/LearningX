@@ -16,16 +16,16 @@ class Memory:
     # Memory
     # ===================
 
-    def append_to_memory(self, state, action, PNprob, prob, reward):
+    def append_to_memory(self, state, action, MN_output, prob, reward):
         self.state_memory.append(state)
         self.action_memory.append(action)
-        self.PNprob_memory.append(PNprob)
+        self.MN_output_memory.append(MN_output)
         self.prob_memory.append(prob)
         self.reward_memory.append(reward)
 
     def clear_memory(self):
         self.state_memory = []
         self.action_memory = []
-        self.PNprob_memory = []
+        self.MN_output_memory = []
         self.prob_memory = []
         self.reward_memory = []
