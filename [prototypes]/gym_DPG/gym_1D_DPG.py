@@ -30,7 +30,7 @@ def main():
     # ==============================
     import gym
 
-    env_str = "CartPole-v0"  # CartPole-v0, LunarLander-v2
+    env_str = "LunarLander-v2"  # CartPole-v0, LunarLander-v2
     save_folder = os.path.join("results", env_str)
     env = gym.make(env_str)
     #env = gym.wrappers.Monitor(env, save_folder, force=True)

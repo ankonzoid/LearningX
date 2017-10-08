@@ -5,10 +5,10 @@
 """
 class Memory:
 
-    def __init__(self, memory_info):
+    def __init__(self, info):
 
         # Memory info
-        self.memory_info = memory_info
+        self.memory_info = info["memory"]
 
         self.clear_memory()
 

@@ -11,14 +11,14 @@ from keras.models import load_model
 
 class Brain:
 
-    def __init__(self, env, brain_info):
+    def __init__(self, env, info):
 
         # Training Parameters
-        self.brain_info = brain_info
+        self.brain_info = info["brain"]
 
         # Learning parameters
-        self.gamma = brain_info["discount"]
-        self.learning_rate = brain_info["learning_rate"]
+        self.gamma = self.brain_info["discount"]
+        self.learning_rate = self.brain_info["learning_rate"]
 
         # Policy network function
         self.PN = self._build_PN(env)

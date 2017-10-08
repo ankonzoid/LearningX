@@ -7,13 +7,13 @@ import numpy as np
 
 class Environment:
 
-    def __init__(self, env_info):
+    def __init__(self, info):
 
         # Environment info
-        self.env_info = env_info
+        self.env_info = info["env"]
 
-        self.Ny = env_info["Ny"]
-        self.Nx = env_info["Nx"]
+        self.Ny = self.env_info["Ny"]
+        self.Nx = self.env_info["Nx"]
 
         # State and action space
         self.action_dict = {"up": 0, "right": 1, "down": 2, "left": 3}

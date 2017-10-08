@@ -8,10 +8,10 @@ import random
 
 class Agent:
 
-    def __init__(self, env, agent_info):
+    def __init__(self, env, info):
 
         # Agent info
-        self.agent_info = agent_info
+        self.agent_info = info["agent"]
 
         # Keep track of agent episodes
         self.episode = 0

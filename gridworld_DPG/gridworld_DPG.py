@@ -23,19 +23,24 @@ def main():
     save_PN = True
     save_PN_filename = os.path.join("model", "PN_model.h5")
 
-    env_info = {"Ny": 20, "Nx": 20}
-    agent_info = {"policy_mode": "epsilongreedy", "epsilon": 1.0, "epsilon_decay": 2.0*np.log(10.0)/N_episodes}
-    #agent_info = {"policy_mode": "softmax"}
-    brain_info = {"discount": 0.9, "learning_rate": 0.4}
-    memory_info = {}
+    info = {
+        "env": {"Ny": 20,
+                "Nx": 20},
+        "agent": {"policy_mode": "epsilongreedy", # "epsilongreedy", "softmax"
+                  "epsilon": 1.0,
+                  "epsilon_decay": 2.0*np.log(10.0)/N_episodes},
+        "brain": {"discount": 0.9,
+                  "learning_rate": 0.4},
+        "memory": {}
+    }
 
     # ==============================
     # Setup environment and agent
     # ==============================
-    env = Environment(env_info)
-    agent = Agent(env, agent_info)
-    brain = Brain(env, brain_info)
-    memory = Memory(memory_info)
+    env = Environment(info)
+    agent = Agent(env, info)
+    brain = Brain(env, info)
+    memory = Memory(info)
 
     if load_PN:
         brain.load_PN(save_PN_filename)
