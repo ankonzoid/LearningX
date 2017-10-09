@@ -61,8 +61,6 @@ class Brain:
         # Compute loss scaled by discounted rewards
         for i, (state, state_next, action, reward) in enumerate(zip(states, states_next, actions, rewards)):
 
-            losses = []
-
             # Compute Q_max_next
             if env.is_terminal_state(state_next):
                 Q_max_next = 0.0
@@ -81,30 +79,21 @@ class Brain:
             # Loss function
             loss = Q_target - Q
 
-            #losses.append(loss)
-            #print(loss)
-
             # Construct training data (states)
-            #X = np.vstack([states[i]])
             X = state.reshape((1,) + env.state_dim)
-
-            #print(X)
 
             # Construct training labels (loss)
             dMN_output = learning_rate * loss
             Y = (MN_outputs[i] + dMN_output).reshape((1,) + env.action_dim)
 
-            #print(Y)
-
-
             # Make checks
-            #def equal_tuples(t1, t2):
-            #    return sorted(t1) == sorted(t2)
-            #N = 1
-            #if not equal_tuples(X.shape, (N,) + env.state_dim):
-            #    raise IOError("Error: X.shape = {}, not {}".format(X.shape, (N,) + env.state_dim))
-            #if not equal_tuples(Y.shape, (N,) + env.action_dim):
-            #    raise IOError("Error: Y.shape = {}, not {}".format(X.shape, (N,) + env.action_dim))
+            def equal_tuples(t1, t2):
+                return sorted(t1) == sorted(t2)
+
+            if not equal_tuples(X.shape, (1,) + env.state_dim):
+                raise IOError("Error: X.shape = {}, not {}".format(X.shape, (1,) + env.state_dim))
+            if not equal_tuples(Y.shape, (1,) + env.action_dim):
+                raise IOError("Error: Y.shape = {}, not {}".format(X.shape, (1,) + env.action_dim))
 
             # Train Q network
             self.MN.train_on_batch(X, Y)
