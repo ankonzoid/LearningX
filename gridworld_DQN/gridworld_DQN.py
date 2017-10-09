@@ -59,7 +59,7 @@ def main():
             reward = env.get_reward(state, action)
             state_next = env.perform_action(state, action)
             # Append quantities to memory
-            memory.append_to_memory(state, action, MN_output, prob, reward)
+            memory.append_to_memory(state, state_next, action, MN_output, prob, reward)
             # Transition to next state
             state = state_next
             iter += 1
@@ -75,7 +75,7 @@ def main():
             print("[episode {}] mode = {}, iter = {}, reward = {:.2F}".format(episode, policy_mode, iter, sum(memory.reward_memory)))
 
         # Update MN when episode finishes
-        brain.update(memory)
+        brain.update(memory, env)
         agent.episode += 1
 
         # Save MN

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="update">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/[prototypes]/gym_DPG/model/PN_model.h5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gridworld_DPG/model/PN_model.h5" afterPath="" />
+    <list default="true" id="2680c9b9-7d57-4a9d-af2d-a963f54982b9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld_DQN/model/model.h5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld_DQN/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld_DQN/gridworld_DQN.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld_DQN/src/AgentClass.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld_DQN/src/BrainClass.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld_DQN/src/EnvironmentClass.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gridworld_DQN/src/MemoryClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" afterPath="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/src/AgentClass.py" afterPath="$PROJECT_DIR$/gridworld_DPG/src/AgentClass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" afterPath="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gridworld_DPG/src/MemoryClass.py" afterPath="$PROJECT_DIR$/gridworld_DPG/src/MemoryClass.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +22,48 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="AgentClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/AgentClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-423">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnvironmentClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/EnvironmentClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrainClass.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/BrainClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gridworld_DQN.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gridworld_DQN/gridworld_DQN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -91,13 +135,9 @@
         <option value="$PROJECT_DIR$/multiarmed_bandit/multiarmed_bandit.py" />
         <option value="$PROJECT_DIR$/DQN/gridworld_DQN.py" />
         <option value="$PROJECT_DIR$/gridworld_DQN/src/EnvironmentClass.py" />
-        <option value="$PROJECT_DIR$/gridworld_DQN/src/BrainClass.py" />
-        <option value="$PROJECT_DIR$/gridworld_DQN/src/MemoryClass.py" />
-        <option value="$PROJECT_DIR$/gridworld_DQN/src/AgentClass.py" />
         <option value="$PROJECT_DIR$/gym_DQN/README.md" />
         <option value="$PROJECT_DIR$/gym_DQN/temp/pong_keras.py" />
         <option value="$PROJECT_DIR$/gym_DQN/gym_DQN.py" />
-        <option value="$PROJECT_DIR$/gridworld_DQN/gridworld_DQN.py" />
         <option value="$PROJECT_DIR$/gym_DPG/README.md" />
         <option value="$PROJECT_DIR$/gym_DPG/gym_DPG.py" />
         <option value="$PROJECT_DIR$/gym_DPG/src/MemoryClass.py" />
@@ -114,11 +154,15 @@
         <option value="$PROJECT_DIR$/gym_DPG/gym_1D_DPG.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/gridworld_DPG/src/EnvironmentClass.py" />
-        <option value="$PROJECT_DIR$/gridworld_DQN/README.md" />
         <option value="$PROJECT_DIR$/gridworld_DPG/src/MemoryClass.py" />
-        <option value="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
         <option value="$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py" />
+        <option value="$PROJECT_DIR$/gridworld_DQN/README.md" />
+        <option value="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
+        <option value="$PROJECT_DIR$/gridworld_DQN/src/MemoryClass.py" />
         <option value="$PROJECT_DIR$/gridworld_DPG/src/AgentClass.py" />
+        <option value="$PROJECT_DIR$/gridworld_DQN/src/AgentClass.py" />
+        <option value="$PROJECT_DIR$/gridworld_DQN/src/BrainClass.py" />
+        <option value="$PROJECT_DIR$/gridworld_DQN/gridworld_DQN.py" />
       </list>
     </option>
   </component>
@@ -160,6 +204,17 @@
               <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
               <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
               <item name="gridworld_DPG" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld_DQN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Deep-Reinforcement-Learning-Tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="gridworld_DQN" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -431,27 +486,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gridworld_DPG">
-    <configuration name="gridworld_DPG" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.gridworld_DQN">
+    <configuration name="gridworld_DQN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gridworld_DPG" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gridworld_DQN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Deep-Reinforcement-Learning-Tutorials" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gridworld_DQN/gridworld_DQN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.gridworld_DPG" />
+        <item index="0" class="java.lang.String" itemvalue="Python.gridworld_DQN" />
       </list>
     </recent_temporary>
   </component>
@@ -465,13 +520,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505043883341</updated>
-    </task>
-    <task id="LOCAL-00065" summary="update">
-      <created>1506901624491</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1506901624491</updated>
     </task>
     <task id="LOCAL-00066" summary="update">
       <created>1506927778407</created>
@@ -809,15 +857,23 @@
       <option name="project" value="LOCAL" />
       <updated>1507485865508</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="update">
+      <created>1507494480422</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1507494480422</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="721" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30990416" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30990416" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -963,8 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/MemoryClass.py" />
-    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/EnvironmentClass.py" />
     <entry file="file://$PROJECT_DIR$/hunterprey/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -990,9 +1044,7 @@
     <entry file="file://$PROJECT_DIR$/gym_DQN/README.md" />
     <entry file="file://$PROJECT_DIR$/gym_DQN/temp/pong_karpathy.py" />
     <entry file="file://$PROJECT_DIR$/gym_DQN/temp/pong_keras.py" />
-    <entry file="file://$PROJECT_DIR$/gridworld_DQN/gridworld_DQN.py" />
     <entry file="file://$PROJECT_DIR$/gym_DQN/gym_DQN.py" />
-    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/BrainClass.py" />
     <entry file="file://$PROJECT_DIR$/gym_DPG/src/EnvironmentClass.py" />
     <entry file="file://$PROJECT_DIR$/[prototypes]/gym_DPG/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -1061,33 +1113,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld_DPG/src/EnvironmentClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld_DQN/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="79">
-            <caret line="2" column="157" lean-forward="false" selection-start-line="2" selection-start-column="157" selection-end-line="2" selection-end-column="157" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/AgentClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/[prototypes]/gym_DPG/src/MemoryClass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -1136,26 +1161,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py">
+    <entry file="file://$PROJECT_DIR$/gridworld_DQN/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="19">
+            <caret line="0" column="81" lean-forward="false" selection-start-line="0" selection-start-column="81" selection-end-line="0" selection-end-column="81" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/MemoryClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1001">
-          <caret line="29" column="67" lean-forward="false" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+        <state relative-caret-position="225">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gridworld_DPG/gridworld_DPG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-364">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        <state relative-caret-position="238">
+          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DPG/src/BrainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-441">
+          <caret line="29" column="67" lean-forward="false" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DPG/src/EnvironmentClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gridworld_DPG/src/AgentClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="63" column="40" lean-forward="true" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+        <state relative-caret-position="67">
+          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/AgentClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-423">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/EnvironmentClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DQN/gridworld_DQN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld_DQN/src/BrainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
         </state>
       </provider>
