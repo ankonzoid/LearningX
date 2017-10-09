@@ -25,9 +25,11 @@ class Brain:
         self.MN = self._build_MN(env)
 
     def _build_MN(self, env):
+
         input_dim_2D = env.state_dim
         input_dim_3D = (1,) + env.state_dim
         output_size = env.action_size
+
         # Build model architecture (outputs [M(a_1), M(a_2), ..., M(a_n)])
         MN = Sequential()
         MN.add(Reshape(input_dim_3D, input_shape=input_dim_2D))  # Reshape 2D to 3D slice
@@ -36,15 +38,18 @@ class Brain:
         MN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
         MN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
         MN.add(Dense(output_size, activation="linear"))
+
         # Select optimizer and loss function
         MN.compile(loss="binary_crossentropy", optimizer="Adam")
+
         # Print model network architecture summary
         MN.summary()
+
         return MN
 
     def update(self, memory, env):
 
-
+        N = len(memory.state_memory)
         states = memory.state_memory
         states_next = memory.state_next_memory
         actions = memory.action_memory
@@ -70,7 +75,7 @@ class Brain:
             Q = MN_outputs
 
             # Target Q
-            Q_target = np.zeros_like(MN_outputs)
+            Q_target = Q.copy()
             Q_target[action] = reward + gamma*Q_max_next
 
             # Loss function
@@ -85,6 +90,14 @@ class Brain:
         #MN_outputs = np.array(MN_outputs, dtype=np.float32)
 
         Y = MN_outputs + dMN_outputs
+
+        # Make checks
+        def equal_tuples(t1, t2):
+            return sorted(t1) == sorted(t2)
+        if not equal_tuples(X.shape, (N,) + env.state_dim):
+            raise IOError("Error: X.shape = {}, not {}".format(X.shape, (N,) + env.state_dim))
+        if not equal_tuples(Y.shape, (N,) + env.action_dim):
+            raise IOError("Error: Y.shape = {}, not {}".format(X.shape, (N,) + env.action_dim))
 
         # Train Q network
         self.MN.train_on_batch(X, Y)

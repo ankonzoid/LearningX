@@ -75,7 +75,7 @@ def main():
             print("[episode {}] mode = {}, iter = {}, reward = {:.2F}".format(episode, policy_mode, iter, sum(memory.reward_memory)))
 
         # Update MN when episode finishes
-        brain.update(memory)
+        brain.update(memory, env)
         agent.episode += 1
 
         # Save MN
