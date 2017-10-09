@@ -40,7 +40,7 @@ class Brain:
         MN.add(Dense(output_size, activation="linear"))
 
         # Select optimizer and loss function
-        MN.compile(loss="binary_crossentropy", optimizer="Adam")
+        MN.compile(loss="mean_squared_error", optimizer="Adam")
 
         # Print model network architecture summary
         MN.summary()
@@ -49,7 +49,6 @@ class Brain:
 
     def update(self, memory, env):
 
-        N = len(memory.state_memory)
         states = memory.state_memory
         states_next = memory.state_next_memory
         actions = memory.action_memory
@@ -60,8 +59,9 @@ class Brain:
         learning_rate = self.learning_rate
 
         # Compute loss scaled by discounted rewards
-        losses = []
         for i, (state, state_next, action, reward) in enumerate(zip(states, states_next, actions, rewards)):
+
+            losses = []
 
             # Compute Q_max_next
             if env.is_terminal_state(state_next):
@@ -72,35 +72,42 @@ class Brain:
                 Q_max_next = np.max(Q_state_next)
 
             # Current Q estimates
-            Q = MN_outputs
+            Q = MN_outputs[i]
 
             # Target Q
             Q_target = Q.copy()
             Q_target[action] = reward + gamma*Q_max_next
 
             # Loss function
-            loss = np.square(Q_target - Q)
-            losses.append(loss)
+            loss = Q_target - Q
 
-        # Construct training data (states)
-        X = np.squeeze(np.vstack([states]))
+            #losses.append(loss)
+            #print(loss)
 
-        # Construct training labels (loss)
-        dMN_outputs = learning_rate * np.squeeze(np.vstack([losses]))
-        #MN_outputs = np.array(MN_outputs, dtype=np.float32)
+            # Construct training data (states)
+            #X = np.vstack([states[i]])
+            X = state.reshape((1,) + env.state_dim)
 
-        Y = MN_outputs + dMN_outputs
+            #print(X)
 
-        # Make checks
-        def equal_tuples(t1, t2):
-            return sorted(t1) == sorted(t2)
-        if not equal_tuples(X.shape, (N,) + env.state_dim):
-            raise IOError("Error: X.shape = {}, not {}".format(X.shape, (N,) + env.state_dim))
-        if not equal_tuples(Y.shape, (N,) + env.action_dim):
-            raise IOError("Error: Y.shape = {}, not {}".format(X.shape, (N,) + env.action_dim))
+            # Construct training labels (loss)
+            dMN_output = learning_rate * loss
+            Y = (MN_outputs[i] + dMN_output).reshape((1,) + env.action_dim)
 
-        # Train Q network
-        self.MN.train_on_batch(X, Y)
+            #print(Y)
+
+
+            # Make checks
+            #def equal_tuples(t1, t2):
+            #    return sorted(t1) == sorted(t2)
+            #N = 1
+            #if not equal_tuples(X.shape, (N,) + env.state_dim):
+            #    raise IOError("Error: X.shape = {}, not {}".format(X.shape, (N,) + env.state_dim))
+            #if not equal_tuples(Y.shape, (N,) + env.action_dim):
+            #    raise IOError("Error: Y.shape = {}, not {}".format(X.shape, (N,) + env.action_dim))
+
+            # Train Q network
+            self.MN.train_on_batch(X, Y)
 
     # ==================================
     # IO functions
