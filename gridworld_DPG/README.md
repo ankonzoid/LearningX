@@ -6,7 +6,7 @@ We train an agent to beat Grid World using deep policy gradients (keras). This i
 
 * [Solving the Hunter-Prey problem as a single-agent problem using relative coordinates (`hunterprey.py`)](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/hunterprey)
 
-In deep policy network methods, the policy network outputs the estimated action probabilities via a feed-forwarding of a state. Its weights are the generalization of the matrix values in tabular methods, and are responsible for convert the input state into a softmax policy vector of action probabilities. The scalability of the policy network comes from the aspect of treating the problem as one of regression and finding patterns that are past the storage of Q(*s*,*a*) values. The downsides of deep policy networks however are the ones that typically come with training a neural network *i.e. you have to choose the right architectures, losses, optimizers, training samples, etc.*
+In deep policy network methods, the policy network outputs the estimated action probabilities via a feed-forwarding of a state. Its weights are the generalization of the matrix values in tabular methods, and are responsible for convert the input state into a softmax policy vector of action probabilities. The scalability of the policy network comes from the aspect of treating the problem as a regression problem and using the pattern learning abilities of neural networks. The downsides of deep policy networks however are the ones that typically come with training a neural network *i.e. you have to choose the right architectures, losses, optimizers, training samples, etc.*
 
 The available agents in this code are:
 

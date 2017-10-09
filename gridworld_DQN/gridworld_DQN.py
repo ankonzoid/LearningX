@@ -29,8 +29,8 @@ def main():
         "agent": {"policy_mode": "epsgreedy", # "epsgreedy", "softmax"
                   "eps": 1.0,
                   "eps_decay": 2.0*np.log(10.0)/N_episodes},
-        "brain": {"discount": 0.95,
-                  "learning_rate": 0.4},
+        "brain": {"discount": 0.99,
+                  "learning_rate": 0.9},
         "memory": {}
     }
 

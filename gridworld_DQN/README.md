@@ -6,49 +6,36 @@ We train an agent to beat Grid World using deep Q-networks (keras). This is scal
 
 * [Solving the Hunter-Prey problem as a single-agent problem using relative coordinates (`hunterprey.py`)](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/hunterprey)
 
-In deep policy network methods, the policy network outputs the estimated action probabilities via a feed-forwarding of a state. Its weights are the generalization of the matrix values in tabular methods, and are responsible for convert the input state into a softmax policy vector of action probabilities. The scalability of the policy network comes from the aspect of treating the problem as one of regression and finding patterns that are past the storage of Q(*s*,*a*) values. The downsides of deep policy networks however are the ones that typically come with training a neural network *i.e. you have to choose the right architectures, losses, optimizers, training samples, etc.*
+In deep Q-network methods, the Q-network is usually constructed in one of 2 ways:
+ 
+ * A neural network that takes in state *s* and action *a*, and outputs a single scalar value that is Q(*s*,*a*)
+ 
+ * A neural network that takes in a state *s*, and outputs a vector with values Q(*s*,*a*) for each action *a* (this is the implmentation that DeepMind used for their beating Atari games) 
+ 
+ We will use the 2nd method of feed-forwarding a state *s* to the deep Q-network (DQN) to get a vector of Q(*s*,:) values (very similar in how policy networks work where Q(s) values replaces pi(s) probabilities here). The DQN weights are the generalization of the Q-tabular matrix values with the scalability of the policy network coming from treating the problem as a regression problem and using the pattern learning abilities of neural networks. The downsides of deep policy networks however are the ones that typically come with training a neural network *i.e. you have to choose the right architectures, losses, optimizers, training samples, etc.*
 
-We provide two alternative agent policy selection modes of *epsilon-greedy selection* (`"policy_mode": "epsilongreedy"`) and *softmax selection* (`"policy_mode": "softmax"`). For a given state *s*, the:
+The available agents in this code are:
 
-* Epsilon-greedy agent chooses a random action at epsilon probability, otherwise it acts greedily by choosing action argmax{a} Q(s,a).
-
-* Boltzmann (softmax) agent samples for an action *a* from the probabilities proportional to the values of Q(s,a). 
+* *Epsilon-greedy selection* which chooses a random action with epsilon probability, or acts greedily otherwise by choosing action with highest Q (`"policy_mode": "epsilongreedy"`) 
 
 ### Example output:
 
 For grid size of (20, 20) set by `env_info = {"Ny": 20, "Nx": 20}`, we train the agent to find move from the top-left corner to the bottom-right corner in 1000 training episodes with a exponentially-decaying epsilon exploration parameter. 
 
-For epsilon-greedy selection:
+For epsilon-greedy selection, we get (more episodes might be needed for convergence):
 
 ```
-[episode 0] mode = epsilongreedy, iter = 6710, epsilon = 1.0000, reward = 32.91
-[episode 1] mode = epsilongreedy, iter = 2812, epsilon = 0.9954, reward = 71.89
-[episode 2] mode = epsilongreedy, iter = 2178, epsilon = 0.9908, reward = 78.23
-[episode 3] mode = epsilongreedy, iter = 932, epsilon = 0.9863, reward = 90.69
+[episode 0] mode = epsgreedy, iter = 1594, eps = 1.0000, reward = 84.07
+[episode 1] mode = epsgreedy, iter = 666, eps = 0.9772, reward = 93.35
+[episode 2] mode = epsgreedy, iter = 4514, eps = 0.9550, reward = 54.87
+[episode 3] mode = epsgreedy, iter = 2220, eps = 0.9333, reward = 77.81
 ...
 ...
 ...
-[episode 997] mode = epsilongreedy, iter = 38, epsilon = 0.0101, reward = 99.63
-[episode 998] mode = epsilongreedy, iter = 38, epsilon = 0.0101, reward = 99.63
-[episode 999] mode = epsilongreedy, iter = 38, epsilon = 0.0100, reward = 99.63
-```
-
-For softmax selection (it converges to optimal early because it is adaptively greedy):
-
-```
-[episode 0] mode = softmax, iter = 9868, reward = 1.33
-[episode 1] mode = softmax, iter = 4208, reward = 57.93
-[episode 2] mode = softmax, iter = 2488, reward = 75.13
-[episode 3] mode = softmax, iter = 572, reward = 94.29
-...
-...
-...
-[episode 129] mode = softmax, iter = 38, reward = 99.63
-[episode 130] mode = softmax, iter = 38, reward = 99.63
-[episode 131] mode = softmax, iter = 38, reward = 99.63
-...
-...
-...
+[episode 196] mode = epsgreedy, iter = 38, eps = 0.0110, reward = 99.63
+[episode 197] mode = epsgreedy, iter = 40, eps = 0.0107, reward = 99.61
+[episode 198] mode = epsgreedy, iter = 38, eps = 0.0105, reward = 99.63
+[episode 199] mode = epsgreedy, iter = 38, eps = 0.0102, reward = 99.63
 ```
 
 Both policy modes end up giving the optimal number of actions (`iter`) in an episode of Ny + Nx - 1 = 38 for our (20, 20) grid square.
