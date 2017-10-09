@@ -18,7 +18,7 @@ def main():
     # ==============================
     # Settings
     # ==============================
-    N_episodes = 1000
+    N_episodes = 200
     load_MN = False  # load model
     save_MN = True  # save model on last episode
     save_MN_filename = os.path.join("model", "model.h5")
