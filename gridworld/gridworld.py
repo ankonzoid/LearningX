@@ -3,10 +3,12 @@
  gridworld.py  (author: Anson Wong / git: ankonzoid)
 
  Trains an agent to move from (0, 0) to (Ny-1, Nx-1) on a rectangular grid
- in the least number of grid steps. The approach taken here is an on-policy
- Monte Carlo reward-average sampling on an epsilon-greedy agent. Also,
- tabular version of the rewards R(s,a), state-action value Q(s,a), and
- policy policy(s) are used.
+ in the least number of grid steps using tabular methods. We provide both:
+
+   - Monte Carlo reward-averaging
+   - Q-learning
+
+ as learning algorithms for our epsilon-greedy agent.
 
  Note: the optimal policy exists but is a highly degenerate solution because
  of the multitude of ways one can traverse down the grid in the minimum
@@ -49,11 +51,11 @@ def main():
     # =========================
     # Settings
     # =========================
-    learning_mode = "SampleAveraging"
+    learning_mode = "RewardAveraging"
 
-    if learning_mode == "SampleAveraging":
+    if learning_mode == "RewardAveraging":
 
-        from SampleAveraging_BrainClass import Brain
+        from RewardAveraging_BrainClass import Brain
         N_episodes = 100000
         env_info = {"Ny": 7, "Nx": 7}
         brain_info = {}

@@ -1,20 +1,18 @@
 # Training an Agent to beat GridWorld using Deep Policy Gradients (`gridworld_DPG.py`)
 
-We train an agent to beat Grid World using deep policy gradients with the keras library. This is scalable neural network upgrade to classical tabular methods as used in our previous Grid World examples:
+We train an agent to beat Grid World using deep policy gradients (keras). This is scalable neural network upgrade to classical tabular methods as used in our previous Grid World examples:
 
 * [Training an Agent to beat GridWorld (`gridworld.py`)](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/gridworld)
 
 * [Solving the Hunter-Prey problem as a single-agent problem using relative coordinates (`hunterprey.py`)](https://github.com/ankonzoid/Deep-Reinforcement-Learning-Tutorials/blob/master/hunterprey)
 
-In Q-tabular methods, the estimated Q values are stored in a 2D matrix of size (N_state, N_actions) with each Q(*s*,*a*) entry representing the expected discounted total reward to be obtained in the future by following action *a* from state *s* then following optimal policy. One of the advantages of treating Q as a table is that it is simple to understand and update. You can plug your state and action indices to retrieve your Q(*s*,*a*) value in O(1) time, and greedy action selections can come from calculating argmax(Q(*s*,:)). Unfortunately tabular methods suffer the curse of dimensionality as higher-dimensional state spaces easily make the number of states, N_states, too large to hold in memory. For example a particle with 6-dimensions (x, y, z, vx, vy, vz) and 100 discrete values in each dimension gives for N_state = 10^12 unique states without considering the action space -- this is too large for any practical application and is too sparse to explore. Moreover when the state space is continuous then we definitely need an alternative to tabular methods.
+In deep policy network methods, the policy network outputs the estimated action probabilities via a feed-forwarding of a state. Its weights are the generalization of the matrix values in tabular methods, and are responsible for convert the input state into a softmax policy vector of action probabilities. The scalability of the policy network comes from the aspect of treating the problem as one of regression and finding patterns that are past the storage of Q(*s*,*a*) values. The downsides of deep policy networks however are the ones that typically come with training a neural network *i.e. you have to choose the right architectures, losses, optimizers, training samples, etc.*
 
-In deep policy network methods, the estimated action probabilities values come out as output from a neural network (NN) via the feed-forwarding of a state. The weights of the NN hold information of how to convert the input state into a list of softmax values corresponding to how likely an agent should take an action. Why policy gradients to tabular methods makes for a scalable option is because of the interpolational and pattern learning aspects of computing policies for "nearby" but unseen state-spaces. However the downsides of deep policy networks are the ones that come with training a neural network *i.e. you have to choose appropriate architectures, losses, optimizers, etc.*
+The available agents in this code are:
 
-We provide two alternative agent policy selection modes of *epsilon-greedy selection* (`"policy_mode": "epsilongreedy"`) and *softmax selection* (`"policy_mode": "softmax"`). For a given state *s*, the:
+* *Epsilon-greedy selection* which chooses a random action with epsilon probability, or acts greedily otherwise by choosing action with highest action probability (`"policy_mode": "epsilongreedy"`) 
 
-* Epsilon-greedy agent chooses a random action at epsilon probability, otherwise it acts greedily by choosing action argmax{a} Q(s,a).
-
-* Boltzmann (softmax) agent samples for an action *a* from the probabilities proportional to the values of Q(s,a). 
+* *Softmax (Boltzmann) selection* which samples action *a* based on the action probabilities provided (`"policy_mode": "softmax"`)
 
 ### Example output:
 
