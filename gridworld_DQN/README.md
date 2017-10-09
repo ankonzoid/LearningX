@@ -42,7 +42,7 @@ Both policy modes end up giving the optimal number of actions (`iter`) in an epi
 
 ### Usage:
 
-> python gridworld_DPG.py
+> python gridworld_DQN.py
 
 ### Libraries required:
 

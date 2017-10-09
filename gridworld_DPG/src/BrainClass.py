@@ -86,8 +86,9 @@ class Brain:
         discounted_rewards_total = np.vstack(compute_discounted_rewards_total(rewards, gamma))
         discounted_rewards_total /= np.std(discounted_rewards_total)
 
-        # Compute loss scaled by discounted rewards
-        loss = discounted_rewards_total * gradients
+        # Compute loss scaled by advantage (discounted rewards)
+        advantage = discounted_rewards_total
+        loss = advantage * gradients
 
         # Construct training data X (states)
         X = np.squeeze(np.vstack([states]))
