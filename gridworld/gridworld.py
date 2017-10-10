@@ -35,13 +35,9 @@
 
 """
 import numpy as np
-import operator, sys
+import operator, sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
-sys.path.append("./src")
-sys.path.append("./src/agent")
-sys.path.append("./src/brain")
-sys.path.append("./src/environment")
-sys.path.append("./src/memory")
 from EpsilonGreedy_AgentClass import Agent
 from GridWorld_EnvironmentClass import Environment
 from MemoryClass import Memory
