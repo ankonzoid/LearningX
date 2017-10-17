@@ -38,8 +38,8 @@ import numpy as np
 import operator, sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
-from EpsilonGreedy_AgentClass import Agent
-from GridWorld_EnvironmentClass import Environment
+from AgentClass import Agent  # epsilon-greedy agent
+from EnvironmentClass import Environment  # 2d gridworld
 from MemoryClass import Memory
 import utils
 
