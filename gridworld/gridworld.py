@@ -47,7 +47,7 @@ def main():
     # =========================
     # Settings
     # =========================
-    learning_mode = "RewardAveraging"
+    learning_mode = "QLearning"  # "RewardAveraging", "QLearning"
 
     if learning_mode == "RewardAveraging":
 
@@ -62,7 +62,7 @@ def main():
         from QLearning_BrainClass import Brain
         N_episodes = 10000
         env_info = {"Ny": 7, "Nx": 7}
-        brain_info = {"Q_learning_rate": 1.0, "Q_discount": 1.0}  # only relevant for Q-learning
+        brain_info = {"Q_learning_rate": 0.95, "Q_discount": 1.0}  # only relevant for Q-learning
         agent_info = {"name": "epsilon-greedy", "epsilon": 1.0, "epsilon_decay": 2.0 * np.log(10.0) / N_episodes}
 
     else:
