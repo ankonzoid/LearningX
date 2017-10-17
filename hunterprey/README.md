@@ -27,4 +27,5 @@ To see exactly how we set up the single-agent framework, let us start with a glo
 ### Libraries required:
 
 * numpy
+
 * ffmpy (`pip3 install MoviePy`)

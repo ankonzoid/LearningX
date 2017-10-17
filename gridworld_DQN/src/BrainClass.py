@@ -22,30 +22,30 @@ class Brain:
         self.learning_rate = self.brain_info["learning_rate"]
 
         # Model network function
-        self.MN = self._build_MN(env)
+        self.MN = self._build_model(env)
 
-    def _build_MN(self, env):
+    def _build_model(self, env):
 
         input_dim_2D = env.state_dim
         input_dim_3D = (1,) + env.state_dim
         output_size = env.action_size
 
         # Build model architecture (outputs [M(a_1), M(a_2), ..., M(a_n)])
-        MN = Sequential()
-        MN.add(Reshape(input_dim_3D, input_shape=input_dim_2D))  # Reshape 2D to 3D slice
-        MN.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
-        MN.add(Flatten())
-        MN.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
-        MN.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
-        MN.add(Dense(output_size, activation="linear"))
+        model = Sequential()
+        model.add(Reshape(input_dim_3D, input_shape=input_dim_2D))  # Reshape 2D to 3D slice
+        model.add(Convolution2D(64, (2, 2), strides=(1, 1), padding="same", activation="relu", kernel_initializer="he_uniform"))
+        model.add(Flatten())
+        model.add(Dense(64, activation="relu", kernel_initializer="he_uniform"))
+        model.add(Dense(32, activation="relu", kernel_initializer="he_uniform"))
+        model.add(Dense(output_size, activation="linear"))
 
         # Select optimizer and loss function
-        MN.compile(loss="mean_squared_error", optimizer="Adam")
+        model.compile(loss="mean_squared_error", optimizer="Adam")
 
         # Print model network architecture summary
-        MN.summary()
+        model.summary()
 
-        return MN
+        return model
 
     def update(self, memory, env):
 

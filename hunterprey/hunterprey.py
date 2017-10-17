@@ -10,8 +10,8 @@ import matplotlib
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
-from EpsilonGreedy_AgentClass import Agent
-from HunterPrey_EnvironmentClass import Environment
+from AgentClass import Agent  # epsilon-greedy agent
+from EnvironmentClass import Environment  # hunter-prey environment
 from MemoryClass import Memory
 import utils
 
