@@ -22,7 +22,7 @@ class Brain:
         self.learning_rate = self.brain_info["learning_rate"]
 
         # Model network function
-        self.MN = self._build_model(env)
+        self.model = self._build_model(env)
 
     def _build_model(self, env):
 
@@ -53,7 +53,7 @@ class Brain:
         states_next = memory.state_next_memory
         actions = memory.action_memory
         rewards = memory.reward_memory
-        MN_outputs = memory.MN_output_memory
+        model_outputs = memory.MN_output_memory
 
         gamma = self.gamma
         learning_rate = self.learning_rate
@@ -66,11 +66,11 @@ class Brain:
                 Q_max_next = 0.0
             else:
                 state_next_reshaped = state_next.reshape(list((1,) + env.state_dim))
-                Q_state_next = self.MN.predict(state_next_reshaped, batch_size=1).flatten()
+                Q_state_next = self.model.predict(state_next_reshaped, batch_size=1).flatten()
                 Q_max_next = np.max(Q_state_next)
 
             # Current Q estimates
-            Q = MN_outputs[i]
+            Q = model_outputs[i]
 
             # Target Q
             Q_target = Q.copy()
@@ -83,8 +83,8 @@ class Brain:
             X = state.reshape((1,) + env.state_dim)
 
             # Construct training labels (loss)
-            dMN_output = learning_rate * loss
-            Y = (MN_outputs[i] + dMN_output).reshape((1,) + env.action_dim)
+            dmodel_output = learning_rate * loss
+            Y = (model_outputs[i] + dmodel_output).reshape((1,) + env.action_dim)
 
             # Make checks
             def equal_tuples(t1, t2):
@@ -96,16 +96,16 @@ class Brain:
                 raise IOError("Error: Y.shape = {}, not {}".format(X.shape, (1,) + env.action_dim))
 
             # Train Q network
-            self.MN.train_on_batch(X, Y)
+            self.model.train_on_batch(X, Y)
 
     # ==================================
     # IO functions
     # ==================================
 
-    def load_MN(self, filename):
-        self.MN = load_model(filename)
-        self.MN.compile(loss="binary_crossentropy", optimizer="Adam")
-        self.MN.summary()
+    def load_model(self, filename):
+        self.model = load_model(filename)
+        self.model.compile(loss="binary_crossentropy", optimizer="Adam")
+        self.model.summary()
 
-    def save_MN(self, filename):
-        self.MN.save(filename)
+    def save_model(self, filename):
+        self.model.save(filename)

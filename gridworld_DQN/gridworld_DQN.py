@@ -19,9 +19,9 @@ def main():
     # Settings
     # ==============================
     N_episodes = 200
-    load_MN = False  # load model
-    save_MN = True  # save model on last episode
-    save_MN_filename = os.path.join("model", "model.h5")
+    load_model = False  # load model
+    save_model = True  # save model on last episode
+    save_model_filename = os.path.join("model", "model.h5")
 
     info = {
         "env": {"Ny": 20,
@@ -42,8 +42,8 @@ def main():
     brain = Brain(env, info)
     memory = Memory(info)
 
-    if load_MN:
-        brain.load_MN(save_MN_filename)
+    if load_model:
+        brain.load_model(save_model_filename)
 
     # ==============================
     # Train agent
@@ -54,12 +54,12 @@ def main():
         state = env.starting_state()
         while env.is_terminal_state(state) == False:
             # Pick an action by sampling action probabilities
-            action, MN_output, prob = agent.get_action(state, brain, env)
+            action, model_output, prob = agent.get_action(state, brain, env)
             # Collect reward and observe next state
             reward = env.get_reward(state, action)
             state_next = env.perform_action(state, action)
             # Append quantities to memory
-            memory.append_to_memory(state, state_next, action, MN_output, prob, reward)
+            memory.append_to_memory(state, state_next, action, model_output, prob, reward)
             # Transition to next state
             state = state_next
             iter += 1
@@ -74,13 +74,13 @@ def main():
 
             print("[episode {}] mode = {}, iter = {}, reward = {:.2F}".format(episode, policy_mode, iter, sum(memory.reward_memory)))
 
-        # Update MN when episode finishes
+        # Update model when episode finishes
         brain.update(memory, env)
         agent.episode += 1
 
-        # Save MN
-        if save_MN and (episode == N_episodes-1):
-            brain.save_MN(save_MN_filename)
+        # Save model
+        if save_model and (episode == N_episodes-1):
+            brain.save_model(save_model_filename)
 
         # Clear memory for next episode
         memory.clear_memory()

@@ -12,7 +12,5 @@ We provide here a set of beginner hands-on Python examples in both Classical & D
 * [Solving the Hunter-Prey problem as a single-agent problem using relative coordinates](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/hunterprey) (`hunterprey.py`) 
 
  ## Deep Reinforcement Learning
- 
-* [Training an Agent to beat GridWorld using Deep Policy Gradients](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld_DPG) (`gridworld_DPG.py`)
 
 * [Training an Agent to beat GridWorld using Deep Q-Networks](https://github.com/ankonzoid/Reinforcement-Learning-Tutorials/tree/master/gridworld_DQN) (`gridworld_DQN.py`)
