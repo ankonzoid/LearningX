@@ -11,107 +11,100 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 
 
-## Classical Reinforcement Learning
+# Classical Reinforcement Learning
  
 
 
 ### [The Multi-Armed Bandit Problem](classical_RL/MAB)
 
-<p align="center">
+<a href="classical_RL/MAB">
 <img src="classical_RL/MAB/images/coverart.png" width="30%">
-</p>
+</a>
 
-### [Shortest Path Search in GridWorld (Q-Learning)](classical_RL/gridworld)
+### [Q-Learning in GridWorld](classical_RL/gridworld)
 
-<p align="center">
+<a href="classical_RL/gridworld">
 <img src="classical_RL/gridworld/images/coverart.png" width="20%">
-</p>
+</a>
 
 ### [Optimal Blackjack Strategy](classical_RL/blackjack)
 
-<p align="center">
+<a href="classical_RL/blackjack">
 <img src="classical_RL/blackjack/images/coverart.png" width="30%">
-</p>
+</a>
 
 
 
-## Deep Reinforcement Learning
+# Deep Reinforcement Learning
 
 
 
 ### [Balancing Cartpole Beam on OpenAI gym](deep_RL/cartpole)
 
-<p align="center">
+<a href="deep_RL/cartpole">
 <img src="deep_RL/cartpole/images/cartpole.gif" width="35%">
-</p>
+</a>
 
 ### [Playing Pong from pixels on OpenAI gym](deep_RL/pong)
 
-<p align="center">
+<a href="deep_RL/pong">
 <img src="deep_RL/pong/images/pong.gif" width="25%">
-</p>
+</a>
 
 
 
-## Basic Machine Learning
+# Basic Machine Learning
 
 
 
-### Classification
+### [Classification](basic_ML/classification)
 
-<p align="center"> 
+<a href="basic_ML/classification"> 
 <img src="basic_ML/classification/images/coverart.png" width="25%">
-</p>
+</a>
 
-* [Decision Tree](basic_ML/classification)
-
-* [K-Nearest Neighbours](basic_ML/classification)
+* Decision Tree, K-Nearest Neighbours
 
 
+### [Regression](basic_ML/regression)
 
-### Regression
-
-<p align="center"> 
+<a href="basic_ML/regression"> 
 <img src="basic_ML/regression/images/coverart.png" width="25%">
-</p>
+</a>
 
-* [Linear Regression (optimized via Gradient Descent)](basic_ML/regression)
-
-* [Linear Regression (optimized via Stochastic Gradient Descent)](basic_ML/regression)
-
-* [Logistic Regression (optimized via Gradient Descent)](basic_ML/regression)
+* Linear Regression (Gradient Descent / Stochastic Gradient Descent), Logistic Regression
 
 
 
-### Unsupervised
+### [Unsupervised Learning](basic_ML/unsupervised)
 
-<p align="center"> 
+<a href="basic_ML/unsupervised"> 
 <img src="basic_ML/unsupervised/images/coverart.png" width="20%">
-</p>
+</a>
 
-* [K-means Clustering](basic_ML/unsupervised)
+* K-means Clustering
 
 
 
-## Advanced Machine Learning
+# Advanced Machine Learning
 
 
 
 ### [Building Model Trees](advanced_ML/model_tree)
 
-<p align="center"> 
+<a href="advanced_ML/model_tree"> 
 <img src="advanced_ML/model_tree/images/coverart.png" width="30%">
-</p>
+</a>
 
-### [Tree Ensembles: Bagging and Boosting](advanced_RL/tree_ensembles)
+### [Tree Ensembles: Bagging and Boosting](advanced_ML/tree_ensembles)
 
-<p align="center"> 
+<a href="advanced_ML/tree_ensembles"> 
 <img src="advanced_ML/tree_ensembles/images/coverart_bagging.png" width="30%">
-</p>
+</a>
 
-<p align="center"> 
+<a href="advanced_ML/tree_ensembles"> 
 <img src="advanced_ML/tree_ensembles/images/coverart_boosting.png" width="30%">
-</p>
+</a>
 
 
 
