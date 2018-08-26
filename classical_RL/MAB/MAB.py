@@ -143,7 +143,7 @@ def main():
     ax.set_xscale("log", nonposx='clip')
     plt.xlim([1, N_episodes])
     if save_fig:
-        output_file = "rewards.png"
+        output_file = "output/rewards.png"
         plt.savefig(output_file, bbox_inches="tight")
     else:
         plt.show()
@@ -171,7 +171,7 @@ def main():
     for legobj in leg.legendHandles:
         legobj.set_linewidth(16.0)
     if save_fig:
-        output_file = "actions.png"
+        output_file = "output/actions.png"
         plt.savefig(output_file, bbox_inches="tight")
     else:
         plt.show()

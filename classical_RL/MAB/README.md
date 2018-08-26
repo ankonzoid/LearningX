@@ -8,9 +8,12 @@ The multi-armed bandit problem is a classic reinforcement learning example where
 
 In this code, we deploy an epsilon-greedy agent to play the multi-armed bandit game for a fixed number of episodes using a well-established classical reinforcement learning method of an epsilon-greedy agent and reward-average sampling to compute the action-values Q(a).
 
+<p align="center">
+<img src="images/coverart_actions.png"  width="65%">
+</p>
 
 <p align="center">
-<img src="images/MAB_actions.png"  width="65%">
+<img src="images/coverart_rewards.png"  width="65%">
 </p>
 
 ### Usage:
@@ -49,3 +52,7 @@ reward history avg = [0.51 0.43 0.63 ... 0.79 0.75 0.73]
 ### Libraries required:
 
 * numpy
+
+### Author
+
+Anson Wong
