@@ -3,7 +3,7 @@
  Finds optimal blackjack policy for a 52-count card deck under house rules. The learning algorithm is Monte Carlo exploring starts with reward sample averaging. Refer to Chapter 5 of Sutton on Monte Carlo methods for more details about this problem.
 
 <p align="center">
-<img src="https://github.com/ankonzoid/L6_exercises/blob/master/reinforcement-learning/classical/blackjack/blackjack.png" width="60%">
+<img src="images/coverart.png" width="60%">
 </p>
 
 ### Usage

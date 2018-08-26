@@ -1,12 +1,13 @@
-# LearningX Examples in Reinforcement Learning + Deep Learning + Machine Learning
+# LearningX Examples and Tutorials
 
-We provide here a suite of self-contained Python examples that introduce you to concepts in:
+
+We provide here a suite of Python examples that walk you through concepts in:
 
 * Classical & Deep Reinforcement Learning 
 
 * Basic & Advanced Machine Learning
 
-Usage of the examples involve only running the main file from its project directory, and each example has its own README.md file discussing the theory and applications.
+Usage of the examples is simple: just run the main file for each project. Each project example contains its own `README.md` file discussing the theory and applications.
 
 
 
@@ -20,7 +21,7 @@ Usage of the examples involve only running the main file from its project direct
 <img src="classical_RL/MAB/images/coverart.png" width="30%">
 </p>
 
-### [Finding Shortest Path on GridWorld using Q-Learning](classical_RL/gridworld)
+### [Shortest Path Search in GridWorld (Q-Learning)](classical_RL/gridworld)
 
 <p align="center">
 <img src="classical_RL/gridworld/images/coverart.png" width="20%">
@@ -47,7 +48,7 @@ Usage of the examples involve only running the main file from its project direct
 ### [Playing Pong from pixels on OpenAI gym](deep_RL/pong)
 
 <p align="center">
-<img src="deep_RL/pong/images/pong.gif" width="30%">
+<img src="deep_RL/pong/images/pong.gif" width="25%">
 </p>
 
 
@@ -56,9 +57,9 @@ Usage of the examples involve only running the main file from its project direct
 
 
 
-### [Classification](basic_ML/classification)
+### Classification
 
-<p align="left"> 
+<p align="center"> 
 <img src="basic_ML/classification/images/coverart.png" width="25%">
 </p>
 
@@ -68,9 +69,9 @@ Usage of the examples involve only running the main file from its project direct
 
 
 
-### [Regression](basic_ML/regression)
+### Regression
 
-<p align="left"> 
+<p align="center"> 
 <img src="basic_ML/regression/images/coverart.png" width="25%">
 </p>
 
@@ -82,10 +83,10 @@ Usage of the examples involve only running the main file from its project direct
 
 
 
-### [Unsupervised](basic_ML/unsupervised)
+### Unsupervised
 
 <p align="center"> 
-<img src="basic_ML/unsupervised/images/coverart.png" width="25%">
+<img src="basic_ML/unsupervised/images/coverart.png" width="20%">
 </p>
 
 * [K-means Clustering](basic_ML/unsupervised)
