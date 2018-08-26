@@ -3,19 +3,19 @@
 In CART (Classification and Regression Tree) algorithms, we build a tree by recursively splitting the training data via feature threshold cuts, such that the split data achieves the lowest overall weighted loss possible. By assigning a regression/classification model with a set loss function, we are appending a model to each node of the tree which motivates the concept of model trees which we provide the implementation for here.
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/model_tree/coverart/model_tree.png" width="65%">
+<img src="images/model_tree.png" width="65%">
 </p>
 
 To quickly visualize how a model tree could prove more useful than regular CARTs, consider the generated 1D training data below where we naively try to fit a linear regression model to it (this is exactly the `depth=0` model tree). The fit is poor as expected as the training data is generated from a 4th-order polynomial, but if you consider splitting the data into disjoint `x` segments as done by increasing the depth of the linear regression model tree, we can build a collection of linear regressors which accurately fit the individual segments well (`depth=1, 2, 3, 4, 5`), and thus giving us a well-trained model without needing too much explicit knowledge of the underlying complexity of the training data distribution!
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/model_tree/output/test_linear_regr_fit.png" width="95%">
+<img src="images/coverart_linear_regr_fit.png" width="95%">
 </p>
 
 To hit the nail on the head with this example, we can also directly compare results of fitting the 1D training data using a linear regression model tree fitting with *scikit learn*'s default decision tree regressor (which uses mean-value regression). In the plot below, we can immediately see how *scikit learn*'s decision tree regressor at `depth=5` is still is not a great model because it struggles to capture the `x` variability in the data, whereas the model tree is already able to capture much of the training distribution at depths lower than 5.
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/model_tree/output/test_mean_regr_fit.png" width="95%">
+<img src="images/coverart_mean_regr_fit.png" width="95%">
 </p>
 
 ### Usage
@@ -92,7 +92,7 @@ Cross-validating (kfold=5, seed=1)...
 In the `output` directory, you will find the pickled model tree (`output/model_tree.p`), a visualization of the model tree created (`output/model_tree.png`)
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/model_tree/output/model_tree.png" width="95%">
+<img src="images/coverart_tree.png" width="95%">
 </p>
 
 as well as a `model_tree_pred.csv` file containing the model tree's predictions and tree-traversal explanations
@@ -125,6 +125,6 @@ which will:
 
 * numpy, pandas, pickle, sklearn, scipy, graphviz
 
-### Authors
+### Author
 
 Anson Wong

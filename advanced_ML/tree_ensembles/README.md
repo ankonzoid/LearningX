@@ -5,7 +5,7 @@ When it comes to improving the capabilities of a single decision tree model by t
 Bagging constructs multiple slightly overfit tree estimators in parallel by training each tree on a `(X_i, y_i)` dataset built by sampling the original `(X, y)` dataset `N` times *with replacement* where `N` are the number of examples in `(X, y)`. The bagging prediction is then the prediction average of the estimators in the tree ensemble. Refer to the bagging schematic below.
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/tree_ensembles/coverart/bagging.png" width="90%">
+<img src="images/coverart_bagging.png" width="90%">
 </p>
 
 We also provide here another form of bagging which is Random Forest where the trees have random splits (as opposed to greedy splits) and on limited features (as opposed to all features). The heuristic is still towards the idea of exposing the individual trees to less data to give them new ways to overfit for the betterment of the ensemble as a whole.
@@ -13,7 +13,7 @@ We also provide here another form of bagging which is Random Forest where the tr
 Gradient boosting takes on a sequential approach to constructing its tree estimators. First, gradient boosting trains the the first tree estimator on `(X, y)` (same as training a single decision tree). Afterwards the training residual (`res_i = y_truth - y_pred_i`) becomes the training label for the next tree estimator (`y <- res_i`, `X` untouched), and this is done recursively until the residuals are small enough. The boosting prediction is then the prediction sum of the estimator predictions in the tree ensemble. Refer to the boosting schematic below.
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/tree_ensembles/coverart/boosting.png" width="90%">
+<img src="images/coverart_boosting.png" width="90%">
 </p>
 
 ### Usage
@@ -60,15 +60,15 @@ Plotting 'Gradient Boosted Trees' model to 'output/gradient_boosted_trees'...
 In the `output` directory, you will find the following tree ensemble prediction plots (in `.png` format):
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/tree_ensembles/output/bagged_trees.png" width="75%">
+<img src="images/coverart_bagged_trees.png" width="75%">
 </p>
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/tree_ensembles/output/random_forest.png" width="75%">
+<img src="images/coverart_random_forest.png" width="75%">
 </p>
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/tree_ensembles/output/gradient_boosted_trees.png" width="75%">
+<img src="images/coverart_boosted_trees.png" width="75%">
 </p>
 
 
