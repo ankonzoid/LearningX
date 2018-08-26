@@ -1,7 +1,7 @@
 # Basic Machine Learning algorithms: Classificattion
 
 <p align="center"> 
-<img src="classification/images/coverart.png" width="25%">
+<img src="images/coverart.png" width="25%">
 </p>
 
 * Decision Tree (`decision_tree.py`)

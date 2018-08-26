@@ -1,7 +1,7 @@
 # Basic Machine Learning algorithms: Unsupervised Learning
 
 <p align="center"> 
-<img src="unsupervised/images/coverart.png" width="25%">
+<img src="images/coverart.png" width="25%">
 </p>
 
 * K-means clustering (`kmeans.py`)

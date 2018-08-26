@@ -1,7 +1,7 @@
 # Basic Machine Learning algorithms: Regression
 
 <p align="center"> 
-<img src="regression/images/coverart.png" width="25%">
+<img src="images/coverart.png" width="25%">
 </p>
 
 * Linear Regression optimized via Gradient Descent (`linear_regression_GD.py`)
