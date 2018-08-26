@@ -1,61 +1,41 @@
-# Basic Machine Learning algorithms from scratch
+# Basic Machine Learning
 
 Some basic machine learning algorithms I wrote from scratch.
 
 
-
-#### Classification (`classification` directory)
+#### [Classification](classification)
 
 <p align="center"> 
 <img src="classification/images/coverart.png" width="25%">
 </p>
 
-* Decision Tree (`decision_tree.py`)
+* [Decision Tree](classification)
 
-* K nearest neighbours (`knn.py`)
+* [K-Nearest Neighbours](classification)
 
 
 
-#### Regression (`regression` directory)
+#### [Regression](regression)
 
 <p align="center"> 
 <img src="regression/images/coverart.png" width="25%">
 </p>
 
-* Linear Regression optimized via Gradient Descent (`linear_regression_GD.py`)
+* [Linear Regression (optimized via Gradient Descent)](regression)
 
-* Linear Regression optimized via Stochastic Gradient Descent (`linear_regression_SGD.py`)
+* [Linear Regression (optimized via Stochastic Gradient Descent)](regression)
 
-* Logistic Regression optimized via Gradient Descent (`logistic_regression_GD.py`)
+* [Logistic Regression (optimized via Gradient Descent)](regression)
 
 
 
-#### Unsupervised Learning (`unsupervised` directory)
+#### [Unsupervised Learning](unsupervised)
 
 <p align="center"> 
 <img src="unsupervised/images/coverart.png" width="25%">
 </p>
 
-* K-means clustering (`kmeans.py`)
-
-
-
-### Usage
-
-Run `python3` on any of the files
-
-* `decision_tree.py`
-* `knn.py`
-* `kmeans.py`
-* `linear_regression_GD.py`
-* `linear_regression_SGD.py`
-* `logistic_regression_GD.py`
-
-
-
-### Libraries
-
-* numpy, pandas
+* [K-Means Clustering](unsupervised)
 
 
 
