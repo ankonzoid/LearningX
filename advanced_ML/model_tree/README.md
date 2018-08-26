@@ -3,7 +3,7 @@
 In CART (Classification and Regression Tree) algorithms, we build a tree by recursively splitting the training data via feature threshold cuts, such that the split data achieves the lowest overall weighted loss possible. By assigning a regression/classification model with a set loss function, we are appending a model to each node of the tree which motivates the concept of model trees which we provide the implementation for here.
 
 <p align="center"> 
-<img src="images/model_tree.png" width="65%">
+<img src="images/coverart.png" width="65%">
 </p>
 
 To quickly visualize how a model tree could prove more useful than regular CARTs, consider the generated 1D training data below where we naively try to fit a linear regression model to it (this is exactly the `depth=0` model tree). The fit is poor as expected as the training data is generated from a 4th-order polynomial, but if you consider splitting the data into disjoint `x` segments as done by increasing the depth of the linear regression model tree, we can build a collection of linear regressors which accurately fit the individual segments well (`depth=1, 2, 3, 4, 5`), and thus giving us a well-trained model without needing too much explicit knowledge of the underlying complexity of the training data distribution!
