@@ -1,18 +1,26 @@
-# Machine Learning algorithms from scratch
+# Basic Machine Learning algorithms from scratch
+
+Some basic machine learning algorithms I wrote from scratch.
+
+
+
+#### Classification (`classification` directory)
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/ML_from_scratch/coverart/ML_from_scratch.png" width="35%">
+<img src="classification/images/coverart.png" width="25%">
 </p>
-
-Some basic machine learning algorithms I wrote from scratch for fun.
-
-#### Supervised Classification (`classification` directory)
 
 * Decision Tree (`decision_tree.py`)
 
 * K nearest neighbours (`knn.py`)
 
-#### Supervised Regression (`regression` directory)
+
+
+#### Regression (`regression` directory)
+
+<p align="center"> 
+<img src="regression/images/coverart.png" width="25%">
+</p>
 
 * Linear Regression optimized via Gradient Descent (`linear_regression_GD.py`)
 
@@ -20,9 +28,17 @@ Some basic machine learning algorithms I wrote from scratch for fun.
 
 * Logistic Regression optimized via Gradient Descent (`logistic_regression_GD.py`)
 
-#### Unsupervised (`unsupervised` directory)
+
+
+#### Unsupervised Learning (`unsupervised` directory)
+
+<p align="center"> 
+<img src="unsupervised/images/coverart.png" width="25%">
+</p>
 
 * K-means clustering (`kmeans.py`)
+
+
 
 ### Usage
 
@@ -35,11 +51,14 @@ Run `python3` on any of the files
 * `linear_regression_SGD.py`
 * `logistic_regression_GD.py`
 
+
+
 ### Libraries
 
 * numpy, pandas
 
 
-### Authors
+
+### Author
 
 Anson Wong
