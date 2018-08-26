@@ -17,15 +17,15 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### [The Multi-Armed Bandit Problem](classical_RL/MAB)
 
-<a align="center" href="#">
+<a href="classical_RL/MAB">
 <img src="classical_RL/MAB/images/coverart.png" width="30%">
 </a>
 
-### [Shortest Path Search in GridWorld (Q-Learning)](classical_RL/gridworld)
+### [Q-Learning in GridWorld](classical_RL/gridworld)
 
-<p align="center">
+<a href="classical_RL/gridworld">
 <img src="classical_RL/gridworld/images/coverart.png" width="20%">
-</p>
+</a>
 
 ### [Optimal Blackjack Strategy](classical_RL/blackjack)
 
