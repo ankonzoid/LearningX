@@ -13,19 +13,19 @@ Usage of the examples involve only running the main file from its project direct
 ### [The Multi-Armed Bandit Problem](https://github.com/ankonzoid/LearningX/tree/master/classical_RL/MAB)
 
 <p align="center">
-<img src="https://github.com/ankonzoid/L6_exercises/blob/master/reinforcement-learning/classical/multiarmed_bandits/actions.png" width="30%">
+<img src="classical_RL/MAB/images/coverart.png" width="30%">
 </p>
 
 ### [Q-Learning on GridWorld](https://github.com/ankonzoid/LearningX/tree/master/classical_RL/gridworld)
 
 <p align="center">
-<img src="https://github.com/ankonzoid/L6_exercises/blob/master/reinforcement-learning/classical/gridworld/q_learning/gridworld.png" width="30%">
+<img src="classical_RL/gridworld/images/coverart.png" width="30%">
 </p>
 
-### [Best Blackjack Strategy](https://github.com/ankonzoid/LearningX/tree/master/classical_RL/blackjack)
+### [Optimal Blackjack Strategy](https://github.com/ankonzoid/LearningX/tree/master/classical_RL/blackjack)
 
 <p align="center">
-<img src="https://github.com/ankonzoid/L6_exercises/blob/master/reinforcement-learning/classical/blackjack/blackjack.png" width="30%">
+<img src="classical_RL/blackjack/images/coverart.png" width="30%">
 </p>
 
 ## Deep Reinforcement Learning
