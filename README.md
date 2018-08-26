@@ -11,7 +11,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 
 
-## Classical Reinforcement Learning
+# Classical Reinforcement Learning
  
 
 
@@ -35,7 +35,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 
 
-## Deep Reinforcement Learning
+# Deep Reinforcement Learning
 
 
 
@@ -53,47 +53,40 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 
 
-## Basic Machine Learning
+# Basic Machine Learning
 
 
 
-### Classification
+### [Classification](basic_ML/classification)
 
 <a href="basic_ML/classification"> 
 <img src="basic_ML/classification/images/coverart.png" width="25%">
 </a>
 
-* [Decision Tree](basic_ML/classification)
-
-* [K-Nearest Neighbours](basic_ML/classification)
+* Decision Tree, K-Nearest Neighbours
 
 
-
-### Regression
+### [Regression](basic_ML/regression)
 
 <a href="basic_ML/regression"> 
 <img src="basic_ML/regression/images/coverart.png" width="25%">
 </a>
 
-* [Linear Regression (optimized via Gradient Descent)](basic_ML/regression)
-
-* [Linear Regression (optimized via Stochastic Gradient Descent)](basic_ML/regression)
-
-* [Logistic Regression (optimized via Gradient Descent)](basic_ML/regression)
+* Linear Regression (Gradient Descent / Stochastic Gradient Descent), Logistic Regression
 
 
 
-### Unsupervised
+### [Unsupervised Learning](basic_ML/unsupervised)
 
 <a href="basic_ML/unsupervised"> 
 <img src="basic_ML/unsupervised/images/coverart.png" width="20%">
 </a>
 
-* [K-means Clustering](basic_ML/unsupervised)
+* K-means Clustering
 
 
 
-## Advanced Machine Learning
+# Advanced Machine Learning
 
 
 
