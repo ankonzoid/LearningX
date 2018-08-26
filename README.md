@@ -29,9 +29,9 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### [Optimal Blackjack Strategy](classical_RL/blackjack)
 
-<p align="center">
+<a href="classical_RL/blackjack">
 <img src="classical_RL/blackjack/images/coverart.png" width="30%">
-</p>
+</a>
 
 
 
@@ -41,15 +41,15 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### [Balancing Cartpole Beam on OpenAI gym](deep_RL/cartpole)
 
-<p align="center">
+<a href="deep_RL/cartpole">
 <img src="deep_RL/cartpole/images/cartpole.gif" width="35%">
-</p>
+</a>
 
 ### [Playing Pong from pixels on OpenAI gym](deep_RL/pong)
 
-<p align="center">
+<a href="deep_RL/pong">
 <img src="deep_RL/pong/images/pong.gif" width="25%">
-</p>
+</a>
 
 
 
@@ -59,9 +59,9 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### Classification
 
-<p align="center"> 
+<a href="basic_ML/classification"> 
 <img src="basic_ML/classification/images/coverart.png" width="25%">
-</p>
+</a>
 
 * [Decision Tree](basic_ML/classification)
 
@@ -71,9 +71,9 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### Regression
 
-<p align="center"> 
+<a href="basic_ML/regression"> 
 <img src="basic_ML/regression/images/coverart.png" width="25%">
-</p>
+</a>
 
 * [Linear Regression (optimized via Gradient Descent)](basic_ML/regression)
 
@@ -85,9 +85,9 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### Unsupervised
 
-<p align="center"> 
+<a href="basic_ML/unsupervised"> 
 <img src="basic_ML/unsupervised/images/coverart.png" width="20%">
-</p>
+</a>
 
 * [K-means Clustering](basic_ML/unsupervised)
 
@@ -99,19 +99,19 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### [Building Model Trees](advanced_ML/model_tree)
 
-<p align="center"> 
+<a href="advanced_ML/model_tree"> 
 <img src="advanced_ML/model_tree/images/coverart.png" width="30%">
-</p>
+</a>
 
-### [Tree Ensembles: Bagging and Boosting](advanced_RL/tree_ensembles)
+### [Tree Ensembles: Bagging and Boosting](advanced_ML/tree_ensembles)
 
-<p align="center"> 
+<a href="advanced_ML/tree_ensembles"> 
 <img src="advanced_ML/tree_ensembles/images/coverart_bagging.png" width="30%">
-</p>
+</a>
 
-<p align="center"> 
+<a href="advanced_ML/tree_ensembles"> 
 <img src="advanced_ML/tree_ensembles/images/coverart_boosting.png" width="30%">
-</p>
+</a>
 
 
 
