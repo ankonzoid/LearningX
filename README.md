@@ -17,8 +17,8 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 ### [The Multi-Armed Bandit Problem](classical_RL/MAB)
 
-<p align="center">
-[<img src="classical_RL/MAB/images/coverart.png" width="30%">](classical_RL/MAB)
+<p align="center" href="#">
+<img src="classical_RL/MAB/images/coverart.png" width="30%">
 </p>
 
 ### [Shortest Path Search in GridWorld (Q-Learning)](classical_RL/gridworld)
