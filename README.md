@@ -20,7 +20,7 @@ Usage of the examples involve only running the main file from its project direct
 <img src="classical_RL/MAB/images/coverart.png" width="30%">
 </p>
 
-### [Q-Learning on GridWorld](classical_RL/gridworld)
+### [Finding Shortest Path on GridWorld using Q-Learning](classical_RL/gridworld)
 
 <p align="center">
 <img src="classical_RL/gridworld/images/coverart.png" width="20%">
@@ -38,16 +38,16 @@ Usage of the examples involve only running the main file from its project direct
 
 
 
-### [Balancing Cartpole Beam](deep_RL/cartpole)
+### [Balancing Cartpole Beam on OpenAI gym](deep_RL/cartpole)
 
 <p align="center">
 <img src="deep_RL/cartpole/images/cartpole.gif" width="35%">
 </p>
 
-### [Playing Pong from pixels](deep_RL/pong)
+### [Playing Pong from pixels on OpenAI gym](deep_RL/pong)
 
 <p align="center">
-<img src="deep_RL/pong/pong.gif" width="30%">
+<img src="deep_RL/pong/images/pong.gif" width="30%">
 </p>
 
 
@@ -56,29 +56,29 @@ Usage of the examples involve only running the main file from its project direct
 
 
 
-### [Classification]((basic_ML/classification)
+### [Classification](basic_ML/classification)
 
-<p align="center"> 
+<p align="left"> 
 <img src="basic_ML/classification/images/coverart.png" width="25%">
 </p>
 
-#### Decision Tree
+* [Decision Tree](basic_ML/classification)
 
-#### K nearest neighbours
+* [K-Nearest Neighbours](basic_ML/classification)
 
 
 
 ### [Regression](basic_ML/regression)
 
-<p align="center"> 
+<p align="left"> 
 <img src="basic_ML/regression/images/coverart.png" width="25%">
 </p>
 
-#### Linear Regression optimized via Gradient Descent
+* [Linear Regression (optimized via Gradient Descent)](basic_ML/regression)
 
-#### Linear Regression optimized via Stochastic Gradient Descent
+* [Linear Regression (optimized via Stochastic Gradient Descent)](basic_ML/regression)
 
-#### Logistic Regression optimized via Gradient Descent
+* [Logistic Regression (optimized via Gradient Descent)](basic_ML/regression)
 
 
 
@@ -88,7 +88,7 @@ Usage of the examples involve only running the main file from its project direct
 <img src="basic_ML/unsupervised/images/coverart.png" width="25%">
 </p>
 
-#### K-means clustering
+* [K-means Clustering](basic_ML/unsupervised)
 
 
 
@@ -99,17 +99,17 @@ Usage of the examples involve only running the main file from its project direct
 ### [Building Model Trees](advanced_ML/model_tree)
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/model_tree/coverart/model_tree.png" width="40%">
+<img src="advanced_ML/model_tree/images/coverart.png" width="30%">
 </p>
 
 ### [Tree Ensembles: Bagging and Boosting](advanced_RL/tree_ensembles)
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/tree_ensembles/coverart/bagging.png" width="40%">
+<img src="advanced_ML/tree_ensembles/images/coverart_bagging.png" width="30%">
 </p>
 
 <p align="center"> 
-<img src="https://github.com/ankonzoid/ML_algorithms/blob/master/tree_ensembles/coverart/boosting.png" width="40%">
+<img src="advanced_ML/tree_ensembles/images/coverart_boosting.png" width="30%">
 </p>
 
 
