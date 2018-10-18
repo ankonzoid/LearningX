@@ -7,7 +7,7 @@ import numpy as np
 from copy import deepcopy
 from graphviz import Digraph
 
-class ModelTree:
+class ModelTree(object):
 
     def __init__(self, model, max_depth=5, min_samples_leaf=10,
                  search_type="greedy", n_search_grid=100):
@@ -18,6 +18,24 @@ class ModelTree:
         self.search_type = search_type
         self.n_search_grid = n_search_grid
         self.tree = None
+
+    def get_params(self, deep=True):
+        return {
+            "model": self.model.get_params() if deep else self.model,
+            "max_depth": self.max_depth,
+            "min_samples_leaf": self.min_samples_leaf,
+            "search_type": self.search_type,
+            "n_search_grid": self.n_search_grid,
+        }
+
+    def set_params(self, **params):
+        for param, value in params.items():
+            setattr(self, param, value)
+        return self
+
+    def __repr__(self):
+        class_name = self.__class__.__name__
+        return "{}({})".format(class_name, ', '.join([ "{}={}".format(k,v) for k, v in self.get_params(deep=False).items() ]))
 
     # ======================
     # Fit
