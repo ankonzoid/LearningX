@@ -178,33 +178,29 @@ class Agent:
         print(greedy_policy)
         print()
 
-# ===================
-# Driver
-# ===================
-if __name__ == "__main__":
-    env = Environment()  # initialize discrete state, discrete action blackjack environment
-    agent = Agent(env.state_dim, env.action_dim)  # initialize reward-averaging agent
+env = Environment()  # initialize discrete state, discrete action blackjack environment
+agent = Agent(env.state_dim, env.action_dim)  # initialize reward-averaging agent
 
-    print("Training blackjack agent...")
-    N_episodes = 5000000  # number of blackjack games to play
-    for episode in range(N_episodes):
-        # Generate an episode
-        agent.reset_episodic_memory()  # reset agent episodic memory
-        state = env.reset()  # initialize random (s_player, s_dealer) state
-        i = 0
-        while True:
-            action = agent.get_action(state, force_random=(i==0))  # get action from policy
-            state_next, reward, done = env.step(action)  # evolve state
-            agent.memorize((state, action, state_next, reward, done))  # memorize evolution result
-            if done:
-                break  # finish episode if we hit a terminal state
-            state = state_next  # otherwise transition to next state
-            i += 1  # iter
+print("Training blackjack agent...")
+N_episodes = 5000000  # number of blackjack games to play
+for episode in range(N_episodes):
+    # Generate an episode
+    agent.reset_episodic_memory()  # reset agent episodic memory
+    state = env.reset()  # initialize random (s_player, s_dealer) state
+    i = 0
+    while True:
+        action = agent.get_action(state, force_random=(i==0))  # get action from policy
+        state_next, reward, done = env.step(action)  # evolve state
+        agent.memorize((state, action, state_next, reward, done))  # memorize evolution result
+        if done:
+            break  # finish episode if we hit a terminal state
+        state = state_next  # otherwise transition to next state
+        i += 1  # iter
 
-        # Train agent using reward averaging on its visited (state, action) pairs 
-        agent.train()
+    # Train agent using reward averaging on its visited (state, action) pairs
+    agent.train()
 
-        # Print training progress
-        if (episode + 1) % int(N_episodes / 100) == 0:
-            print("[episode = {}/{}]".format(episode + 1, N_episodes))
-            agent.display_greedy_policy()
+    # Print training progress
+    if (episode + 1) % int(N_episodes / 100) == 0:
+        print("[episode = {}/{}]".format(episode + 1, N_episodes))
+        agent.display_greedy_policy()

@@ -18,7 +18,7 @@ In this code, we deploy an epsilon-greedy agent to play the multi-armed bandit g
 
 ### Usage:
 
-> python3 multiarmed_bandit.py
+> python3 multiarmed_bandits.py
 
 In the example provided, we train on 2,000 experiments with 10,000 episodes per experiment. The default exploring parameter is `epsilon = 0.1` and 10 bandits are intialized with success probabilities of `{0.10, 0.50, 0.60, 0.80, 0.10, 0.25, 0.60, 0.45, 0.75, 0.65}`. To run the code, use 
 

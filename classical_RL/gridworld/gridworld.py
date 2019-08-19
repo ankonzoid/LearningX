@@ -141,45 +141,39 @@ class Agent:
         print(greedy_policy)
         print()
 
-def main():
+# Settings
+env = Environment(Ny=8, Nx=8)
+agent = Agent(env)
 
-    # Settings
-    env = Environment(Ny=8, Nx=8) 
-    agent = Agent(env)
+# Train agent
+print("\nTraining agent...\n")
+N_episodes = 500
+for episode in range(N_episodes):
 
-    # Train agent
-    print("\nTraining agent...\n")
-    N_episodes = 500
-    for episode in range(N_episodes):
+    # Generate an episode
+    iter_episode, reward_episode = 0, 0
+    state = env.reset()  # starting state
+    while True:
+        action = agent.get_action(env)  # get action
+        state_next, reward, done = env.step(action)  # evolve state by action
+        agent.train((state, action, state_next, reward, done))  # train agent
+        iter_episode += 1
+        reward_episode += reward
+        if done:
+            break
+        state = state_next  # transition to next state
 
-        # Generate an episode
-        iter_episode, reward_episode = 0, 0  
-        state = env.reset()  # starting state
-        while True:
-            action = agent.get_action(env)  # get action
-            state_next, reward, done = env.step(action)  # evolve state by action
-            agent.train((state, action, state_next, reward, done))  # train agent
-            iter_episode += 1
-            reward_episode += reward 
-            if done:
-                break
-            state = state_next  # transition to next state
+    # Decay agent exploration parameter
+    agent.epsilon = max(agent.epsilon * agent.epsilon_decay, 0.01)
 
-        # Decay agent exploration parameter
-        agent.epsilon = max(agent.epsilon * agent.epsilon_decay, 0.01)
+    # Print
+    if (episode == 0) or (episode + 1) % 10 == 0:
+        print("[episode {}/{}] eps = {:.3F} -> iter = {}, rew = {:.1F}".format(
+            episode + 1, N_episodes, agent.epsilon, iter_episode, reward_episode))
 
-        # Print
-        if (episode == 0) or (episode + 1) % 10 == 0: 
-            print("[episode {}/{}] eps = {:.3F} -> iter = {}, rew = {:.1F}".format(
-                episode + 1, N_episodes, agent.epsilon, iter_episode, reward_episode))
-
-        # Print greedy policy
-        if (episode == N_episodes - 1):
-            agent.display_greedy_policy()
-            for (key, val) in sorted(env.action_dict.items(), key=operator.itemgetter(1)):
-                print(" action['{}'] = {}".format(key, val))
-            print()
-
-# Driver
-if __name__ == '__main__':
-    main()
+    # Print greedy policy
+    if (episode == N_episodes - 1):
+        agent.display_greedy_policy()
+        for (key, val) in sorted(env.action_dict.items(), key=operator.itemgetter(1)):
+            print(" action['{}'] = {}".format(key, val))
+        print()

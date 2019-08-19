@@ -1,6 +1,5 @@
 # LearningX Examples and Tutorials
 
-
 We provide here a suite of Python examples that walk you through concepts in:
 
 * Classical & Deep Reinforcement Learning 
@@ -9,16 +8,12 @@ We provide here a suite of Python examples that walk you through concepts in:
 
 Usage of the examples is simple: just run the main file for each project. Each project example contains its own `README.md` file discussing the theory and applications.
 
-
-
 # Classical Reinforcement Learning
  
+### [The Multi-Armed Bandit Problem](classical_RL/multiarmed_bandits)
 
-
-### [The Multi-Armed Bandit Problem](classical_RL/MAB)
-
-<a href="classical_RL/MAB">
-<img src="classical_RL/MAB/images/coverart.png" width="30%">
+<a href="classical_RL/multiarmed_bandits">
+<img src="classical_RL/multiarmed_bandits/images/coverart.png" width="30%">
 </a>
 
 ### [Q-Learning in GridWorld](classical_RL/gridworld)
@@ -33,11 +28,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 <img src="classical_RL/blackjack/images/coverart.png" width="30%">
 </a>
 
-
-
 # Deep Reinforcement Learning
-
-
 
 ### [Balancing Cartpole Beam on OpenAI gym](deep_RL/cartpole)
 
@@ -51,11 +42,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 <img src="deep_RL/pong/images/pong.gif" width="25%">
 </a>
 
-
-
 # Basic Machine Learning
-
-
 
 ### [Classification](basic_ML/classification)
 
@@ -65,7 +52,6 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 * Decision Tree, K-Nearest Neighbours
 
-
 ### [Regression](basic_ML/regression)
 
 <a href="basic_ML/regression"> 
@@ -73,8 +59,6 @@ Usage of the examples is simple: just run the main file for each project. Each p
 </a>
 
 * Linear Regression (Gradient Descent / Stochastic Gradient Descent), Logistic Regression
-
-
 
 ### [Unsupervised Learning](basic_ML/unsupervised)
 
@@ -84,11 +68,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 
 * K-means Clustering
 
-
-
 # Advanced Machine Learning
-
-
 
 ### [Building Model Trees](advanced_ML/model_tree)
 
@@ -106,10 +86,6 @@ Usage of the examples is simple: just run the main file for each project. Each p
 <img src="advanced_ML/tree_ensembles/images/coverart_boosting.png" width="30%">
 </a>
 
-
-
 ### Author
-
-
 
 Anson Wong
