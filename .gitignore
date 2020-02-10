@@ -4,11 +4,11 @@
 .cache*
 .idea
 *.iml
-log.txt
+**log.txt
 **.DS_Store
 *.pyc
-__pycache__/
+**__pycache__/
 *.swp
 *.swo
-.ipynb_checkpoints/
+**.ipynb_checkpoints/
 **/output/*
