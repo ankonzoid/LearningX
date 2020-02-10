@@ -13,7 +13,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 ### [The Multi-Armed Bandit Problem](classical_RL/multiarmed_bandit)
 
 <a href="classical_RL/multiarmed_bandits">
-<img src="classical_RL/multiarmed_bandits/images/coverart.png" width="30%">
+<img src="classical_RL/multiarmed_bandit/images/coverart.png" width="30%">
 </a>
 
 ### [Q-Learning in GridWorld](classical_RL/gridworld)
