@@ -203,7 +203,7 @@ class ModelTree(object):
                 if params is not None :
                     threshold_str="y = "
                     for i in range(len(params)):
-                        threshold_str += str(round(params[i],2]))
+                        threshold_str += str(round(params[i],2))
                         threshold_str += "*X"+str(i)
                     threshold_str+="\n"
                 else:
