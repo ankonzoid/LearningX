@@ -206,6 +206,8 @@ class ModelTree(object):
                         threshold_str += str(round(params[i],2]))
                         threshold_str += "*X"+str(i)
                     threshold_str+="\n"
+                else:
+                    threshold_str=""
 
             else:
                 threshold_str = "{} <= {:.1f}\\n".format(feature_names[node['j_feature']], node["threshold"])
