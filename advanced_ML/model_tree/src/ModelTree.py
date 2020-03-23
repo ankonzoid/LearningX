@@ -200,11 +200,12 @@ class ModelTree(object):
             if node["children"]["left"] is None and node["children"]["right"] is None:
 
                 params = node['model'].get_params()
-                threshold_str="y = "
-                for i in range(len(params)):
-                    threshold_str += str(round(params[i],2]))
-                    threshold_str += "*X"+str(i)
-                threshold_str+="\n"
+                if params is not None :
+                    threshold_str="y = "
+                    for i in range(len(params)):
+                        threshold_str += str(round(params[i],2]))
+                        threshold_str += "*X"+str(i)
+                    threshold_str+="\n"
 
             else:
                 threshold_str = "{} <= {:.1f}\\n".format(feature_names[node['j_feature']], node["threshold"])
