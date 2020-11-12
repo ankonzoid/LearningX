@@ -50,7 +50,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 <img src="basic_ML/classification/images/coverart.png" width="25%">
 </a>
 
-* Decision Tree, K-Nearest Neighbours
+* Decision Tree, K-Nearest Neighbours, Logistic Regression (Gradient Descent)
 
 ### [Regression](basic_ML/regression)
 
@@ -58,7 +58,7 @@ Usage of the examples is simple: just run the main file for each project. Each p
 <img src="basic_ML/regression/images/coverart.png" width="25%">
 </a>
 
-* Linear Regression (Gradient Descent / Stochastic Gradient Descent), Logistic Regression
+* Linear Regression (Gradient Descent / Stochastic Gradient Descent)
 
 ### [Unsupervised Learning](basic_ML/unsupervised)
 

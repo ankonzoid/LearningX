@@ -8,6 +8,11 @@
 
 * K nearest neighbours (`knn.py`)
 
+* Logistic Regression optimized via Gradient Descent (`logistic_regression_GD.py`)
+
+<p> 
+<img src="images/logistic_regr.png" width="20%">
+</p>
 
 
 ### Usage
@@ -16,11 +21,12 @@ Run `python3` on any of the files
 
 * `decision_tree.py`
 * `knn.py`
+* `logistic_regression_GD.py`
 
 
 ### Libraries
 
-* numpy, pandas
+* numpy, pandas, sklearn
 
 
 
