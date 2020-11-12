@@ -16,12 +16,6 @@
 <img src="images/coverart.png" width="20%">
 </p>
 
-* Logistic Regression optimized via Gradient Descent (`logistic_regression_GD.py`)
-
-<p> 
-<img src="images/logistic_regr.png" width="20%">
-</p>
-
 
 ### Usage
 
@@ -29,7 +23,6 @@ Run `python3` on any of the files
 
 * `linear_regression_GD.py`
 * `linear_regression_SGD.py`
-* `logistic_regression_GD.py`
 
 
 ### Libraries
