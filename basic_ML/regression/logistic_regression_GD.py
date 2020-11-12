@@ -1,32 +1,59 @@
 """
 
- logistic_regression_GD.py  (author: Anson Wong / git: ankonzoid)
-
- * NOT FINISHED * 
- Should follow: https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html
+ logistic_regression_GD.py  (author: Anson Wong / git: ankonzoid)\
 
 """
-import os
+import os, random
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.metrics import log_loss
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
+def sigmoid(z):
+    return 1.0 / (1.0 + np.exp(-z))
 
-def dsigmoid(x):
-    return sigmoid(x) * (1 - sigmoid(x))
+def split(fracs, N, seed):
+    def is_intersect(arr1, arr2):
+        n_intersect = len(np.intersect1d(arr1, arr2))
+        if n_intersect == 0: return False
+        else: return True
+    fracs = [round(frac, 2) for frac in fracs]
+    if sum(fracs) != 1.00:
+        raise Exception("fracs do not sum to one!")
+    indices = list(range(N))
+    random.Random(seed).shuffle(indices)
+    indices = np.array(indices, dtype=int)
+    n_fracs = []
+    for i in range(len(fracs) - 1):
+        n_fracs.append(int(max(fracs[i] * N, 0)))
+    n_fracs.append(int(max(N - sum(n_fracs), 0)))
+    if sum(n_fracs) != N:
+        raise Exception("n_fracs do not sum to N!")
+    n_selected = 0
+    indices_fracs = []
+    for n_frac in n_fracs:
+        indices_frac = indices[n_selected:n_selected + n_frac]
+        indices_fracs.append(indices_frac)
+        n_selected += n_frac
+    for a, indices_frac_A in enumerate(indices_fracs):
+        for b, indices_frac_B in enumerate(indices_fracs):
+            if a == b:
+                continue
+            if is_intersect(indices_frac_A, indices_frac_B):
+                raise Exception("there are intersections!")
+    return indices_fracs
 
 class LogisticRegressorGD():
 
     def __init__(self):
         pass
 
-    def fit(self, X, y):
+    def fit(self, X, y, X_tune, y_tune):
         #
         # Use binary cross-entropy loss instead of MSE
         #
         # L = -(1/N) * sum[i=1, N] (y*log(y_hat) + (1-y)*log(1-y_hat))
-        #   = -(1/N) * sum[i=1, N] (y*log(sigma(x)) + (1-y)*log(1-sigma(x)))
+        #   = -(1/N) * sum[i=1, N] (y*log(sigma(a*x + a0)) + (1-y)*log(1-sigma(a*x + a0)))
         #
         # y_hat = sigma(x)
         #
@@ -44,7 +71,7 @@ class LogisticRegressorGD():
         # Make gradient descent updates
         loss_tolerance = 1E-4
         fit_tolerance = 1E-4
-        eta = 1E-6  # learning rate
+        eta = 10  # learning rate
         converge = False
         loss = 9E99
         while not converge:
@@ -52,28 +79,21 @@ class LogisticRegressorGD():
             # Compute gradient
             gradient = np.zeros(d+1)
             for i in range(N):
-                t = a_fit[0] + np.dot(a_fit[1:], X[i])
-                y_i = y[i]
-                gradient[0] += -(y_i-sigmoid(t))
-                gradient[1:] += -(y_i-sigmoid(t))*X[i, 0:]
+                y_pred_i = sigmoid(a_fit[0] + np.dot(a_fit[1:], X[i]))
+                gradient[0] += (y_pred_i - y[i])
+                gradient[1:] += (y_pred_i - y[i]) * X[i, 0:]
             gradient /= N
 
             # Perform gradient descent step
             a_fit_new = a_fit - eta * gradient
 
             # Compute loss (to keep track)
-            loss_new = 0.0
-            y_pred = []
-            for x_i, y_i in zip(X, y):
-                t = a_fit_new[0] + np.dot(a_fit_new[1:], x_i)
-                y_pred_i = sigmoid(t)
-                y_pred.append(y_pred_i)
-                loss_new += -(y_i*np.log(y_pred_i) + (1-y_i)*np.log(1-y_pred_i))
-            loss_new /= N
+            y_pred = np.array([sigmoid(a_fit_new[0] + np.dot(a_fit_new[1:], x)) for x in X_tune])
+            loss_new = log_loss(y_tune, y_pred)
             print("loss = {}".format(loss))
 
             # See if loss and fit parameters have converged
-            if np.abs(loss_new - loss) < loss_tolerance and np.linalg.norm(a_fit_new - a_fit) < fit_tolerance:
+            if np.abs(loss_new - loss) < loss_tolerance and loss_new > loss_tolerance:
                 converge = True
 
             # Update fit parameters
@@ -84,27 +104,39 @@ class LogisticRegressorGD():
         self.a_fit = a_fit
 
     def predict(self, X):
-        y_pred = []
-        for x in X:
-            t = self.a_fit[0] + np.dot(self.a_fit[1:], x)
-            y_pred_i = sigmoid(t)
-            y_pred.append(y_pred_i)
-        y_pred = np.array(y_pred)
+        y_pred = np.array([sigmoid(self.a_fit[0] + np.dot(self.a_fit[1:], x)) for x in X])
         return y_pred
+
+def plot_sorted(X_train, y_pred_train, X_valid, y_pred_valid):
+    idx_train_sorted = np.argsort(X_train.flatten())
+    idx_valid_sorted = np.argsort(X_valid.flatten())
+    plt.plot(X_train[idx_train_sorted].flatten(), y_pred_train[idx_train_sorted], 'r--')
+    plt.plot(X_valid[idx_valid_sorted].flatten(), y_pred_valid[idx_valid_sorted], 'k-')
 
 # Main Driver
 if __name__ == "__main__":
-    X = np.arange(0, 100).reshape(-1, 1)
-    y = np.concatenate([np.zeros(30), np.ones(70)])
 
-    exit("Current implementation unfinished! Next version...")
+    random.seed(10)
+    N0, N1 = 400, 400
+    N = N0 + N1
+    X = np.array([random.uniform(0, 0.6) for _ in range(N0)] + [random.uniform(0.4, 1) for _ in range(N1)]).reshape(-1, 1)
+    y = np.array([0 for _ in range(N0)] + [1 for _ in range(N1)], dtype=int)
+    assert len(X) == len(y)
+
+    indices_valid, indices_train = split(fracs=[0.2, 0.8], N=N, seed=1)
+    X_train, y_train = X[indices_train], y[indices_train]
+    X_valid, y_valid = X[indices_valid], y[indices_valid]
 
     model = LogisticRegressorGD()
-    model.fit(X, y)
-    y_pred = model.predict(X)
+    model.fit(X, y, X_tune=X_valid, y_tune=y_valid)
+    y_pred_train = model.predict(X_train)
+    y_pred_valid = model.predict(X_valid)
+    bce_train = log_loss(y_train, y_pred_train)
+    bce_valid = log_loss(y_valid, y_pred_valid)
+    print("bce_train =", bce_train)
+    print("bce_valid =", bce_valid)
 
-    import matplotlib.pyplot as plt
     plt.figure(1)
     plt.plot(X.flatten(), y, 'o')
-    plt.plot(X.flatten(), y_pred, 'r')
+    plot_sorted(X_train, y_pred_train, X_valid, y_pred_valid)
     plt.show()

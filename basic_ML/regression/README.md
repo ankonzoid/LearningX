@@ -6,10 +6,21 @@
 
 * Linear Regression optimized via Gradient Descent (`linear_regression_GD.py`)
 
+<p> 
+<img src="images/coverart.png" width="20%">
+</p>
+
 * Linear Regression optimized via Stochastic Gradient Descent (`linear_regression_SGD.py`)
+
+<p> 
+<img src="images/coverart.png" width="20%">
+</p>
 
 * Logistic Regression optimized via Gradient Descent (`logistic_regression_GD.py`)
 
+<p> 
+<img src="images/logistic_regr.png" width="20%">
+</p>
 
 
 ### Usage
