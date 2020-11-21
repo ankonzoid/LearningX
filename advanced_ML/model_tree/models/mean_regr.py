@@ -20,3 +20,6 @@ class mean_regr:
 
     def loss(self, X, y, y_pred):
         return mean_squared_error(y, y_pred)
+     
+    def get_params(self):
+        return None

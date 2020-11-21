@@ -21,6 +21,8 @@ class DT_sklearn_clf:
 
     def loss(self, X, y, y_pred):
         return gini_impurity(y)
+    def get_params(self):
+        return None
 
 def gini_impurity(y):
     p2 = 0.0

@@ -4,6 +4,7 @@
 
 """
 from sklearn.metrics import mean_squared_error
+import numpy as np
 
 class logistic_regr:
 
@@ -26,6 +27,8 @@ class logistic_regr:
             return self.flag_y_pred * np.ones((len(X),), dtype=int)
         else:
             return self.model.predict(X)
+    def get_params(self):
+        return None
 
     def loss(self, X, y, y_pred):
         return mean_squared_error(y, y_pred)

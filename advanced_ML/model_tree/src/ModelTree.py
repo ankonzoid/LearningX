@@ -149,6 +149,8 @@ class ModelTree(object):
             no_children = node["children"]["left"] is None and \
                           node["children"]["right"] is None
             if no_children:
+
+
                 return explanation
             else:
                 if x[node["j_feature"]] <= node["threshold"]:  # x[j] < threshold
@@ -196,7 +198,17 @@ class ModelTree(object):
             # Create node
             node_index = node["index"]
             if node["children"]["left"] is None and node["children"]["right"] is None:
-                threshold_str = ""
+
+                params = node['model'].get_params()
+                if params is not None :
+                    threshold_str="y = "
+                    for i in range(len(params)):
+                        threshold_str += str(round(params[i],2))
+                        threshold_str += "*X"+str(i)
+                    threshold_str+="\n"
+                else:
+                    threshold_str=""
+
             else:
                 threshold_str = "{} <= {:.1f}\\n".format(feature_names[node['j_feature']], node["threshold"])
 
