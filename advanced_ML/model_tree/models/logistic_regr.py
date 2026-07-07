@@ -3,6 +3,7 @@
  logistic_regr.py  (author: Anson Wong / git: ankonzoid)
 
 """
+import numpy as np
 from sklearn.metrics import mean_squared_error
 
 class logistic_regr:
